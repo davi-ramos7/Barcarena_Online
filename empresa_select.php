@@ -4,7 +4,7 @@
     $resposta = "<option value='#'>Selecione...</option>";
     if($resultado = mysqli_query($con,$sql)){
         while($lh = mysqli_fetch_assoc($resultado)){
-            $resposta .= "<option value='".$lh['nome']."'>".$lh['nome']." </option>";
+            $resposta .= "<option value='".$lh['id_empresas']."'>".$lh['nome']." </option>";
         }
         echo $resposta;
     }

@@ -24,9 +24,12 @@
         a:visited:hover {color:hotpink;}
     </style>
     <title>DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL</title>
-    <script src="jquery-3.5.1.min.js"></script>
+    <!-- <script src="jquery-3.5.1.min.js"></script> -->
     <script src="scripts.js"></script>
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+		<!-- <script type="text/javascript">
+		  google.load("jquery", "1.4.2");
+		</script> -->
 </head>
 <body>
     <div style="width:80vw;height:98vh;margin: auto auto;">
@@ -57,7 +60,7 @@
                 if($pagina == 'cc'){
                     include "empresa_form.html";
                 }elseif($pagina == 'gn'){
-                    include "gerar_notif.html";
+                    include "gerar_notif.php";
                 }elseif($pagina == 'gp'){
                     include "gerar_parecer.html";
                 }elseif($pagina == 'vc'){
