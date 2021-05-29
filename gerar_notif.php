@@ -12,7 +12,7 @@
                             $sql = "SELECT * FROM dados_empresas";
                             $resultado = mysqli_query($con,$sql);
                             while($lh = mysqli_fetch_assoc($resultado)){
-                                echo "<option value='".$lh['id_empresas']."'>".$lh['nome']." </option>";
+                                echo "<option value='".$lh['nome']."'>".$lh['nome']." </option>";
                             }
                         ?>
                     </select>
