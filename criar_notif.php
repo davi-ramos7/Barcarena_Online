@@ -1,6 +1,18 @@
 <?php
     if(isset($_POST['cmpEmp'])){
-        $nomedaempresa = $_POST['cmpEmp'];
+        $id = $_POST['cmpEmp'];
+
+        include_once("conexao.php");
+	
+		$sql = "SELECT * FROM lista_de_empresas WHERE id=$id";
+		$linha= mysqli_query($con, $sql);
+
+		while ($linhas=mysqli_fetch_assoc($linha)) {
+	 		$empresa=$linhas['nome'];
+		}
+
+		$nomedaempresa = $empresa;
+
         $endereco = $_POST['cmpEnd'];
         $atividade = $_POST['cmpAtiv'];
         $numdanotif = $_POST['campo_numNot'];
