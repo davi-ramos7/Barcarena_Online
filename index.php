@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" type="text/css" href="estilo.css">-->
     <style>
 		.carregando{
 			color:#ff0000;
 			display:none;
 		}
+        select{
+        font-family: cursive;
+        width: 700px;
+        }
         table,th,td{
             border: 1px solid black; 
         }

@@ -1,8 +1,8 @@
 <?php
-    if(isset($_POST['campo_nome'])){
-        $nomedaempresa = $_POST['campo_nome'];
-        $endereco = $_POST['campo_endereco'];
-        $atividade = $_POST['campo_atividade'];
+    if(isset($_POST['cmpEmp'])){
+        $nomedaempresa = $_POST['cmpEmp'];
+        $endereco = $_POST['cmpEnd'];
+        $atividade = $_POST['cmpAtiv'];
         $numdanotif = $_POST['campo_numNot'];
         $numdoprocesso = $_POST['campo_numProc'];
         $destinatario = $_POST['campo_dest'];
@@ -17,7 +17,7 @@
         $documento9 = $_POST['campo_doc9'];
         $documento10 = $_POST['campo_doc10'];
 
-        require_once __DIR__ . '/autoload.php';
+        require_once './vendor/autoload.php';
 
 //Modelo de notificação
 
@@ -80,7 +80,7 @@ $data = $dia . " de " . $mes . " de " . $ano;
 $quebradelinha = "<br>";
 
 # Inclusão de arquivo para "Comando de Entrada".
-@include ("../EntradaForm.php");
+//@include ("../EntradaForm.php");
 
 // Creating the new document...
 $phpWord = new \PhpOffice\PhpWord\PhpWord();
@@ -227,7 +227,7 @@ $section->addText('Geólogo/Matrícula 28516-1/1', 'fStyle1_normal', 'pStyle4_ce
 
 
 $header = $section->addHeader();
-$header->addWatermark('C:\Users\HP\Google Drive\SEMADE.png', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
+$header->addWatermark('C:\xampp\htdocs\Barcarena_Online\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
 // Saving the document as OOXML file...
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
