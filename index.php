@@ -67,7 +67,7 @@
                 }elseif($pagina == 'gn'){
                     include "gerar_notif.php";
                 }elseif($pagina == 'gp'){
-                    include "gerar_parecer.html";
+                    include "gerar_parecer.php";
                 }elseif($pagina == 'vc'){
                     include "cliente_ver.php";
                 }elseif($pagina == 'cf'){
