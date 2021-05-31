@@ -1,315 +1,169 @@
-<?php
-
-require_once 'C:\xampp\htdocs\vendor/autoload.php';
-
-$datadeentrada = "ler(EntradaForm)";
-
-$dia = date("d");
-$mes = 0;
-
-switch (date("m")) {
-
-	case 1:
-		$mes = "Janeiro";
-		break;
-
-	case 2:
-		$mes = "Fevereiro";
-		break;
-
-	case 3:
-		$mes = "Março";
-		break;
-
-	case 4:
-		$mes = "Abril";
-		break;
-
-	case 5:
-		$mes = "Maio";
-		break;
-
-	case 6:
-		$mes = "Junho";
-		break;
-
-	case 7:
-		$mes = "Julho";
-		break;
-
-	case 8:
-		$mes = "Agosto";
-		break;
-
-	case 9:
-		$mes = "Setembro";
-		break;
-
-	case 10:
-		$mes = "Outubro";
-		break;
-
-	case 11:
-		$mes = "Novembro";
-		break;
-	
-	default:
-		$mes = "Dezembro";
-		break;
-}
-
-$ano = date("Y");
-$datadoparecer = $dia . " de " . $mes . " de " . $ano;
-
-$numdoprocesso = "ler(EntradaForm)";
-$numdoprotocolo = "ler(EntradaForm)";
-$numdoparecer = "ler(EntradaForm)";
-$nomedaempresa = "ler(EntradaForm)"; //Para o caso de o processo ser de uma empresa. Se não for, deixar em branco.
-$nomedapessoafisica = "ler(EntradaForm)"; //Para o caso de o processo ser de uma pessoa física. Se não for, deixar em branco.
-$atividadeCNPJ = "ler(EntradaForm)";
-$atividadeEnquadramento = "ler(EntradaForm)";
-$solicitacao = "ler(EntradaForm)";
-$procurador = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$enderecodaempresa = "ler(EntradaForm)"; //Endereço da empresa.
-$enderecodaatividade = "ler(EntradaForm)"; //Endereço no qual a atividade será realizada.
-$numdanotificacao1 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$numdanotificacao2 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$numdanotificacao3 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadanotificacao1 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadanotificacao2 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadanotificacao3 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$dataderecebdanotificacao1 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$dataderecebdanotificacao2 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$dataderecebdanotificacao3 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadeatendimdanotifacao1 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadeatendimdanotifacao2 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadeatendimdanotifacao3 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$porte = "ler(EntradaForm)";
-$potencialpoluidor = "ler(EntradaForm)";
-$valordataxa = "ler(EntradaForm)";
-$diadataxa = "ler(EntradaForm)";
-$diadepagamentodataxa = "ler(EntradaForm)";
-
-
-# Inclusão de arquivo para "Comando de Entrada".
-@include ("../EntradaForm.php");
-
-// Creating the new document...
-$phpWord = new \PhpOffice\PhpWord\PhpWord();
-
-// Adding Text element with font customized using named font style...
-
-//$fontStyle1 = '1';
-$fnew1 = array('name' => 'Times New Roman', 'size' => 12, 'color' => '1B2232', 'bold' => false);
-$phpWord->addFontStyle('fStyle1_normal', $fnew1);
-
-//$fontStyle2 = '2';
-$fnew2 = array('name' => 'Times New Roman', 'size' => 12, 'color' => '1B2232', 'bold' => true);
-$phpWord->addFontStyle('fStyle2_bold', $fnew2);
-
-$fnew3 = array('name' => 'Times New Roman', 'size' => 12, 'color' => '1B2232', 'bold' => false, 'italic' => true);
-$phpWord->addFontStyle('fStyle3_italic', $fnew3);
-
-//$pBase = array('basedOn' => 'Normal');
-$pNew1_1 = array('alignment' => 'both', 'indent' => 0, 'hanging' => -1, 'spaceBefore' => 0, 'spaceAfter' =>240, 'spacing' => 0, 'lineHeight' => 1.15);
-$pNew1_2 = array('alignment' => 'both', 'spaceBefore' => 0, 'spaceAfter' => 240, 'spacing' => 0, 'lineHeight' => 1.15);
-$pNew1_3 = array('alignment' => 'both', 'spaceBefore' => 0, 'spaceAfter' => 0, 'spacing' => 0, 'lineHeight' => 1.15);
-$pNew2 = array('alignment' => 'right', 'spaceBefore' => 0, 'spaceAfter' => 240, 'spacing' => 0, 'lineHeight' => 1.15);
-$pNew3_1 = array('alignment' => 'left', 'spaceBefore' => 0, 'spaceAfter' => 0, 'spacing' => 0, 'lineHeight' => 1.15);
-$pNew3_2 = array('alignment' => 'left', 'spaceBefore' => 0, 'spaceAfter' => 240, 'spacing' => 0, 'lineHeight' => 1.15);
-$pNew4_1 = array('alignment' => 'center', 'spaceBefore' => 0, 'spaceAfter' => 240, 'spacing' => 0, 'lineHeight' => 1.15);
-$pNew4_2 = array('alignment' => 'center', 'spaceBefore' => 0, 'spaceAfter' => 0, 'spacing' => 0, 'lineHeight' => 1.15);
-
-$phpWord->addParagraphStyle('pStyle1_justify', $pNew1_1);
-$phpWord->addParagraphStyle('pStyle1_justify_withoutHanging', $pNew1_2);
-$phpWord->addParagraphStyle('pStyle1_justify_withoutSpaceAfter', $pNew1_3);
-$phpWord->addParagraphStyle('pStyle2_right', $pNew2);
-$phpWord->addParagraphStyle('pStyle3_left', $pNew3_1);
-$phpWord->addParagraphStyle('pStyle3_left_spaceAfter', $pNew3_2);
-$phpWord->addParagraphStyle('pStyle4_center_spaceAfter', $pNew4_1);
-$phpWord->addParagraphStyle('pStyle4_center', $pNew4_2);
-
-$sectionStyle1 = array(
-	'marginTop' => 2267.716535433, //4cm
-    'marginLeft' => 1440, //2.54cm
-    'marginRight' => 1440, //2.54cm
-    'marginBottom' => 1440 //2.54cm
-);
-
-$section = $phpWord->addSection($sectionStyle1);
-
-$section->addText("PARECER TÉCNICO N° " . $numdoparecer, 'fStyle2_bold', 'pStyle4_center_spaceAfter');
-
-$section->addText('PROCESSO Nº ' . $numdoprocesso, 'fStyle2_bold', 'pStyle3_left_spaceAfter'); 
-
-if ($nomedaempresa <> "") {
-
-$textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter');	
-
-$textrun->addText('EMPRESA: ', 'fStyle1_normal');
-$textrun->addText($nomedaempresa, 'fStyle2_bold');
-
-$textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter');
-
-$textrun->addText('ATIVIDADE ECONÔMICA: ', 'fStyle1_normal');
-$textrun->addText($atividadeCNPJ, 'fStyle2_bold');  
-
-} else {
-
-$textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter');	
-
-$textrun->addText('PESSOA FÍSICA: ', 'fStyle1_normal');
-$textrun->addText($nomedapessoafisica, 'fStyle2_bold');
-
-$textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter');
-
-$textrun->addText('ATIVIDADE ECONÔMICA: ', 'fStyle1_normal');
-$textrun->addText($atividadeEnquadramento, 'fStyle2_bold');
-
-}
-
-//$section->addTextBreak();
-
-$textrun = $section->addTextRun('pStyle1_justify_withoutHanging');
-
-$textrun->addText('SOLICITAÇÃO: ', 'fStyle1_normal');
-$textrun->addText($solicitacao, 'fStyle2_bold');
-
-if ($procurador == "" && $nomedaempresa <> "" && $enderecodaatividade <> "") {
-
-	$section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", a empresa " . $nomedaempresa . ", localizada na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
-} 
-
-if ($procurador == "" && $nomedaempresa <> "" && $enderecodaatividade == "") {
-
-	$section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", a empresa " . $nomedaempresa . ", localizada na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ".", 'fStyle1_normal', 'pStyle1_justify');
-} 
-
-if ($procurador <> "" && $nomedaempresa <> "" && $enderecodaatividade <> "") {
-
-	$section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) a empresa " . $nomedaempresa . ", localizada na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE)  " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
-}
-
-if ($procurador <> "" && $nomedaempresa <> "" && $enderecodaatividade == "") {
-
-	$section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) a empresa " . $nomedaempresa . ", localizada na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE)  " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ".", 'fStyle1_normal', 'pStyle1_justify');
-}
-
-if ($procurador == "" && $nomedapessoafisica <> "" && $enderecodaatividade <> "") {
-
-	$section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $nomedapessoafisica . " requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
-} 
-
-if ($procurador == "" && $nomedapessoafisica <> "" && $enderecodaatividade == "" ) {
-
-	$section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $nomedapessoafisica . " requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ".", 'fStyle1_normal', 'pStyle1_justify');
-}
-
-if ($procurador <> "" && $nomedapessoafisica <> "" && $enderecodaatividade <> "" ) {
-
-	$section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) do(a) Sr(a) " . $nomedapessoafisica . ", requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
-} 
-
-if ($procurador <> "" && $nomedapessoafisica <> "" && $enderecodaatividade == "" ) {
-
-	$section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) do(a) Sr(a) " . $nomedapessoafisica . ", requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ".", 'fStyle1_normal', 'pStyle1_justify');
-} 
-
-
-$section->addText("1.	HISTÓRICO DA DOCUMENTAÇÃO", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
-
-if ($numdanotificacao1 == "") {
-
-	$section->addText("Toda a documentação necessária para a emissão da licença solicitada foi devidamente apresentada, motivo este pelo qual nenhuma notificação de licenciamento foi emitida.", 'fStyle1_normal', 'pStyle1_justify');
-
-}
-
-if ($numdanotificacao1 <> "" && $numdanotificacao2 == "" && $numdanotificacao3 == "") {
-
-$section->addText("Após verificação de pendências no processo, por meio de análise processual, visando subsidiar sua análise, este Departamento de Licenciamento Ambiental – DLA emitiu a NOTIFICAÇÃO DE LICENCIAMENTO DE N° " . $numdanotificacao1 . ", em " . $datadanotificacao1 . ", com o prazo de 30 dias para cumprimento, a qual foi recebida no dia " . $dataderecebdanotificacao1 . " e atendida no dia " . $datadeatendimdanotifacao1 . ".", 'fStyle1_normal', 'pStyle1_justify');
-}
-
-if ($numdanotificacao1 <> "" && $numdanotificacao2 <> "" && $numdanotificacao3 == "") {
-
-$section->addText("Após verificação de pendências no processo, por meio de análise processual, visando subsidiar sua análise, este Departamento de Licenciamento Ambiental – DLA emitiu as NOTIFICAÇÕES DE LICENCIAMENTO DE N° " . $numdanotificacao1 . " e " . $numdanotificacao2 . ", em " . $datadanotificacao1 . " e " . $datadanotificacao2 . ", respectivamente, com o prazo de 30 dias para cumprimento, as quais foram recebidas nos dias " . $dataderecebdanotificacao1 . " e " . $dataderecebdanotificacao2 . ", e atendidas nos dias " . $datadeatendimdanotifacao1 . " e " . $datadeatendimdanotifacao2 . ".", 'fStyle1_normal', 'pStyle1_justify');
-}
-
-if ($numdanotificacao1 <> "" && $numdanotificacao2 <> "" && $numdanotificacao3 <> "") {
-
-$section->addText("Após verificação de pendências no processo, por meio de análise processual, visando subsidiar sua análise, este Departamento de Licenciamento Ambiental – DLA emitiu as NOTIFICAÇÕES DE LICENCIAMENTO DE N° " . $numdanotificacao1 . ", " . $numdanotificacao2 . " e " . $numdanotificacao3 . ", em " . $datadanotificacao1 . ", " . $datadanotificacao2 . " e " . $datadanotificacao3 .", respectivamente, com o prazo de 30 dias para cumprimento, as quais foram recebidas nos dias " . $dataderecebdanotificacao1 . ", " . $dataderecebdanotificacao2 . " e " . $dataderecebdanotificacao3 .", e atendidas nos dias " . $datadeatendimdanotifacao1 . ", " . $datadeatendimdanotifacao2 . " e " . $datadeatendimdanotifacao3 . ".", 'fStyle1_normal', 'pStyle1_justify');
-}
-
-$section->addText("2.	ENQUADRAMENTO E ANÁLISE TÉCNICA", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
-
-if ($atividadeEnquadramento == "EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS" && $diadataxa <> $diadepagamentodataxa) {
-
-$section->addText("A atividade de EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS foi enquadrada na LEI N° 7389/2010, a qual “Define as atividades de impacto ambiental local no Estado do Pará, e dá outras providências”, em PORTE ≤ 50 AR (ÁREA REQUERIDA NO DNPM EM HA) e POTENCIAL POLUIDOR II, o que resultou com taxa equivalente a R$ " . $valordataxa . ". O respectivo boleto de pagamento desta taxa foi gerado no dia " . $diadataxa . " e pago no dia " . $diadepagamentodataxa . ".", 'fStyle1_normal', 'pStyle1_justify');
-
-$textrun = $section->addTextRun('pStyle1_justify');
-
-$textrun->addText("A análise da documentação apresentada, vistoria técnica ", 'fStyle1_normal');
-$textrun->addText("in loco ", 'fStyle3_italic');
-$textrun->addText("e o pagamento da taxa referente à análise do processo de licenciamento em questão, permitiram constatar que ", 'fStyle1_normal');
-$textrun->addText($nomedapessoafisica, 'fStyle2_bold');
-$textrun->addText(" encontra-se apta a desenvolver a atividade pretendida, razão pela qual sugere-se a concessão de ", 'fStyle1_normal');
-$textrun->addText($solicitacao, 'fStyle2_bold');
-$textrun->addText(".", 'fStyle1_normal');
-
-} elseif ($atividadeEnquadramento == "EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS" && $diadataxa == $diadepagamentodataxa) {
-
-$section->addText("A atividade de EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS foi enquadrada na LEI N° 7389/2010, a qual “Define as atividades de impacto ambiental local no Estado do Pará, e dá outras providências”, em PORTE ≤ 50 AR (ÁREA REQUERIDA NO DNPM EM HA) e POTENCIAL POLUIDOR II, o que resultou em uma taxa equivalente a R$ " . $valordataxa . ". O respectivo boleto de pagamento desta taxa foi gerado no dia " . $diadataxa . " e pago no mesmo dia.", 'fStyle1_normal', 'pStyle1_justify');
-
-$textrun->addText("A análise da documentação apresentada, vistoria técnica ", 'fStyle1_normal');
-$textrun->addText("in loco ", 'fStyle3_italic');
-$textrun->addText("e o pagamento da taxa referente à análise do processo de licenciamento em questão, permitiram constatar que ", 'fStyle1_normal');
-$textrun->addText($nomedapessoafisica, 'fStyle2_bold');
-$textrun->addText(" encontra-se apta a desenvolver a atividade pretendida, razão pela qual sugere-se a concessão de ", 'fStyle1_normal');
-$textrun->addText($solicitacao, 'fStyle2_bold');
-$textrun->addText(".", 'fStyle1_normal');
-
-} elseif ($atividadeEnquadramento <> "EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS" && $diadataxa == $diadepagamentodataxa)  {
-
-$section->addText("A empresa " . $nomedaempresa . " foi enquadrada na RESOLUÇÃO COEMA 120/2015 (a qual “Dispõe sobre as atividades de impacto ambiental local, de competência dos Municípios, e dá outras providências”), na tipologia " . $atividadeEnquadramento . " (PORTE " . $porte . " e POTENCIAL POLUIDOR " . $potencialpoluidor . "), o que resultou em uma taxa equivalente a R$ " . $valordataxa . ", gerada no dia " . $diadataxa . " e paga no mesmo dia.", 'fStyle1_normal', 'pStyle1_justify');
-
-$textrun->addText("A análise da documentação apresentada, vistoria técnica ", 'fStyle1_normal');
-$textrun->addText("in loco ", 'fStyle3_italic');
-$textrun->addText("e o pagamento da taxa referente à análise do processo de licenciamento em questão, permitiram constatar que a empresa ", 'fStyle1_normal');
-$textrun->addText($nomedaempresa, 'fStyle2_bold');
-$textrun->addText(" encontra-se apta a desenvolver a atividade pretendida, razão pela qual sugere-se a concessão de ", 'fStyle1_normal');
-$textrun->addText($solicitacao, 'fStyle2_bold');
-$textrun->addText(" à mesma.", 'fStyle1_normal');
-
-} else {
-
-$section->addText("A atividade desenvolvida pela empresa " . $nomedaempresa . " foi enquadrada na RESOLUÇÃO COEMA 120/2015 (a qual “Dispõe sobre as atividades de impacto ambiental local, de competência dos Municípios, e dá outras providências”), na tipologia " . $atividadeEnquadramento . " (PORTE " . $porte . " e POTENCIAL POLUIDOR " . $potencialpoluidor . "), o que resultou em uma taxa equivalente a R$ " . $valordataxa . ", gerada no dia " . $diadataxa . " e paga no dia " . $diadepagamentodataxa . ".", 'fStyle1_normal', 'pStyle1_justify');
-
-$textrun->addText("A análise da documentação apresentada, vistoria técnica ", 'fStyle1_normal');
-$textrun->addText("in loco ", 'fStyle3_italic');
-$textrun->addText("e o pagamento da taxa referente à análise do processo de licenciamento em questão, permitiram constatar que a empresa ", 'fStyle1_normal');
-$textrun->addText($nomedaempresa, 'fStyle2_bold');
-$textrun->addText(" encontra-se apta a desenvolver a atividade pretendida, razão pela qual sugere-se a concessão de ", 'fStyle1_normal');
-$textrun->addText($solicitacao, 'fStyle2_bold');
-$textrun->addText(" à mesma.", 'fStyle1_normal');
-
-}
-
-$section->addText("Encaminho este parecer técnico para o Departamento Jurídico desta SEMADE, para anuência e parecer jurídico, para que este Departamento de Licenciamento Ambiental possa dar andamento a este processo de forma legal.", 'fStyle1_normal', 'pStyle1_justify');
-
-$section->addText("Barcarena/Pa, " . $datadoparecer . ".", 'fStyle1_normal', 'pStyle2_right');
-
-$section->addText('Atenciosamente,', 'fStyle1_normal', 'pStyle1_justify');
-
-$section->addTextBreak(1);
-
-$section->addText('______________________________', 'fStyle1_normal', 'pStyle4_center');
-
-$section->addText('David Ramos Pereira', 'fStyle1_normal', 'pStyle4_center');
-$section->addText('Geólogo/Matrícula 28516-1/1', 'fStyle1_normal', 'pStyle4_center');
-
-$header = $section->addHeader();
-$header->addWatermark('C:\Users\HP\Google Drive\SEMADE.png', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
-
-$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-$objWriter->save('PARECER_LICENCA.docx');
-
-echo "PARECER PARA LICENÇA EMITIDO.";
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    
+</head>
+
+<div>
+    <h3>GERAR PARECER TÉCNICO</h3>
+    <form action="criar_parecer.php" method="post">
+        <?php include_once("conexao.php"); ?>
+        <table>
+            <tr>
+                <td>Empresa/Pessoa física: </td><td>
+                   <select name="cmpEmp" id="cmpEmp">
+                        <option value="">Selecione a empresa...</option>
+                        <?php
+                            $sql = "SELECT * FROM lista_de_empresas";
+                            $resultado = mysqli_query($con,$sql);
+                            while($lh = mysqli_fetch_assoc($resultado)){
+                                echo "<option value='".$lh['id']."'>".$lh['nome']." </option>";
+                            }
+                        ?>
+                    </select>        
+                </td>
+            </tr>
+            <tr>
+                <td>Endereço: </td>
+                <td>
+                    <span class="carregando">Aguarde, carregando...</span>
+                    <select name="cmpEnd" id="cmpEnd">
+                        <option value="">Selecione o endereço...</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Atividade: </td>
+                <td>
+                    <span class="carregando">Aguarde, carregando...</span>
+                    <select name="cmpAtiv" id="cmpAtiv">
+                        <option value="">Selecione a atividade...</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>N° do parecer: </td><td><input type="text" name="campo_numPar" id="cmpNp"></td>
+            </tr>
+            <tr>
+                <td>N° do processo: </td><td><input type="text" name="campo_numProc" id="cmpNproc"></td>
+            </tr>
+            <tr>
+                <td>N° do protocolo: </td><td><input type="text" name="campo_numProt" id="cmpNprot"></td>
+            </tr>
+            <tr>
+                <td>Solicitação: </td><td>
+                    <select id="solicitacao" name="solicitacao">
+                    <option value="Licença Prévia">Licença Prévia</option>
+                    <option value="Renovação de Licença Prévia">Renovação de Licença Prévia</option>
+                    <option value="Licença de Instalação">Licença de Instalação</option>
+                    <option value="Renovação de Licença de Instalação">Renovação de Licença de Instalação</option>
+                    <option value="Licença de Operação">Licença de Operação</option>
+                    <option value="Renovação de Licença de Operação">Renovação de Licença de Operação</option>
+                    <option value="Dispensa de Licenciamento Ambiental">Dispensa de Licenciamento Ambiental</option>
+                    <option value="Renovação de Dispensa de Licenciamento Ambiental">Renovação de Dispensa de Licenciamento Ambiental</option>
+                    <option value="Autorização Ambiental">Autorização Ambiental</option>
+                    <option value="Renovação de Autorização Ambiental">Renovação de Autorização Ambiental</option>
+                    <option value="Autorização para Depósito de Resíduos Inertes">Autorização para Depósito de Resíduos Inertes</option>
+                    <option value="Renovação de Autorização para Depósitos de Resíduos Inertes">Renovação de Autorização para Depósitos de Resíduos Inertes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Procurador: </td><td><input type="text" name="campo_procur" id="cmpProcur"></td>
+            </tr>
+            <tr>
+                <td>Houve Notificação? </td><td>
+                    <select id="notif" name="notif" onchange="myFunction()">
+                      <option value="nao">Não</option>
+                      <option value="sim">Sim</option>
+                    </select></td>
+            </tr>
+            <tr> 
+                <td style="display: none" id="cmp_numNot_lb">Nº da notificação: </td><td><input type="text" style="display: none" id="cmp_numNot"></td>
+            </tr>
+            <tr>
+                <td style="display: none" id="cmp_dataNot_lb">Data da notificação: </td><td><input type="date" style="display: none" id="cmp_dataNot"></td>
+            </tr>
+            <tr> 
+                <td style="display: none" id="cmp_recebNot_lb">Receb. da notificação: </td><td><input type="date" style="display: none" id="cmp_recebNot"></td>
+            </tr>
+            <tr>
+                <td style="display: none" id="cmp_atendNot_lb">Atend. da notificação: </td><td><input type="date" style="display: none" id="cmp_atendNot"></td>
+            </tr>
+            
+
+            <script>
+            function myFunction() {
+                var x = document.getElementById("notif").value;
+                if(x == "sim"){
+                    document.getElementById("cmp_numNot_lb").style.display = 'block';
+                    document.getElementById("cmp_numNot").style.display = 'block';
+                    document.getElementById("cmp_dataNot_lb").style.display = 'block';
+                    document.getElementById("cmp_dataNot").style.display = 'block';
+                    document.getElementById("cmp_recebNot_lb").style.display = 'block';
+                    document.getElementById("cmp_recebNot").style.display = 'block';
+                    document.getElementById("cmp_atendNot_lb").style.display = 'block';
+                    document.getElementById("cmp_atendNot").style.display = 'block';
+                } else {
+                    document.getElementById("cmp_numNot_lb").style.display = 'none';
+                    document.getElementById("cmp_numNot").style.display = 'none';
+                    document.getElementById("cmp_dataNot_lb").style.display = 'none';
+                    document.getElementById("cmp_dataNot").style.display = 'none';
+                    document.getElementById("cmp_recebNot_lb").style.display = 'none';
+                    document.getElementById("cmp_recebNot").style.display = 'none';
+                    document.getElementById("cmp_atendNot_lb").style.display = 'none';
+                    document.getElementById("cmp_atendNot").style.display = 'none';
+                }
+            }
+            </script>
+            <tr>
+                <td><input type="submit" value="ENVIAR"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+        <script type="text/javascript">
+        $(function(){
+            $('#cmpEmp').change(function(){
+                if( $(this).val() ) {
+                    $('#cmpEnd').hide();
+                    $('.carregando').show();
+                    $.getJSON('enderecos.php?search=',{cmpEmp: $(this).val(), ajax: 'true'}, function(j){
+                        //var options = '<option value="">Escolha Subcategoria</option>';
+                        var options = "";   
+                        for (var i = 0; i < j.length; i++) {
+                            options += '<option value="' + j[i].endereco + '">' + j[i].endereco + '</option>';
+                        }   
+                        $('#cmpEnd').html(options).show();
+                        $('.carregando').hide();
+                    });
+                } else {
+                    $('#cmpEnd').html('<option value="">– Escolha a Subcategoria –</option>');
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+            $(function(){
+                $('#cmpEmp').change(function(){
+                    if( $(this).val() ) {
+                        $('#cmpAtiv').hide();
+                        $('.carregando').show();
+                        $.getJSON('atividades.php?search=',{cmpEmp: $(this).val(), ajax: 'true'}, function(j){
+                            //var options = '<option value="">Escolha Subcategoria</option>';
+                            var options = "";   
+                            for (var i = 0; i < j.length; i++) {
+                                options += '<option value="' + j[i].atividade + '">' + j[i].atividade + '</option>';
+                            }   
+                            $('#cmpAtiv').html(options).show();
+                            $('.carregando').hide();
+                        });
+                    } else {
+                        $('#cmpAtiv').html('<option value="">– Escolha a Subcategoria –</option>');
+                    }
+                });
+            });
+        </script>

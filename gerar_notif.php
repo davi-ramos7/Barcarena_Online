@@ -1,5 +1,5 @@
 <div>
-    <h1>GERAR NOTIFICAÇÃO</h1>
+    <h3>GERAR NOTIFICAÇÃO</h3>
     <form action="criar_notif.php" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
@@ -9,10 +9,10 @@
                     <select name="cmpEmp" id="cmpEmp">
                         <option value="">Selecione a empresa...</option>
                         <?php
-                            $sql = "SELECT * FROM dados_empresas";
+                            $sql = "SELECT * FROM lista_de_empresas";
                             $resultado = mysqli_query($con,$sql);
                             while($lh = mysqli_fetch_assoc($resultado)){
-                                echo "<option value='".$lh['id_empresas']."'>".$lh['nome']." </option>";
+                                echo "<option value='".$lh['id']."'>".$lh['nome']." </option>";
                             }
                         ?>
                     </select>
@@ -92,7 +92,7 @@
                         //var options = '<option value="">Escolha Subcategoria</option>';
                         var options = "";	
                         for (var i = 0; i < j.length; i++) {
-                            options += '<option value="' + j[i].id_empresas + '">' + j[i].endereco + '</option>';
+                            options += '<option value="' + j[i].endereco + '">' + j[i].endereco + '</option>';
                         }	
                         $('#cmpEnd').html(options).show();
                         $('.carregando').hide();
@@ -114,7 +114,7 @@
                             //var options = '<option value="">Escolha Subcategoria</option>';
                             var options = "";	
                             for (var i = 0; i < j.length; i++) {
-                                options += '<option value="' + j[i].id_empresas + '">' + j[i].atividade + '</option>';
+                                options += '<option value="' + j[i].atividade + '">' + j[i].atividade + '</option>';
                             }	
                             $('#cmpAtiv').html(options).show();
                             $('.carregando').hide();
