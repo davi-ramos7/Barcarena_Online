@@ -79,7 +79,7 @@
                       <option value="sim">Sim</option>
                     </select></td>
             </tr>
-            <tr> 
+         <!--    <tr> 
                 <td style="display: none" id="cmp_numNot_lb">Nº da notificação: </td><td><input type="text" style="display: none" id="cmp_numNot"></td>
             </tr>
             <tr>
@@ -90,10 +90,30 @@
             </tr>
             <tr>
                 <td style="display: none" id="cmp_atendNot_lb">Atend. da notificação: </td><td><input type="date" style="display: none" id="cmp_atendNot"></td>
-            </tr>
-            
+            </tr> -->
+        </table>
 
-            <script>
+        <table style="display: none" id="dados_notif_01">
+            <thead>
+                <tr>
+                  <th colspan="2">Notificação 01</th>
+                </tr>
+            </thead>
+            <tr> 
+                <td>Nº: </td><td><input type="text"></td>
+            </tr>
+            <tr>
+                <td>Data: </td><td><input type="date"></td>
+            </tr>
+            <tr> 
+                <td>Recebimento: </td><td><input type="date"></td>
+            </tr>
+            <tr>
+                <td>Atendimento: </td><td><input type="date"></td>
+            </tr>
+        </table>    
+            
+           <!--  <script>
             function myFunction() {
                 var x = document.getElementById("notif").value;
                 if(x == "sim"){
@@ -116,7 +136,22 @@
                     document.getElementById("cmp_atendNot").style.display = 'none';
                 }
             }
+            </script> -->
+            <script>
+            function myFunction() {
+                var x = document.getElementById("notif").value;
+                if(x == "sim"){
+                    document.getElementById("dados_notif_01").style.display = 'block';
+                    document.getElementById("dados_notif_01").style.tableLayout = 'fixed';
+                    document.getElementById("dados_notif_01").style.width = '700px';
+                    document.querySelectorAll('td:nth-child(1)').style.width = '25%';
+                    document.querySelectorAll('td:nth-child(2)').style.width = '75%';
+                } else {
+                    document.getElementById("dados_notif_01").style.display = 'none';
+                }
+            }
             </script>
+        <table>
             <tr>
                 <td><input type="submit" value="ENVIAR"></td>
             </tr>
@@ -144,9 +179,9 @@
                 }
             });
         });
-    </script>
+        </script>
 
-    <script type="text/javascript">
+        <script type="text/javascript">
             $(function(){
                 $('#cmpEmp').change(function(){
                     if( $(this).val() ) {

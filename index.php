@@ -88,7 +88,7 @@
                 }
             ?>
         </div>
-        <div style="width:80vw;height:8vh;background-color:yellow;float:right">>
+        <div style="width:80vw;height:8vh;background-color:yellow;float:right">
             
         </div>
     </div>
