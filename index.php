@@ -61,11 +61,9 @@
                 if(isset($_GET['p'])){
                     $pagina = $_GET['p'];
                 }else{
-                    $pagina = 'cc';
+                    $pagina = 'gn';
                 }
-                if($pagina == 'cc'){
-                    include "empresa_form.html";
-                }elseif($pagina == 'gn'){
+                if($pagina == 'gn'){
                     include "gerar_notif.php";
                 }elseif($pagina == 'gp'){
                     include "gerar_parecer.php";
@@ -73,6 +71,8 @@
                     include "cliente_ver.php";
                 }elseif($pagina == 'cf'){
                     include "funcionario_form.html";
+                }elseif($pagina == 'cc'){
+                    include "empresa_form.html";
                 }elseif($pagina == 'vf'){
                     include "funcionario_ver.php";
                 }elseif($pagina == 'ca'){
@@ -85,10 +85,16 @@
                     include "venda_ver.php";
                 }elseif($pagina == 'tj'){
                     include "Teste_de_funcao_java.php";
+                }elseif($pagina == 'pl'){
+                    include "gerar_parecer_licenca.php";
+                }elseif($pagina == 'pd'){
+                    include "gerar_parecer_dispensa.php";
+                }elseif($pagina == 'ps'){
+                    include "gerar_parecer_semas.php";
                 }
             ?>
         </div>
-        <div style="width:80vw;height:8vh;background-color:yellow;float:right">
+        <div style="width:80vw;height:8vh;background-color:orange;float:right; z-index:0">
             
         </div>
     </div>
