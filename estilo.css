@@ -1,3 +1,8 @@
+.carregando{
+	color:#ff0000;
+	display:none;
+}
+
 table{
 	margin-top: 10px;
 	margin-left: auto;
@@ -10,6 +15,11 @@ th {
 	padding: 5px;
 	border: solid;
 	background:rgb(192,192,192);
+}
+
+tr {
+	padding: 5px;
+	border: solid;
 }
 
 td {
@@ -198,7 +208,7 @@ a:hover {
 }
 input[type=text], [type=number], [type=date] {
 	font-family: cursive;
-	width: 200px;
+	width: 500px;
 	padding: 0;
 	border: 1px solid rgb(204,204,204);
 	border-radius: 4px;
@@ -207,7 +217,7 @@ input[type=text], [type=number], [type=date] {
 
 select{
 	font-family: cursive;
-	width: 200px;
+	width: 500px;
 }
 
 table#tblVer {

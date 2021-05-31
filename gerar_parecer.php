@@ -1,5 +1,12 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    
+</head>
+
 <div>
-    <h1>GERAR PARECER TÉCNICO</h1>
+    <h3>GERAR PARECER TÉCNICO</h3>
     <form action="criar_parecer.php" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
@@ -67,13 +74,51 @@
             </tr>
             <tr>
                 <td>Houve Notificação? </td><td>
-                    <select id="notif" name="notif">
-                      <option value="sim">Sim</option>
+                    <select id="notif" name="notif" onchange="myFunction()">
                       <option value="nao">Não</option>
+                      <option value="sim">Sim</option>
                     </select></td>
             </tr>
+            <tr> 
+                <td style="display: none" id="cmp_numNot_lb">Nº da notificação: </td><td><input type="text" style="display: none" id="cmp_numNot"></td>
+            </tr>
             <tr>
-                <td><input type="submit" value="ENVIAR"></td><td></td>
+                <td style="display: none" id="cmp_dataNot_lb">Data da notificação: </td><td><input type="date" style="display: none" id="cmp_dataNot"></td>
+            </tr>
+            <tr> 
+                <td style="display: none" id="cmp_recebNot_lb">Receb. da notificação: </td><td><input type="date" style="display: none" id="cmp_recebNot"></td>
+            </tr>
+            <tr>
+                <td style="display: none" id="cmp_atendNot_lb">Atend. da notificação: </td><td><input type="date" style="display: none" id="cmp_atendNot"></td>
+            </tr>
+            
+
+            <script>
+            function myFunction() {
+                var x = document.getElementById("notif").value;
+                if(x == "sim"){
+                    document.getElementById("cmp_numNot_lb").style.display = 'block';
+                    document.getElementById("cmp_numNot").style.display = 'block';
+                    document.getElementById("cmp_dataNot_lb").style.display = 'block';
+                    document.getElementById("cmp_dataNot").style.display = 'block';
+                    document.getElementById("cmp_recebNot_lb").style.display = 'block';
+                    document.getElementById("cmp_recebNot").style.display = 'block';
+                    document.getElementById("cmp_atendNot_lb").style.display = 'block';
+                    document.getElementById("cmp_atendNot").style.display = 'block';
+                } else {
+                    document.getElementById("cmp_numNot_lb").style.display = 'none';
+                    document.getElementById("cmp_numNot").style.display = 'none';
+                    document.getElementById("cmp_dataNot_lb").style.display = 'none';
+                    document.getElementById("cmp_dataNot").style.display = 'none';
+                    document.getElementById("cmp_recebNot_lb").style.display = 'none';
+                    document.getElementById("cmp_recebNot").style.display = 'none';
+                    document.getElementById("cmp_atendNot_lb").style.display = 'none';
+                    document.getElementById("cmp_atendNot").style.display = 'none';
+                }
+            }
+            </script>
+            <tr>
+                <td><input type="submit" value="ENVIAR"></td>
             </tr>
         </table>
     </form>

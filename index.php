@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" type="text/css" href="estilo.css">-->
-    <style>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <!-- <style>
 		.carregando{
 			color:#ff0000;
 			display:none;
@@ -27,7 +27,7 @@
         a:hover{color:hotpink;}
         a:visited{color:white;}
         a:visited:hover {color:hotpink;}
-    </style>
+    </style> -->
     <title>DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL</title>
     <!-- <script src="jquery-3.5.1.min.js"></script> -->
     <script src="scripts.js"></script>
@@ -53,6 +53,7 @@
                 <li><a href="index.php?p=va">Ver animais</a></li>
                 <li><a href="index.php?p=rv">Realizar venda</a></li>
                 <li><a href="index.php?p=vv">Ver vendas</a></li>
+                <li><a href="index.php?p=tj">Teste de função Java</a></li>
             </ul>
         </div>
         <div id="conteudo" style="width:65vw;height:70vh;background-color:orange;float:right">
@@ -82,11 +83,13 @@
                     include "venda_form.php";
                 }elseif($pagina == 'vv'){
                     include "venda_ver.php";
+                }elseif($pagina == 'tj'){
+                    include "Teste_de_funcao_java.php";
                 }
             ?>
         </div>
-        <div style="width:80vw;height:8vh;background-color:yellow;float:right">
-
+        <div style="width:80vw;height:8vh;background-color:yellow;float:right">>
+            
         </div>
     </div>
 </body>

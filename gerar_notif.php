@@ -1,5 +1,5 @@
 <div>
-    <h1>GERAR NOTIFICAÇÃO</h1>
+    <h3>GERAR NOTIFICAÇÃO</h3>
     <form action="criar_notif.php" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
