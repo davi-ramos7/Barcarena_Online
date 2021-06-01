@@ -1,6 +1,18 @@
 <?php
     if(isset($_POST['cmpEmp'])){
-        $nome = $_POST['cmpEmp'];
+        $id = $_POST['cmpEmp'];
+
+        include_once("conexao.php");
+    
+        $sql = "SELECT * FROM lista_de_empresas WHERE id=$id";
+        $linha= mysqli_query($con, $sql);
+
+        while ($linhas=mysqli_fetch_assoc($linha)) {
+            $empresa=$linhas['nome'];
+        }
+
+        $nomedaempresa = $empresa;
+
         $endereco = $_POST['cmpEnd'];
         $atividade = $_POST['cmpAtiv'];
         $numdoparecer = $_POST['campo_numPar'];
@@ -8,7 +20,7 @@
         $numdoprotocolo = $_POST['campo_numProt'];
         $datadeentrada = $_POST['campo_date'];
         $solicitacao = $_POST['solicitacao'];
-        $procurador = $_POST['procurador'];
+        $procurador = $_POST['campo_proc'];
         $vistoria = $_POST['vistoria'];
         $datadavistoria = $_POST['date_vist'];
         $num_notif_01 = $_POST['num_notif-01'];
@@ -106,10 +118,6 @@ $valordataxa = "ler(EntradaForm)";
 $diadataxa = "ler(EntradaForm)";
 $diadepagamentodataxa = "ler(EntradaForm)";
 
-
-# Inclusão de arquivo para "Comando de Entrada".
-@include ("../EntradaForm.php");
-
 // Creating the new document...
 $phpWord = new \PhpOffice\PhpWord\PhpWord();
 
@@ -193,44 +201,23 @@ $textrun->addText($solicitacao, 'fStyle2_bold');
 
 if ($procurador == "" && $nomedaempresa <> "" && $enderecodaatividade <> "") {
 
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", a empresa " . $nomedaempresa . ", localizada na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $nomedaempresa . ", situado(a) na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
 } 
 
 if ($procurador == "" && $nomedaempresa <> "" && $enderecodaatividade == "") {
 
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", a empresa " . $nomedaempresa . ", localizada na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ".", 'fStyle1_normal', 'pStyle1_justify');
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $nomedaempresa . ", situado(a) na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ".", 'fStyle1_normal', 'pStyle1_justify');
 } 
 
 if ($procurador <> "" && $nomedaempresa <> "" && $enderecodaatividade <> "") {
 
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) a empresa " . $nomedaempresa . ", localizada na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE)  " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) de " . $nomedaempresa . ", situado(a) na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE)  " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
 }
 
 if ($procurador <> "" && $nomedaempresa <> "" && $enderecodaatividade == "") {
 
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) a empresa " . $nomedaempresa . ", localizada na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE)  " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ".", 'fStyle1_normal', 'pStyle1_justify');
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) de " . $nomedaempresa . ", situado(a) na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE)  " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ".", 'fStyle1_normal', 'pStyle1_justify');
 }
-
-if ($procurador == "" && $nomedapessoafisica <> "" && $enderecodaatividade <> "") {
-
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $nomedapessoafisica . " requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
-} 
-
-if ($procurador == "" && $nomedapessoafisica <> "" && $enderecodaatividade == "" ) {
-
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $nomedapessoafisica . " requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ".", 'fStyle1_normal', 'pStyle1_justify');
-}
-
-if ($procurador <> "" && $nomedapessoafisica <> "" && $enderecodaatividade <> "" ) {
-
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) do(a) Sr(a) " . $nomedapessoafisica . ", requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
-} 
-
-if ($procurador <> "" && $nomedapessoafisica <> "" && $enderecodaatividade == "" ) {
-
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) do(a) Sr(a) " . $nomedapessoafisica . ", requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ".", 'fStyle1_normal', 'pStyle1_justify');
-} 
-
 
 $section->addText("1.   HISTÓRICO DA DOCUMENTAÇÃO", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
 

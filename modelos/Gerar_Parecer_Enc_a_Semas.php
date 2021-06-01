@@ -2,8 +2,6 @@
 
 require_once __DIR__ . '/autoload.php';
 
-$datadeentrada = "ler(EntradaForm)";
-
 $dia = date("d");
 $mes = 0;
 

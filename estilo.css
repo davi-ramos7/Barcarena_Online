@@ -217,9 +217,20 @@ a:hover {
 	padding: 10px;
 
 }
-input[type=text], [type=number], [type=date] {
+input[type=text] {
 	font-family: cursive;
+	font-size: 14px;
 	width: 500px;
+	padding: 0;
+	border: 1px solid rgb(204,204,204);
+	border-radius: 4px;
+	margin-bottom: 0px;
+}
+
+input[type=date], [type=number] {
+	font-family: cursive;
+	font-size: 14px;
+	width: 140px;
 	padding: 0;
 	border: 1px solid rgb(204,204,204);
 	border-radius: 4px;
@@ -228,6 +239,7 @@ input[type=text], [type=number], [type=date] {
 
 select{
 	font-family: cursive;
+	font-size: 14px;
 	width: 500px;
 }
 

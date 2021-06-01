@@ -1,6 +1,18 @@
 <?php
     if(isset($_POST['cmpEmp'])){
-        $nome = $_POST['cmpEmp'];
+        $id = $_POST['cmpEmp'];
+
+        include_once("conexao.php");
+    
+        $sql = "SELECT * FROM lista_de_empresas WHERE id=$id";
+        $linha= mysqli_query($con, $sql);
+
+        while ($linhas=mysqli_fetch_assoc($linha)) {
+            $empresa=$linhas['nome'];
+        }
+
+        $nomedaempresa = $empresa;
+
         $endereco = $_POST['cmpEnd'];
         $atividade = $_POST['cmpAtiv'];
         $numdoparecer = $_POST['campo_numPar'];
@@ -8,7 +20,7 @@
         $numdoprotocolo = $_POST['campo_numProt'];
         $datadeentrada = $_POST['campo_date'];
         $solicitacao = $_POST['solicitacao'];
-        $procurador = $_POST['procurador'];
+        $procurador = $_POST['campo_proc'];
         $vistoria = $_POST['vistoria'];
         $datadavistoria = $_POST['date_vist'];
         $num_notif_01 = $_POST['num_notif-01'];

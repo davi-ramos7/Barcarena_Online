@@ -50,30 +50,21 @@
             <tr>
                 <td>Solicitação: </td><td>
                     <select id="solicitacao" name="solicitacao">
-                    <option value="Licença Prévia">Licença Prévia</option>
-                    <option value="Renovação de Licença Prévia">Renovação de Licença Prévia</option>
-                    <option value="Licença de Instalação">Licença de Instalação</option>
-                    <option value="Renovação de Licença de Instalação">Renovação de Licença de Instalação</option>
-                    <option value="Licença de Operação">Licença de Operação</option>
-                    <option value="Renovação de Licença de Operação">Renovação de Licença de Operação</option>
                     <option value="Dispensa de Licenciamento Ambiental">Dispensa de Licenciamento Ambiental</option>
                     <option value="Renovação de Dispensa de Licenciamento Ambiental">Renovação de Dispensa de Licenciamento Ambiental</option>
-                    <option value="Autorização Ambiental">Autorização Ambiental</option>
-                    <option value="Renovação de Autorização Ambiental">Renovação de Autorização Ambiental</option>
-                    <option value="Autorização para Depósito de Resíduos Inertes">Autorização para Depósito de Resíduos Inertes</option>
-                    <option value="Renovação de Autorização para Depósitos de Resíduos Inertes">Renovação de Autorização para Depósitos de Resíduos Inertes</option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <td>Procurador: </td><td><input type="text" name="campo_procur" id="cmpProcur"></td>
+                <td>Procurador: </td><td><input type="text" name="campo_proc" id="cmpProc"></td>
             </tr>
             <tr>
                 <td>Houve vistoria? </td><td>
-                    <select id="vistoria" name="vistoria" onchange="myFunction_1()">
-                      <option value="nao">Não</option>
-                      <option value="sim">Sim</option>
-                    </select></td>
+                    <input type="radio" id="n" name="vistoria" value="não" onchange="myFunction_1()">
+                    <label for="n">Não</label><br>
+                    <input type="radio" id="s" name="vistoria" value="sim" onchange="myFunction_1()">
+                    <label for="s">Sim</label><br>
+                </td>
             </tr>
         </table>
 
@@ -85,13 +76,12 @@
     
             <script>
             function myFunction_1() {
-                var x = document.getElementById("vistoria").value;
-                if(x == "sim"){
+                if(document.getElementById("s").checked){
                     document.getElementById("dados_vistoria").style.display = 'block';
                     document.getElementById("dados_vistoria").style.tableLayout = 'fixed';
                     document.getElementById("dados_vistoria").style.width = '700px';
-                    document.querySelectorAll('td:nth-child(1)').style.width = '25%';
-                    document.querySelectorAll('td:nth-child(2)').style.width = '75%';
+                    document.querySelector("#dados_vistoria td:nth-of-type(1)").style.width = '25%';
+                    document.querySelector("#dados_vistoria td:nth-of-type(2)").style.width = '75%';
                 } else {
                     document.getElementById("dados_vistoria").style.display = 'none';
                 }
@@ -101,10 +91,11 @@
         <table>
             <tr>
                 <td>Houve notificação? </td><td>
-                    <select id="notif" name="notif" onchange="myFunction_2()">
-                      <option value="nao">Não</option>
-                      <option value="sim">Sim</option>
-                    </select></td>
+                    <input type="radio" id="n_01" name="notif" value="nao" onchange="myFunction_2()">
+                    <label for="n">Não</label><br>
+                    <input type="radio" id="s_01" name="notif" value="sim" onchange="myFunction_2()">
+                    <label for="s">Sim</label><br>
+                </td>
             </tr>
         </table>
 
@@ -130,13 +121,12 @@
     
             <script>
             function myFunction_2() {
-                var x = document.getElementById("notif").value;
-                if(x == "sim"){
+                if(document.getElementById("s_01").checked){
                     document.getElementById("dados_notif_01").style.display = 'block';
                     document.getElementById("dados_notif_01").style.tableLayout = 'fixed';
                     document.getElementById("dados_notif_01").style.width = '700px';
-                    document.querySelectorAll('td:nth-child(1)').style.width = '25%';
-                    document.querySelectorAll('td:nth-child(2)').style.width = '75%';
+                    document.querySelector("#dados_notif_01 td:nth-of-type(1)").style.width = '25%';
+                    document.querySelector("#dados_notif_01 td:nth-of-type(2)").style.width = '75%';
                 } else {
                     document.getElementById("dados_notif_01").style.display = 'none';
                 }
