@@ -41,22 +41,14 @@
         <div style="width:80vw;height:20vh;background-color:green;float:left">
             <h1>DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL</h1>
         </div>
-        <div style="width:15vw;height:70vh;background-color:red;float:left">
+        <div style="width:15vw;height:150vh;background-color:red;float:left">
             <ul>
                 <li><a href="index.php?p=gn">Gerar Notificação</a></li>
                 <li><a href="index.php?p=gp">Gerar Parecer</a></li>
                 <li><a href="index.php?p=cc">Cadastrar Empresa</a></li>
-                <li><a href="index.php?p=vc">Ver clientes</a></li>
-                <li><a href="index.php?p=cf">Cadastrar funcionário</a></li>
-                <li><a href="index.php?p=vf">Ver funcionários</a></li>
-                <li><a href="index.php?p=ca">Cadastrar animal</a></li>
-                <li><a href="index.php?p=va">Ver animais</a></li>
-                <li><a href="index.php?p=rv">Realizar venda</a></li>
-                <li><a href="index.php?p=vv">Ver vendas</a></li>
-                <li><a href="index.php?p=tj">Teste de função Java</a></li>
             </ul>
         </div>
-        <div id="conteudo" style="width:65vw;height:70vh;background-color:orange;float:right">
+        <div id="conteudo" style="width:65vw;height:150vh;background-color:orange;float:right">
             <?php
                 if(isset($_GET['p'])){
                     $pagina = $_GET['p'];
@@ -67,24 +59,10 @@
                     include "gerar_notif.php";
                 }elseif($pagina == 'gp'){
                     include "gerar_parecer.php";
-                }elseif($pagina == 'vc'){
-                    include "cliente_ver.php";
                 }elseif($pagina == 'cf'){
                     include "funcionario_form.html";
                 }elseif($pagina == 'cc'){
                     include "empresa_form.html";
-                }elseif($pagina == 'vf'){
-                    include "funcionario_ver.php";
-                }elseif($pagina == 'ca'){
-                    include "animal_form.html";
-                }elseif($pagina == 'va'){
-                    include "animal_ver.php";
-                }elseif($pagina == 'rv'){
-                    include "venda_form.php";
-                }elseif($pagina == 'vv'){
-                    include "venda_ver.php";
-                }elseif($pagina == 'tj'){
-                    include "Teste_de_funcao_java.php";
                 }elseif($pagina == 'pl'){
                     include "gerar_parecer_licenca.php";
                 }elseif($pagina == 'pd'){
@@ -94,7 +72,7 @@
                 }
             ?>
         </div>
-        <div style="width:80vw;height:8vh;background-color:orange;float:right; z-index:0">
+        <div style="display:none;" style="width:80vw;height:8vh;background-color:orange;float:right; z-index:0">
             
         </div>
     </div>

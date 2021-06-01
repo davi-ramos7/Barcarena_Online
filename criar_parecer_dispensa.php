@@ -1,78 +1,80 @@
 <?php
+    if(isset($_POST['cmpEmp'])){
+        $nome = $_POST['cmpEmp'];
+        $endereco = $_POST['cmpEnd'];
+        $atividade = $_POST['cmpAtiv'];
+        $numdoparecer = $_POST['campo_numPar'];
+        $numdoprocesso = $_POST['campo_numProc'];
+        $numdoprotocolo = $_POST['campo_numProt'];
+        $datadeentrada = $_POST['campo_date'];
+        $solicitacao = $_POST['solicitacao'];
+        $procurador = $_POST['procurador'];
+        $vistoria = $_POST['vistoria'];
+        $datadavistoria = $_POST['date_vist'];
+        $num_notif_01 = $_POST['num_notif-01'];
+        $data_notif_01 = $_POST['date_notif_01'];
+        $receb_notif_01 = $_POST['receb_notif_01'];
+        $atend_notif_01 = $_POST['atend_notif_01'];
 
-require_once __DIR__ . '/autoload.php';
 
-// Modelo de Parecer n°1 para processos de Dispensa
-
-$datadeentrada = "ler(EntradaForm)";
+require_once './vendor/autoload.php';
 
 $dia = date("d");
 $mes = 0;
 
 switch (date("m")) {
 
-	case 1:
-		$mes = "Janeiro";
-		break;
+    case 1:
+        $mes = "Janeiro";
+        break;
 
-	case 2:
-		$mes = "Fevereiro";
-		break;
+    case 2:
+        $mes = "Fevereiro";
+        break;
 
-	case 3:
-		$mes = "Março";
-		break;
+    case 3:
+        $mes = "Março";
+        break;
 
-	case 4:
-		$mes = "Abril";
-		break;
+    case 4:
+        $mes = "Abril";
+        break;
 
-	case 5:
-		$mes = "Maio";
-		break;
+    case 5:
+        $mes = "Maio";
+        break;
 
-	case 6:
-		$mes = "Junho";
-		break;
+    case 6:
+        $mes = "Junho";
+        break;
 
-	case 7:
-		$mes = "Julho";
-		break;
+    case 7:
+        $mes = "Julho";
+        break;
 
-	case 8:
-		$mes = "Agosto";
-		break;
+    case 8:
+        $mes = "Agosto";
+        break;
 
-	case 9:
-		$mes = "Setembro";
-		break;
+    case 9:
+        $mes = "Setembro";
+        break;
 
-	case 10:
-		$mes = "Outubro";
-		break;
+    case 10:
+        $mes = "Outubro";
+        break;
 
-	case 11:
-		$mes = "Novembro";
-		break;
-	
-	default:
-		$mes = "Dezembro";
-		break;
+    case 11:
+        $mes = "Novembro";
+        break;
+    
+    default:
+        $mes = "Dezembro";
+        break;
 }
 
 $ano = date("Y");
 $datadoparecer = $dia . " de " . $mes . " de " . $ano;
-
-$numdoprocesso = "ler(EntradaForm)";
-$numdoprotocolo = "ler(EntradaForm)";
-$numdoparecer = "ler(EntradaForm)";
-$nomedaempresa = "ler(EntradaForm)";
-$atividade = "ler(EntradaForm)";
-$solicitacao = "ler(EntradaForm)";
-$endereco = "ler(EntradaForm)";
-
-# Inclusão de arquivo para "Comando de Entrada".
-@include ("../EntradaForm.php");
 
 // Creating the new document...
 $phpWord = new \PhpOffice\PhpWord\PhpWord();
@@ -107,13 +109,13 @@ $phpWord->addParagraphStyle('pStyle4_center_spaceAfter', $pNew4_1);
 $phpWord->addParagraphStyle('pStyle4_center', $pNew4_2);
 
 $sectionStyle1 = array(
-	'marginTop' => 2267.716535433, //4cm
+    'marginTop' => 2267.716535433, //4cm
     'marginLeft' => 1440, //2.54cm
     'marginRight' => 1440, //2.54cm
     'marginBottom' => 1440 //2.54cm
 );
 
-$section = $phpWord->addSection($sectionStyle1);
+$section = $phpWord->addSection($sectionStyle1); 
 
 $section->addText("PARECER TÉCNICO N° " . $numdoparecer, 'fStyle2_bold', 'pStyle4_center_spaceAfter');
 
@@ -138,13 +140,21 @@ $textrun->addText($solicitacao, 'fStyle2_bold');
 
 $section->addText("Através do processo Nº " . $numdoprocesso . ", protocolado sob N° " . $numdoprotocolo . ", em " . $datadeentrada . ", a empresa " . $nomedaempresa . ", localizada na " . $endereco . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividade . ".", 'fStyle1_normal', 'pStyle1_justify');
 
-$section->addText("1.	HISTÓRICO DA DOCUMENTAÇÃO", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
+$section->addText("1.   HISTÓRICO DA DOCUMENTAÇÃO", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
 
 $section->addText("Constatou-se no processo a pendência do Alvará de Funcionamento. Porém, considerando-se a necessidade de Licença ou Dispensa Ambiental para a obtenção de tal documento, julgou-se mais apropriado não emitir notificação.", 'fStyle1_normal', 'pStyle1_justify');
 
-$section->addText("2.	INFORMAÇÃO E ANÁLISE TÉCNICA", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
+$section->addText("2.   INFORMAÇÃO E ANÁLISE TÉCNICA", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
 
-$section->addText("Após a análise da documentação apresentada e informações obtidas junto a um representante da empresa " . $nomedaempresa . " durante vistoria técnica, verificou-se que a atividade exercida pela mesma não pode ser enquadrada em qualquer legislação atual definidora de atividades de impacto ambiental local no Estado do Pará (Lei Estadual 7.389/2010, Resolução COEMA 162/2021, Lei Municipal 1974/2002), razão pela qual sugere-se a concessão de DISPENSA DE LICENCIAMENTO AMBIENTAL à mesma.", 'fStyle1_normal', 'pStyle1_justify');
+if ($vistoria == "não") {
+
+$section->addText("Após a análise da documentação apresentada e informações obtidas junto a um representante da empresa " . $nomedaempresa . ", verificou-se que a atividade exercida pela mesma não pode ser enquadrada em qualquer legislação atual definidora de atividades de impacto ambiental local no Estado do Pará (Lei Estadual 7.389/2010, Resolução COEMA 162/2021, Lei Municipal 1974/2002), razão pela qual sugere-se a concessão de DISPENSA DE LICENCIAMENTO AMBIENTAL à mesma.", 'fStyle1_normal', 'pStyle1_justify');
+
+} else {
+
+    $section->addText("Após a análise da documentação apresentada e informações obtidas junto a um representante da empresa " . $nomedaempresa . " durante vistoria técnica realizada no dia " . $datadavistoria . ", verificou-se que a atividade exercida pela mesma não pode ser enquadrada em qualquer legislação atual definidora de atividades de impacto ambiental local no Estado do Pará (Lei Estadual 7.389/2010, Resolução COEMA 162/2021, Lei Municipal 1974/2002), razão pela qual sugere-se a concessão de DISPENSA DE LICENCIAMENTO AMBIENTAL à mesma.", 'fStyle1_normal', 'pStyle1_justify');
+
+}
 
 $section->addText("Encaminho este parecer técnico para o Departamento Jurídico desta SEMADE, para anuência e parecer jurídico, para que este Departamento de Licenciamento Ambiental possa dar andamento a este processo de forma legal.", 'fStyle1_normal', 'pStyle1_justify');
 
@@ -163,6 +173,6 @@ $header = $section->addHeader();
 $header->addWatermark('C:\Users\HP\Google Drive\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-$objWriter->save('PARECER_2_D_CV.docx');
+$objWriter->save('PARECER_1_D_SV.docx');
 
 echo "PARECER EMITIDO.";

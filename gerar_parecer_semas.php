@@ -1,6 +1,6 @@
 <div>
     <h3>GERAR PARECER TÉCNICO</h3>
-    <form action="criar_parecer_dispensa.php" method="post">
+    <form action="criar_parecer_semas.php" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
             <tr>

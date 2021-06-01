@@ -1,8 +1,22 @@
 <?php
+    if(isset($_POST['cmpEmp'])){
+        $nome = $_POST['cmpEmp'];
+        $endereco = $_POST['cmpEnd'];
+        $atividade = $_POST['cmpAtiv'];
+        $numdoparecer = $_POST['campo_numPar'];
+        $numdoprocesso = $_POST['campo_numProc'];
+        $numdoprotocolo = $_POST['campo_numProt'];
+        $datadeentrada = $_POST['campo_date'];
+        $solicitacao = $_POST['solicitacao'];
+        $procurador = $_POST['procurador'];
+        $vistoria = $_POST['vistoria'];
+        $datadavistoria = $_POST['date_vist'];
+        $num_notif_01 = $_POST['num_notif-01'];
+        $data_notif_01 = $_POST['date_notif_01'];
+        $receb_notif_01 = $_POST['receb_notif_01'];
+        $atend_notif_01 = $_POST['atend_notif_01'];
 
-require_once __DIR__ . '/autoload.php';
-
-$datadeentrada = "ler(EntradaForm)";
+require_once './vendor/autoload.php';
 
 $dia = date("d");
 $mes = 0;
@@ -60,16 +74,6 @@ switch (date("m")) {
 
 $ano = date("Y");
 $datadoparecer = $dia . " de " . $mes . " de " . $ano;
-
-$numdoprocesso = "ler(EntradaForm)";
-$numdoparecer = "ler(EntradaForm)";
-$nomedaempresa = "ler(EntradaForm)";
-$atividade = "ler(EntradaForm)";
-$solicitacao = "ler(EntradaForm)";
-$endereco = "ler(EntradaForm)";
-
-# Inclusão de arquivo para "Comando de Entrada".
-@include ("../EntradaForm.php");
 
 // Creating the new document...
 $phpWord = new \PhpOffice\PhpWord\PhpWord();
@@ -191,3 +195,4 @@ $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 $objWriter->save('PARECER_EAS.docx');
 
 echo "PARECER EMITIDO.";
+

@@ -1,6 +1,6 @@
 <div>
     <h3>GERAR PARECER TÉCNICO</h3>
-    <form action="criar_parecer_dispensa.php" method="post">
+    <form action="criar_parecer_licenca.php" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
             <tr>
@@ -77,7 +77,7 @@
             </tr>
         </table>
 
-        <table style="display: none" id="dados_vistoria">
+         <table style="display: none" id="dados_vistoria">
             <tr>
                 <td>Data: </td><td><input type="date" name="date_vist" id="dtVt"></td>
             </tr>
