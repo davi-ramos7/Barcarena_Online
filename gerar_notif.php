@@ -124,7 +124,7 @@
                     }
                 });
             });
-        </script>
+    </script>
 
 <!-- $numdanotif = "ler(EntradaForm)" . "/" . $ano;
 $numdoprocesso = "ler(EntradaForm)" . "/" . $ano;
