@@ -1,8 +1,8 @@
 <div>
     <h3>GERAR NOTIFICAÇÃO</h3>
-    <form action="criar_notif.php" method="post">
+    <form class="formulario" action="criar_notif.php" method="post">
         <?php include_once("conexao.php"); ?>
-        <table>
+        <table style="background: orange;" id="tb_notif">
             <tr>
                 <td>Empresa/Pessoa física: </td>
                 <td>
@@ -45,13 +45,22 @@
             <tr>
                 <td>Destinatário: </td><td><input type="text" name="campo_dest" id="cmpdt"></td>
             </tr>
-            <tr>
+            <tr id="doc_1">
                 <td>Documento 1: </td><td><input type="text" name="campo_doc1" id="cmpdoc1"></td>
+                <td><button type="button" id="add-campo"> + </button></td>
             </tr>
-            <tr>
-                <td>Documento 2: </td><td><input type="text" name="campo_doc2" id="cmpdoc2"></td>
-            </tr>
-            <tr>
+        </table>
+
+            <script>
+            $("#add-campo").click(function () {
+                //https://api.jquery.com/append/
+
+                    $("#doc_1").append('<div style="background: green;"><label id="doc_2">Documento 2: </label><input type="text" name="campo_doc2" id="cmpdoc2"></div>');
+            });
+            </script>
+
+
+            <!-- <tr>
                 <td>Documento 3: </td><td><input type="text" name="campo_doc3" id="cmpdoc3"></td>
             </tr>
             <tr>
@@ -75,7 +84,8 @@
             <tr>
                 <td>Documento 10: </td><td><input type="text" name="campo_doc10" id="cmpdoc10"></td>
             </tr>
-            <tr>
+            <tr> -->
+        <table>
                 <td><input type="submit" value="ENVIAR"></td><td></td>
             </tr>
         </table>

@@ -23,10 +23,18 @@
         $procurador = $_POST['campo_proc'];
         $vistoria = $_POST['vistoria'];
         $datadavistoria = $_POST['date_vist'];
-        $num_notif_01 = $_POST['num_notif-01'];
-        $data_notif_01 = $_POST['date_notif_01'];
-        $receb_notif_01 = $_POST['receb_notif_01'];
-        $atend_notif_01 = $_POST['atend_notif_01'];
+        $numdanotificacao1 = $_POST['num_notif-01'];
+        $datadanotificacao1 = $_POST['date_notif_01'];
+        $dataderecebdanotificacao1 = $_POST['receb_notif_01'];
+        $datadeatendimdanotifacao1 = $_POST['atend_notif_01'];
+        $numdanotificacao2 = $_POST['num_notif-02'];
+        $datadanotificacao2 = $_POST['date_notif_02'];
+        $dataderecebdanotificacao2 = $_POST['receb_notif_02'];
+        $datadeatendimdanotifacao2 = $_POST['atend_notif_02'];
+        $numdanotificacao3 = $_POST['num_notif-03'];
+        $datadanotificacao3 = $_POST['date_notif_03'];
+        $dataderecebdanotificacao3 = $_POST['receb_notif_03'];
+        $datadeatendimdanotifacao3 = $_POST['atend_notif_03'];
 
 require_once './vendor/autoload.php';
 
@@ -201,7 +209,7 @@ $section->addText('David Ramos Pereira', 'fStyle1_normal', 'pStyle4_center');
 $section->addText('Geólogo/Matrícula 28516-1/1', 'fStyle1_normal', 'pStyle4_center');
 
 $header = $section->addHeader();
-$header->addWatermark('C:\Users\HP\Google Drive\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
+$header->addWatermark('C:\xampp\htdocs\Barcarena_Online\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 $objWriter->save('PARECER_EAS.docx');

@@ -37,18 +37,39 @@
 		</script> -->
 </head>
 <body>
-    <div style="width:80vw;height:98vh;margin: auto auto;">
-        <div style="width:80vw;height:20vh;background-color:green;float:left">
+    <!-- <div style="background-color:blue;">
+        <div style="width:80vw;height:20vh;background-color:green;">
             <h1>DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL</h1>
         </div>
         <div style="width:15vw;height:150vh;background-color:red;float:left">
             <ul>
-                <li><a href="index.php?p=gn">Gerar Notificação</a></li>
-                <li><a href="index.php?p=gp">Gerar Parecer</a></li>
-                <li><a href="index.php?p=cc">Cadastrar Empresa</a></li>
+                <li><a href="index.php?p=gn">Gerar Notificação</a></li><br><br>
+                <li><a href="index.php?p=gp">Gerar Parecer</a></li><br><br>
+                <li><a href="index.php?p=cc">Cadastrar Empresa</a></li><br><br>
             </ul>
+        </div> -->
+        <div class="topo">
+            <div class="logo">
+                <img src="Logo da Semade.png" width="170px" height="100px"> 
+            </div> 
+            <div class="menu">
+                <ul>
+                    <li><a href="index.php?p=gn">Gerar Notificação</a></li>
+                    <li>
+                        <div class="acao_menu">
+                            <button class="botao_menu">Gerar Parecer</button>
+                            <div class="submenu2">
+                                <a href="index.php?p=pl">Parecer para Licença</a>
+                                <a href="index.php?p=pd">Parecer para Dispensa</a>
+                                <a href="index.php?p=ps">Parecer de Encaminhamento à SEMAS/Pa</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="index.php?p=ce">Cadastrar Empresa</a></li>
+                </ul>
+            </div>
         </div>
-        <div id="conteudo" style="width:65vw;height:150vh;background-color:orange;float:right">
+        <div id="paginas" class="conteudo">
             <?php
                 if(isset($_GET['p'])){
                     $pagina = $_GET['p'];
@@ -59,9 +80,7 @@
                     include "gerar_notif.php";
                 }elseif($pagina == 'gp'){
                     include "gerar_parecer.php";
-                }elseif($pagina == 'cf'){
-                    include "funcionario_form.html";
-                }elseif($pagina == 'cc'){
+                }elseif($pagina == 'ce'){
                     include "empresa_form.html";
                 }elseif($pagina == 'pl'){
                     include "gerar_parecer_licenca.php";
@@ -72,9 +91,8 @@
                 }
             ?>
         </div>
-        <div style="display:none;" style="width:80vw;height:8vh;background-color:orange;float:right; z-index:0">
-            
+        <div class="rodape">
+            <p>Versão 1.0</p>
         </div>
-    </div>
 </body>
 </html>

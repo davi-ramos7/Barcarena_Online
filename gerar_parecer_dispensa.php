@@ -1,6 +1,6 @@
 <div>
-    <h3>GERAR PARECER TÉCNICO</h3>
-    <form action="criar_parecer_dispensa.php" method="post">
+    <h3>GERAR PARECER TÉCNICO DE DISPENSA</h3>
+    <form class="formulario" action="criar_parecer_dispensa.php" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
             <tr>
@@ -119,7 +119,7 @@
             </tr>
         </table> -->   
 
-        <div style="display: none; margin-left: 30px" id="dados_notif_01">
+        <div style="display: none; margin-left: 40px" id="dados_notif_01">
             <label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 01: </label> <button type="button" id="add-campo"> + </button> <br>
             <label style="float: left; margin-bottom: 5px;">Nº: </label>
             <input type="text" name="num_notif_01" id="nmNot01" style="margin-left: 10px; margin-bottom: 5px;"><br>

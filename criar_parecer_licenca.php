@@ -13,8 +13,8 @@
 
         $nomedaempresa = $empresa;
 
-        $endereco = $_POST['cmpEnd'];
-        $atividade = $_POST['cmpAtiv'];
+        $enderecodaempresa = $_POST['cmpEnd'];
+        $atividadeCNPJ = $_POST['cmpAtiv'];
         $numdoparecer = $_POST['campo_numPar'];
         $numdoprocesso = $_POST['campo_numProc'];
         $numdoprotocolo = $_POST['campo_numProt'];
@@ -23,10 +23,23 @@
         $procurador = $_POST['campo_proc'];
         $vistoria = $_POST['vistoria'];
         $datadavistoria = $_POST['date_vist'];
-        $num_notif_01 = $_POST['num_notif-01'];
-        $data_notif_01 = $_POST['date_notif_01'];
-        $receb_notif_01 = $_POST['receb_notif_01'];
-        $atend_notif_01 = $_POST['atend_notif_01'];
+        $numdanotificacao1 = $_POST['num_notif-01'];
+        $datadanotificacao1 = $_POST['date_notif_01'];
+        $dataderecebdanotificacao1 = $_POST['receb_notif_01'];
+        $datadeatendimdanotifacao1 = $_POST['atend_notif_01'];
+        $numdanotificacao2 = $_POST['num_notif-02'];
+        $datadanotificacao2 = $_POST['date_notif_02'];
+        $dataderecebdanotificacao2 = $_POST['receb_notif_02'];
+        $datadeatendimdanotifacao2 = $_POST['atend_notif_02'];
+        $numdanotificacao3 = $_POST['num_notif-03'];
+        $datadanotificacao3 = $_POST['date_notif_03'];
+        $dataderecebdanotificacao3 = $_POST['receb_notif_03'];
+        $datadeatendimdanotifacao3 = $_POST['atend_notif_03'];
+        $porte = $_POST['campo_porte'];
+        $potencialpoluidor = $_POST['campo_pp'];
+        $valordataxa = $_POST['campo_vtaxa'];
+        $diadataxa = $_POST['campo_dtaxa'];
+        $diadepagamentodataxa = $_POST['campo_ptaxa'];
 
 
 require_once './vendor/autoload.php';
@@ -88,35 +101,6 @@ switch (date("m")) {
 
 $ano = date("Y");
 $datadoparecer = $dia . " de " . $mes . " de " . $ano;
-
-$numdoprocesso = "ler(EntradaForm)";
-$numdoprotocolo = "ler(EntradaForm)";
-$numdoparecer = "ler(EntradaForm)";
-$nomedaempresa = "ler(EntradaForm)"; //Para o caso de o processo ser de uma empresa. Se não for, deixar em branco.
-$nomedapessoafisica = "ler(EntradaForm)"; //Para o caso de o processo ser de uma pessoa física. Se não for, deixar em branco.
-$atividadeCNPJ = "ler(EntradaForm)";
-$atividadeEnquadramento = "ler(EntradaForm)";
-$solicitacao = "ler(EntradaForm)";
-$procurador = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$enderecodaempresa = "ler(EntradaForm)"; //Endereço da empresa.
-$enderecodaatividade = "ler(EntradaForm)"; //Endereço no qual a atividade será realizada.
-$numdanotificacao1 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$numdanotificacao2 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$numdanotificacao3 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadanotificacao1 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadanotificacao2 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadanotificacao3 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$dataderecebdanotificacao1 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$dataderecebdanotificacao2 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$dataderecebdanotificacao3 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadeatendimdanotifacao1 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadeatendimdanotifacao2 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$datadeatendimdanotifacao3 = "ler(EntradaForm)"; //Deixar em branco caso não haja.
-$porte = "ler(EntradaForm)";
-$potencialpoluidor = "ler(EntradaForm)";
-$valordataxa = "ler(EntradaForm)";
-$diadataxa = "ler(EntradaForm)";
-$diadepagamentodataxa = "ler(EntradaForm)";
 
 // Creating the new document...
 $phpWord = new \PhpOffice\PhpWord\PhpWord();
@@ -244,35 +228,11 @@ $section->addText("Após verificação de pendências no processo, por meio de a
 
 $section->addText("2.   ENQUADRAMENTO E ANÁLISE TÉCNICA", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
 
-if ($atividadeEnquadramento == "EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS" && $diadataxa <> $diadepagamentodataxa) {
+if ($diadataxa == $diadepagamentodataxa)  {
 
-$section->addText("A atividade de EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS foi enquadrada na LEI N° 7389/2010, a qual “Define as atividades de impacto ambiental local no Estado do Pará, e dá outras providências”, em PORTE ≤ 50 AR (ÁREA REQUERIDA NO DNPM EM HA) e POTENCIAL POLUIDOR II, o que resultou com taxa equivalente a R$ " . $valordataxa . ". O respectivo boleto de pagamento desta taxa foi gerado no dia " . $diadataxa . " e pago no dia " . $diadepagamentodataxa . ".", 'fStyle1_normal', 'pStyle1_justify');
+$section->addText("A empresa " . $nomedaempresa . " foi enquadrada na RESOLUÇÃO COEMA N° 162 DE 02 DE FEVEREIRO DE 2021, a qual “Estabelece as atividades de impacto ambiental local, para fins de licenciamento ambiental, de competência dos Municípios no âmbito do Estado do Pará, e dá outras providências.”, na tipologia " . $atividadeCNPJ . " (PORTE " . $porte . " e POTENCIAL POLUIDOR " . $potencialpoluidor . "), o que resultou em uma taxa equivalente a R$ " . $valordataxa . ", gerada no dia " . $diadataxa . " e paga no mesmo dia.", 'fStyle1_normal', 'pStyle1_justify');
 
 $textrun = $section->addTextRun('pStyle1_justify');
-
-$textrun->addText("A análise da documentação apresentada, vistoria técnica ", 'fStyle1_normal');
-$textrun->addText("in loco ", 'fStyle3_italic');
-$textrun->addText("e o pagamento da taxa referente à análise do processo de licenciamento em questão, permitiram constatar que ", 'fStyle1_normal');
-$textrun->addText($nomedapessoafisica, 'fStyle2_bold');
-$textrun->addText(" encontra-se apta a desenvolver a atividade pretendida, razão pela qual sugere-se a concessão de ", 'fStyle1_normal');
-$textrun->addText($solicitacao, 'fStyle2_bold');
-$textrun->addText(".", 'fStyle1_normal');
-
-} elseif ($atividadeEnquadramento == "EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS" && $diadataxa == $diadepagamentodataxa) {
-
-$section->addText("A atividade de EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS foi enquadrada na LEI N° 7389/2010, a qual “Define as atividades de impacto ambiental local no Estado do Pará, e dá outras providências”, em PORTE ≤ 50 AR (ÁREA REQUERIDA NO DNPM EM HA) e POTENCIAL POLUIDOR II, o que resultou em uma taxa equivalente a R$ " . $valordataxa . ". O respectivo boleto de pagamento desta taxa foi gerado no dia " . $diadataxa . " e pago no mesmo dia.", 'fStyle1_normal', 'pStyle1_justify');
-
-$textrun->addText("A análise da documentação apresentada, vistoria técnica ", 'fStyle1_normal');
-$textrun->addText("in loco ", 'fStyle3_italic');
-$textrun->addText("e o pagamento da taxa referente à análise do processo de licenciamento em questão, permitiram constatar que ", 'fStyle1_normal');
-$textrun->addText($nomedapessoafisica, 'fStyle2_bold');
-$textrun->addText(" encontra-se apta a desenvolver a atividade pretendida, razão pela qual sugere-se a concessão de ", 'fStyle1_normal');
-$textrun->addText($solicitacao, 'fStyle2_bold');
-$textrun->addText(".", 'fStyle1_normal');
-
-} elseif ($atividadeEnquadramento <> "EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS" && $diadataxa == $diadepagamentodataxa)  {
-
-$section->addText("A empresa " . $nomedaempresa . " foi enquadrada na RESOLUÇÃO COEMA 120/2015 (a qual “Dispõe sobre as atividades de impacto ambiental local, de competência dos Municípios, e dá outras providências”), na tipologia " . $atividadeEnquadramento . " (PORTE " . $porte . " e POTENCIAL POLUIDOR " . $potencialpoluidor . "), o que resultou em uma taxa equivalente a R$ " . $valordataxa . ", gerada no dia " . $diadataxa . " e paga no mesmo dia.", 'fStyle1_normal', 'pStyle1_justify');
 
 $textrun->addText("A análise da documentação apresentada, vistoria técnica ", 'fStyle1_normal');
 $textrun->addText("in loco ", 'fStyle3_italic');
@@ -284,7 +244,9 @@ $textrun->addText(" à mesma.", 'fStyle1_normal');
 
 } else {
 
-$section->addText("A atividade desenvolvida pela empresa " . $nomedaempresa . " foi enquadrada na RESOLUÇÃO COEMA 120/2015 (a qual “Dispõe sobre as atividades de impacto ambiental local, de competência dos Municípios, e dá outras providências”), na tipologia " . $atividadeEnquadramento . " (PORTE " . $porte . " e POTENCIAL POLUIDOR " . $potencialpoluidor . "), o que resultou em uma taxa equivalente a R$ " . $valordataxa . ", gerada no dia " . $diadataxa . " e paga no dia " . $diadepagamentodataxa . ".", 'fStyle1_normal', 'pStyle1_justify');
+$section->addText("A atividade desenvolvida pela empresa " . $nomedaempresa . " foi enquadrada na RESOLUÇÃO COEMA N° 162 DE 02 DE FEVEREIRO DE 2021, a qual “Estabelece as atividades de impacto ambiental local, para fins de licenciamento ambiental, de competência dos Municípios no âmbito do Estado do Pará, e dá outras providências.”, na tipologia " . $atividadeCNPJ . " (PORTE " . $porte . " e POTENCIAL POLUIDOR " . $potencialpoluidor . "), o que resultou em uma taxa equivalente a R$ " . $valordataxa . ", gerada no dia " . $diadataxa . " e paga no dia " . $diadepagamentodataxa . ".", 'fStyle1_normal', 'pStyle1_justify');
+
+$textrun = $section->addTextRun('pStyle1_justify');
 
 $textrun->addText("A análise da documentação apresentada, vistoria técnica ", 'fStyle1_normal');
 $textrun->addText("in loco ", 'fStyle3_italic');

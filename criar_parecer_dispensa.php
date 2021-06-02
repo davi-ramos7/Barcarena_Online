@@ -23,11 +23,18 @@
         $procurador = $_POST['campo_proc'];
         $vistoria = $_POST['vistoria'];
         $datadavistoria = $_POST['date_vist'];
-        $num_notif_01 = $_POST['num_notif-01'];
-        $data_notif_01 = $_POST['date_notif_01'];
-        $receb_notif_01 = $_POST['receb_notif_01'];
-        $atend_notif_01 = $_POST['atend_notif_01'];
-
+        $numdanotificacao1 = $_POST['num_notif-01'];
+        $datadanotificacao1 = $_POST['date_notif_01'];
+        $dataderecebdanotificacao1 = $_POST['receb_notif_01'];
+        $datadeatendimdanotifacao1 = $_POST['atend_notif_01'];
+        $numdanotificacao2 = $_POST['num_notif-02'];
+        $datadanotificacao2 = $_POST['date_notif_02'];
+        $dataderecebdanotificacao2 = $_POST['receb_notif_02'];
+        $datadeatendimdanotifacao2 = $_POST['atend_notif_02'];
+        $numdanotificacao3 = $_POST['num_notif-03'];
+        $datadanotificacao3 = $_POST['date_notif_03'];
+        $dataderecebdanotificacao3 = $_POST['receb_notif_03'];
+        $datadeatendimdanotifacao3 = $_POST['atend_notif_03'];
 
 require_once './vendor/autoload.php';
 
@@ -154,7 +161,26 @@ $section->addText("Através do processo Nº " . $numdoprocesso . ", protocolado 
 
 $section->addText("1.   HISTÓRICO DA DOCUMENTAÇÃO", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
 
-$section->addText("Constatou-se no processo a pendência do Alvará de Funcionamento. Porém, considerando-se a necessidade de Licença ou Dispensa Ambiental para a obtenção de tal documento, julgou-se mais apropriado não emitir notificação.", 'fStyle1_normal', 'pStyle1_justify');
+if ($numdanotificacao1 == "") {
+
+    $section->addText("Constatou-se no processo a pendência do Alvará de Funcionamento. Porém, considerando-se a necessidade de Licença ou Dispensa Ambiental para a obtenção de tal documento, julgou-se mais apropriado não emitir notificação.", 'fStyle1_normal', 'pStyle1_justify');
+
+}
+
+else if ($numdanotificacao1 <> "" && $numdanotificacao2 == "" && $numdanotificacao3 == "") {
+
+$section->addText("Após verificação de pendências no processo, por meio de análise processual, visando subsidiar sua análise, este Departamento de Licenciamento Ambiental – DLA emitiu a NOTIFICAÇÃO DE LICENCIAMENTO DE N° " . $numdanotificacao1 . ", em " . $datadanotificacao1 . ", com o prazo de 30 dias para cumprimento, a qual foi recebida no dia " . $dataderecebdanotificacao1 . " e atendida no dia " . $datadeatendimdanotifacao1 . ".", 'fStyle1_normal', 'pStyle1_justify');
+}
+
+else if ($numdanotificacao1 <> "" && $numdanotificacao2 <> "" && $numdanotificacao3 == "") {
+
+$section->addText("Após verificação de pendências no processo, por meio de análise processual, visando subsidiar sua análise, este Departamento de Licenciamento Ambiental – DLA emitiu as NOTIFICAÇÕES DE LICENCIAMENTO DE N° " . $numdanotificacao1 . " e " . $numdanotificacao2 . ", em " . $datadanotificacao1 . " e " . $datadanotificacao2 . ", respectivamente, com o prazo de 30 dias para cumprimento, as quais foram recebidas nos dias " . $dataderecebdanotificacao1 . " e " . $dataderecebdanotificacao2 . ", e atendidas nos dias " . $datadeatendimdanotifacao1 . " e " . $datadeatendimdanotifacao2 . ".", 'fStyle1_normal', 'pStyle1_justify');
+}
+
+else if ($numdanotificacao1 <> "" && $numdanotificacao2 <> "" && $numdanotificacao3 <> "") {
+
+$section->addText("Após verificação de pendências no processo, por meio de análise processual, visando subsidiar sua análise, este Departamento de Licenciamento Ambiental – DLA emitiu as NOTIFICAÇÕES DE LICENCIAMENTO DE N° " . $numdanotificacao1 . ", " . $numdanotificacao2 . " e " . $numdanotificacao3 . ", em " . $datadanotificacao1 . ", " . $datadanotificacao2 . " e " . $datadanotificacao3 .", respectivamente, com o prazo de 30 dias para cumprimento, as quais foram recebidas nos dias " . $dataderecebdanotificacao1 . ", " . $dataderecebdanotificacao2 . " e " . $dataderecebdanotificacao3 .", e atendidas nos dias " . $datadeatendimdanotifacao1 . ", " . $datadeatendimdanotifacao2 . " e " . $datadeatendimdanotifacao3 . ".", 'fStyle1_normal', 'pStyle1_justify');
+}
 
 $section->addText("2.   INFORMAÇÃO E ANÁLISE TÉCNICA", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
 
@@ -182,7 +208,7 @@ $section->addText('David Ramos Pereira', 'fStyle1_normal', 'pStyle4_center');
 $section->addText('Geólogo/Matrícula 28516-1/1', 'fStyle1_normal', 'pStyle4_center');
 
 $header = $section->addHeader();
-$header->addWatermark('C:\Users\HP\Google Drive\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
+$header->addWatermark('C:\xampp\htdocs\Barcarena_Online\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 $objWriter->save('PARECER_1_D_SV.docx');

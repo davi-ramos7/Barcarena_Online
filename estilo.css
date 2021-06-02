@@ -3,6 +3,21 @@
 	display:none;
 }
 
+h1 {
+	font-size: 30px;
+	font-family: cursive;
+	font-weight: bold;
+	margin-top: 4%;
+	margin-left: 30%;
+}
+
+h3 {
+	font-size: 18px;
+	font-family: cursive;
+	font-weight: bold;
+	margin-left: 30%;
+}
+
 table{
 	table-layout: fixed;
 	width: 700px;
@@ -20,6 +35,38 @@ td:nth-child(1) {
 
 td:nth-child(2) {
     width: 75%;
+}
+
+table#table_empresa td:nth-child(1) {
+    width: 15%;
+}
+
+table#table_empresa td:nth-child(2) {
+    width: 75%;
+}
+
+table#tb_notif td:nth-child(1) {
+    width: 40%;
+}
+
+table#tb_notif td:nth-child(2) {
+    width: 60%;
+}
+
+#tb_notif {
+	width: 450px;
+}
+
+#nome_empresa {
+	width: 500px;
+}
+
+#atividade_empresa {
+	width: 500px;
+}
+
+#end_empresa {
+	width: 500px;
 }
 
 th {
@@ -57,7 +104,7 @@ td {
 .conteudo {
     width: 100%;
     top: 0px;
-    height: 100%;
+    height: 150%;
     font-size: 14pt;
     position: absolute;
 	text-align: justify;
@@ -66,9 +113,45 @@ td {
 	z-index: 0;
 }
 
+.rodape {
+	height: 80px;
+	background: rgb(0,139,139);
+	position: fixed;
+    width: 100%;
+    bottom: 0%;
+	text-align: left;
+	font-family: Arial;
+	z-index: 1;
+}
+
+.logo{
+	margin-top: 10px;
+	margin-left: 15px;
+}
+
+.formulario{
+	background: rgb(112,128,144);
+	width: 750px;
+	margin-top: 150px;
+	margin-right: auto;
+    margin-left: auto;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.formulario_empresa{
+	background: rgb(112,128,144);
+	width: 700px;
+	margin-top: 150px;
+	margin-right: auto;
+    margin-left: auto;
+	border-radius: 5px;
+	padding: 10px;
+}
+
 .menu {
 	font-weight: bold;
-	margin-top: -70px;
+	margin-top: -40px;
 	float: right;
 	margin-right: 20px;
 	cursor: pointer;
@@ -131,17 +214,6 @@ td {
 	background-color: white;
 }
 
-.rodape {
-	height: 80px;
-	background: rgba(192,192,192);
-	position: absolute;
-    width: 100%;
-    bottom: 0%;
-	text-align: left;
-	font-family: Arial;
-	z-index: 1;
-}
-
 p {
 	font-size: 16px;
 	font-family: cursive;
@@ -151,31 +223,12 @@ p {
 	margin-top: 30px;
 }
 
-ul#venda_opcoes li a{
-	font-size: 22px;
-	font-weight: bold;
-	color: rgb(0,139,139);
+#pareceres {
+	margin-left: 170px;
 }
 
 ul#venda_opcoes li {
 	padding-left: 20px;
-}
-
-#venda_titulo {
-	margin-top: 150px;
-	font-size: 20px;
-}
-
-#venda_opcoes {
-	width: 400px;
-	height: 100px;
-	position: absolute;
-	top: 0px;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-	padding: 0%;
 }
 
 ul {
@@ -189,34 +242,20 @@ li {
 }
 
 li a {
-	font-size: 14px;
+	font-size: 18px;
 	font-family: cursive;
 	color: black;
 	font-weight: bold;
 	text-decoration: none;
 	text-align: center;
-	padding-right: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
 
 a:hover {
 	background: white;
 }
 
-.logo{
-	margin-top: -10px;
-	margin-left: 0px;
-}
-
-.formulario{
-	background: rgba(242,242,242);
-	width: 400px;
-	margin-top: 10px;
-	margin-right: auto;
-    margin-left: auto;
-	border-radius: 5px;
-	padding: 10px;
-
-}
 input[type=text] {
 	font-family: cursive;
 	font-size: 14px;
