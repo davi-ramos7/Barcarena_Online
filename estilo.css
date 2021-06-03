@@ -79,6 +79,36 @@ table#tb_notif td:nth-child(2) {
 	width: 500px;
 }
 
+#campo2 {
+	float: right;
+	margin-top: -135px;
+	margin-right: 30px;
+}
+
+#campo4 {
+	float: right;
+	margin-top: -135px;
+	margin-right: 30px;
+}
+
+#campo6 {
+	float: right;
+	margin-top: -135px;
+	margin-right: 30px;
+}
+
+#campo8 {
+	float: right;
+	margin-top: -135px;
+	margin-right: 30px;
+}
+
+#campo10 {
+	float: right;
+	margin-top: -135px;
+	margin-right: 30px;
+}
+
 th {
 	padding: 5px;
 	border: solid;
@@ -114,7 +144,7 @@ td {
 .conteudo {
     width: 100%;
     top: 0px;
-    height: 150%;
+    height: 200%;
     font-size: 14pt;
     position: absolute;
 	text-align: justify;

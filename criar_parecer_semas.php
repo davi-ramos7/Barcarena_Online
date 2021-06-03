@@ -23,18 +23,18 @@
         $procurador = $_POST['campo_proc'];
         $vistoria = $_POST['vistoria'];
         $datadavistoria = $_POST['date_vist'];
-        $numdanotificacao1 = $_POST['num_notif_01'];
-        $datadanotificacao1 = $_POST['date_notif_01'];
-        $dataderecebdanotificacao1 = $_POST['receb_notif_01'];
-        $datadeatendimdanotifacao1 = $_POST['atend_notif_01'];
-        $numdanotificacao2 = $_POST['num_notif_02'];
-        $datadanotificacao2 = $_POST['date_notif_02'];
-        $dataderecebdanotificacao2 = $_POST['receb_notif_02'];
-        $datadeatendimdanotifacao2 = $_POST['atend_notif_02'];
-        $numdanotificacao3 = $_POST['num_notif_03'];
-        $datadanotificacao3 = $_POST['date_notif_03'];
-        $dataderecebdanotificacao3 = $_POST['receb_notif_03'];
-        $datadeatendimdanotifacao3 = $_POST['atend_notif_03'];
+       	$numdanotificacao1 = $_POST['num_notif1'];
+        $datadanotificacao1 = $_POST['date_notif1'];
+        $dataderecebdanotificacao1 = $_POST['receb_notif1'];
+        $datadeatendimdanotifacao1 = $_POST['atend_notif1'];
+        $numdanotificacao2 = $_POST['num_notif2'];
+        $datadanotificacao2 = $_POST['date_notif2'];
+        $dataderecebdanotificacao2 = $_POST['receb_notif2'];
+        $datadeatendimdanotifacao2 = $_POST['atend_notif2'];
+        $numdanotificacao3 = $_POST['num_notif3'];
+        $datadanotificacao3 = $_POST['date_notif3'];
+        $dataderecebdanotificacao3 = $_POST['receb_notif3'];
+        $datadeatendimdanotifacao3 = $_POST['atend_notif3'];
 
 require_once './vendor/autoload.php';
 

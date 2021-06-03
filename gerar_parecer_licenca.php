@@ -36,6 +36,22 @@
                 </td>
             </tr>
             <tr>
+                <td>Trata-se de uma pessoa jurídica ou física? </td><td>
+                    <input type="radio" id="pj" name="pessoa" value="pf">
+                    <label for="pj">Pesso jurídica</label>
+                    <input type="radio" id="pf" name="pessoa" value="pj">
+                    <label for="pf">Pessoa física</label><br>
+                </td>
+            </tr>
+            <tr>
+                <td>O endereço da empresa é o mesmo local onde será realizada a atividade em questão? </td><td>
+                    <input type="radio" id="n" name="vistoria" value="não" onchange="myFunction_1()">
+                    <label for="n">Não</label>
+                    <input type="radio" id="s" name="vistoria" value="sim" onchange="myFunction_1()">
+                    <label for="s">Sim</label><br>
+                </td>
+            </tr>
+            <tr>
                 <td>N° do parecer: </td><td><input type="text" name="campo_numPar" id="cmpNp"></td>
             </tr>
             <tr>
@@ -67,7 +83,7 @@
             <tr>
                 <td>Houve vistoria? </td><td>
                     <input type="radio" id="n" name="vistoria" value="não" onchange="myFunction_1()">
-                    <label for="n">Não</label><br>
+                    <label for="n">Não</label>
                     <input type="radio" id="s" name="vistoria" value="sim" onchange="myFunction_1()">
                     <label for="s">Sim</label><br>
                 </td>
@@ -118,7 +134,7 @@
             <tr>
                 <td>Houve notificação? </td><td>
                     <input type="radio" id="n_01" name="notif" value="nao" onchange="myFunction_2()">
-                    <label for="n">Não</label><br>
+                    <label for="n">Não</label>
                     <input type="radio" id="s_01" name="notif" value="sim" onchange="myFunction_2()">
                     <label for="s">Sim</label><br>
                 </td>
@@ -144,7 +160,7 @@
                 if(document.getElementById("s_01").checked){
                     document.getElementById("dados_notif_01").style.display = 'block';
                     document.getElementById("dados_notif_01").style.tableLayout = 'fixed';
-                    document.getElementById("dados_notif_01").style.width = '350px';
+                    //document.getElementById("dados_notif_01").style.width = '350px';
                     // document.getElementById("dados_notif_01").style.margin = '0px';
                     // document.querySelector("#dados_notif_01 td:nth-of-type(1)").style.width = '25%';
                     // document.querySelector("#dados_notif_01 td:nth-of-type(2)").style.width = '75%';
@@ -157,27 +173,18 @@
             <script>
             var cont = 1;
             //https://api.jquery.com/click/
-            $('#add-campo').click(function () {
-                cont++;
+                $('#add-campo').click(function () {
+                    cont=cont + 1;
                 //https://api.jquery.com/append/
 
-                $("main").append('<div id="campo' + cont + '"><label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação '+ cont +''+":"+'</label><button type="button" id="' + cont + '" class="btn-apagar"> - </button><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif' + cont + '" id="nmNot' + cont + '" style="margin-left: 10px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif' + cont + '" id="dtNot' + cont + '" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_' + cont + '" id="rbNot' + cont + '" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_' + cont + '" id="atNot' + cont + '" style="margin-left: 50px; margin-bottom: 5px;"></div>');
+                    $("main").append('<div id="campo' + cont + '"><label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação '+ cont +''+":"+'</label><button type="button" id="' + cont + '" class="btn-apagar"> - </button><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif' + cont + '" id="nmNot' + cont + '" style="margin-left: 10px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif' + cont + '" id="dtNot' + cont + '" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_' + cont + '" id="rbNot' + cont + '" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_' + cont + '" id="atNot' + cont + '" style="margin-left: 50px; margin-bottom: 5px;"></div>');
+                });
 
                 $("form").on("click", ".btn-apagar", function () {
                     var button_id = $(this).attr("id");
                     $('#campo' + button_id + '').remove();
+                    cont=cont - 1;
                 });
-
-                // } else if ($("#dados_notif_01").length && $("#nmNot02").length && $("#nmNot03").length == false) {
-
-                //     $("#dados_notif_01").append('<div class="form-group" id="campo' + cont + '"><label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 03: </label><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif_03" id="nmNot03" style="margin-left: 10px; margin-bottom: 5px;"><button type="button" id="' + cont + '" class="btn-apagar"> - </button><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif_03" id="dtNot03" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_03" id="rbNot03" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_03" id="atNot03" style="margin-left: 50px; margin-bottom: 5px;"></div>');
-
-                //     $('form').on('click', '.btn-apagar', function () {
-                //         var button_id = $(this).attr("id");
-                //         $('#campo' + button_id + '').remove();
-                //     });
-        
-            });
             </script>
 
         <table>
