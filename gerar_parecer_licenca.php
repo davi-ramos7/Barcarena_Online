@@ -126,8 +126,8 @@
         </table><br>
 
         <main>
-        <div style="display: none; margin-left: 40px" id="dados_notif_01">
-            <label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 01: </label> <button type="button" id="add-campo"> + </button> <br>
+        <div style="display: none; margin-left: 0px" id="dados_notif_01">
+            <label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 1: </label> <button type="button" id="add-campo"> + </button> <br>
             <label style="float: left; margin-bottom: 5px;">Nº: </label>
             <input type="text" name="num_notif_01" id="nmNot01" style="margin-left: 10px; margin-bottom: 5px;"><br>
             <label style="float:left; margin-bottom: 5px;">Data: </label>
@@ -155,18 +155,28 @@
             </script>
 
             <script>
+            var cont = 1;
             //https://api.jquery.com/click/
-            $("#add-campo").click(function () {
+            $('#add-campo').click(function () {
+                cont++;
                 //https://api.jquery.com/append/
-                if ($("#dados_notif_01").length && $("#nmNot02").length == false) {
 
-                    $("#dados_notif_01").append('<label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 02: </label><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif_02" id="nmNot02" style="margin-left: 10px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif_02" id="dtNot02" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_02" id="rbNot02" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_02" id="atNot02" style="margin-left: 50px; margin-bottom: 5px;">');
+                $("main").append('<div id="campo' + cont + '"><label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação '+ cont +'</label><button type="button" id="' + cont + '" class="btn-apagar"> - </button><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif' + cont + '" id="nmNot' + cont + '" style="margin-left: 10px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif' + cont + '" id="dtNot' + cont + '" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_' + cont + '" id="rbNot' + cont + '" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_' + cont + '" id="atNot' + cont + '" style="margin-left: 50px; margin-bottom: 5px;"></div>');
 
-                } else if ($("#dados_notif_01").length && $("#nmNot02").length && $("#nmNot03").length == false) {
+                $("form").on("click", ".btn-apagar", function () {
+                    var button_id = $(this).attr("id");
+                    $('#campo' + button_id + '').remove();
+                });
 
-                    $("#dados_notif_01").append('<label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 03: </label><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif_03" id="nmNot03" style="margin-left: 10px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif_03" id="dtNot03" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_03" id="rbNot03" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_03" id="atNot03" style="margin-left: 50px; margin-bottom: 5px;">');
+                // } else if ($("#dados_notif_01").length && $("#nmNot02").length && $("#nmNot03").length == false) {
+
+                //     $("#dados_notif_01").append('<div class="form-group" id="campo' + cont + '"><label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 03: </label><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif_03" id="nmNot03" style="margin-left: 10px; margin-bottom: 5px;"><button type="button" id="' + cont + '" class="btn-apagar"> - </button><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif_03" id="dtNot03" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_03" id="rbNot03" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_03" id="atNot03" style="margin-left: 50px; margin-bottom: 5px;"></div>');
+
+                //     $('form').on('click', '.btn-apagar', function () {
+                //         var button_id = $(this).attr("id");
+                //         $('#campo' + button_id + '').remove();
+                //     });
         
-                }
             });
             </script>
 
