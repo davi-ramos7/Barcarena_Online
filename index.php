@@ -31,7 +31,7 @@
     <title>DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL</title>
     <!-- <script src="jquery-3.5.1.min.js"></script> -->
     <script src="scripts.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script></script>
 		<!-- <script type="text/javascript">
 		  google.load("jquery", "1.4.2");
 		</script> -->
