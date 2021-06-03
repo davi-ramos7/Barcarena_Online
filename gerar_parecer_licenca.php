@@ -125,6 +125,7 @@
             </tr>
         </table><br>
 
+        <main>
         <div style="display: none; margin-left: 40px" id="dados_notif_01">
             <label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 01: </label> <button type="button" id="add-campo"> + </button> <br>
             <label style="float: left; margin-bottom: 5px;">Nº: </label>
@@ -136,6 +137,7 @@
             <label style="float:left; margin-bottom: 5px;">Atendimento: </label>
             <input type="date" name="atend_notif_01" id="atNot01" style="margin-left: 50px; margin-bottom: 5px;">
         </div>
+        </main>
     
             <script>
             function myFunction_2() {
@@ -143,6 +145,7 @@
                     document.getElementById("dados_notif_01").style.display = 'block';
                     document.getElementById("dados_notif_01").style.tableLayout = 'fixed';
                     document.getElementById("dados_notif_01").style.width = '350px';
+                    // document.getElementById("dados_notif_01").style.margin = '0px';
                     // document.querySelector("#dados_notif_01 td:nth-of-type(1)").style.width = '25%';
                     // document.querySelector("#dados_notif_01 td:nth-of-type(2)").style.width = '75%';
                 } else {
@@ -155,13 +158,13 @@
             //https://api.jquery.com/click/
             $("#add-campo").click(function () {
                 //https://api.jquery.com/append/
-                if ($("#dados_notif_01").length && $("#dados_notif_02").length == false) {
+                if ($("#dados_notif_01").length && $("#nmNot02").length == false) {
 
-                    $("#dados_notif_01").append('<div style="margin-left: 0px" id="dados_notif_02"><label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 02: </label><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif_02" id="nmNot02" style="margin-left: 10px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif_02" id="dtNot02" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_02" id="rbNot02" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_02" id="atNot02" style="margin-left: 50px; margin-bottom: 5px;"></div>');
+                    $("#dados_notif_01").append('<label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 02: </label><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif_02" id="nmNot02" style="margin-left: 10px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif_02" id="dtNot02" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_02" id="rbNot02" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_02" id="atNot02" style="margin-left: 50px; margin-bottom: 5px;">');
 
-                } else if ($("#dados_notif_01").length && $("#dados_notif_02").length && $("#dados_notif_03").length == false) {
+                } else if ($("#dados_notif_01").length && $("#nmNot02").length && $("#nmNot03").length == false) {
 
-                    $("#dados_notif_02").append('<div style="margin-left: 0px" id="dados_notif_03"><label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 03: </label><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif_03" id="nmNot03" style="margin-left: 10px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif_03" id="dtNot03" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_03" id="rbNot03" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_03" id="atNot03" style="margin-left: 50px; margin-bottom: 5px;"></div>');
+                    $("#dados_notif_01").append('<label style="color: black; padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 03: </label><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif_03" id="nmNot03" style="margin-left: 10px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif_03" id="dtNot03" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_03" id="rbNot03" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_03" id="atNot03" style="margin-left: 50px; margin-bottom: 5px;">');
         
                 }
             });
