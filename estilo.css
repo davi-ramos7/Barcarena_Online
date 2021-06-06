@@ -48,7 +48,7 @@ td:nth-child(2) {
 }
 
 table#table_empresa td:nth-child(1) {
-    width: 15%;
+    width: 10%;
 }
 
 table#table_empresa td:nth-child(2) {
@@ -61,6 +61,10 @@ table#tb_notif td:nth-child(1) {
 
 table#tb_notif td:nth-child(2) {
     width: 60%;
+}
+
+#table_empresa {
+	margin-left: 10px;
 }
 
 #tb_notif {
@@ -181,7 +185,7 @@ td {
 
 .formulario_empresa{
 	background: rgb(112,128,144);
-	width: 700px;
+	width: 615px;
 	margin-top: 150px;
 	margin-right: auto;
     margin-left: auto;

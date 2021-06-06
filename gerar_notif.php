@@ -2,7 +2,7 @@
     <h3>GERAR NOTIFICAÇÃO</h3>
     <form class="formulario" action="criar_notif.php" method="post">
         <?php include_once("conexao.php"); ?>
-        <table style="background: orange;" id="tb_notif">
+        <table id="tb_notif">
             <tr>
                 <td>Empresa/Pessoa física: </td>
                 <td>
@@ -45,46 +45,33 @@
             <tr>
                 <td>Destinatário: </td><td><input type="text" name="campo_dest" id="cmpdt"></td>
             </tr>
-            <tr id="doc_1">
-                <td>Documento 1: </td><td><input type="text" name="campo_doc1" id="cmpdoc1"></td>
-                <td><button type="button" id="add-campo"> + </button></td>
-            </tr>
         </table>
 
+        <main> 
+            <div id="doc1">
+                <label>Documento 1: </label><input type="text" name="campo_doc1" id="cmpdoc1" style="margin-left: 90px; margin-top: 4px;">
+                <button type="button" id="add-campo"> + </button>
+            </div>
+        </main>
+            
+
             <script>
-            $("#add-campo").click(function () {
+            var cont = 1;
+            //https://api.jquery.com/click/
+                $('#add-campo').click(function () {
+                    cont=cont + 1;
                 //https://api.jquery.com/append/
 
-                    $("#doc_1").append('<div style="background: green;"><label id="doc_2">Documento 2: </label><input type="text" name="campo_doc2" id="cmpdoc2"></div>');
-            });
+                    $("main").append('<div id="doc' + cont + '"><label>Documento ' + cont + ': </label><input type="text" name="campo_doc' + cont + '" id="cmpdoc' + cont + '" style="margin-left: 88px; margin-top: 7px; margin-right: 6px"><button type="button" id="' + cont+ '" class="btn-apagar"> - </button></div>');
+                });
+
+                $("form").on("click", ".btn-apagar", function () {
+                    var button_id = $(this).attr("id");
+                    $('#doc' + button_id).remove();
+                    cont=cont - 1;
+                });
             </script>
 
-
-            <!-- <tr>
-                <td>Documento 3: </td><td><input type="text" name="campo_doc3" id="cmpdoc3"></td>
-            </tr>
-            <tr>
-                <td>Documento 4: </td><td><input type="text" name="campo_doc4" id="cmpdoc4"></td>
-            </tr>
-            <tr>
-                <td>Documento 5: </td><td><input type="text" name="campo_doc5" id="cmpdoc5"></td>
-            </tr>
-            <tr>
-                <td>Documento 6: </td><td><input type="text" name="campo_doc6" id="cmpdoc6"></td>
-            </tr>
-            <tr>
-                <td>Documento 7: </td><td><input type="text" name="campo_doc7" id="cmpdoc7"></td>
-            </tr>
-            <tr>
-                <td>Documento 8: </td><td><input type="text" name="campo_doc8" id="cmpdoc8"></td>
-            </tr>
-            <tr>
-                <td>Documento 9: </td><td><input type="text" name="campo_doc9" id="cmpdoc9"></td>
-            </tr>
-            <tr>
-                <td>Documento 10: </td><td><input type="text" name="campo_doc10" id="cmpdoc10"></td>
-            </tr>
-            <tr> -->
         <table>
                 <td><input type="submit" value="ENVIAR"></td><td></td>
             </tr>
@@ -135,21 +122,3 @@
                 });
             });
     </script>
-
-<!-- $numdanotif = "ler(EntradaForm)" . "/" . $ano;
-$numdoprocesso = "ler(EntradaForm)" . "/" . $ano;
-$nomedaempresa = "ler(EntradaForm)";
-$atividade = "ler(EntradaForm)";
-$destinatario = "ler(EntradaForm)";
-$endereco = "ler(EntradaForm)";
-$quebradelinha = "<br>";
-$documento1 = "ler(EntradaForm)";
-$documento2 = "ler(EntradaForm)";
-$documento3 = "ler(EntradaForm)";
-$documento4 = "ler(EntradaForm)";
-$documento5 = "ler(EntradaForm)";
-$documento6 = "ler(EntradaForm)";
-$documento7 = "ler(EntradaForm)";
-$documento8 = "ler(EntradaForm)";
-$documento9 = "ler(EntradaForm)";
-$documento10 = "ler(EntradaForm)"; -->

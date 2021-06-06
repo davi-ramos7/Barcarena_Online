@@ -36,21 +36,44 @@
                 </td>
             </tr>
             <tr>
-                <td>Trata-se de uma pessoa jurídica ou física? </td><td>
+                <td>Pessoa jurídica ou física? </td><td>
                     <input type="radio" id="pj" name="pessoa" value="pf">
-                    <label for="pj">Pesso jurídica</label>
+                    <label for="pj">Pessoa jurídica</label>
                     <input type="radio" id="pf" name="pessoa" value="pj">
                     <label for="pf">Pessoa física</label><br>
                 </td>
             </tr>
             <tr>
-                <td>O endereço da empresa é o mesmo local onde será realizada a atividade em questão? </td><td>
-                    <input type="radio" id="n" name="vistoria" value="não" onchange="myFunction_1()">
-                    <label for="n">Não</label>
-                    <input type="radio" id="s" name="vistoria" value="sim" onchange="myFunction_1()">
-                    <label for="s">Sim</label><br>
+                <td>O endereço da empresa é o mesmo da atividade? </td><td>
+                    <input type="radio" id="se" name="vistoria" value="sim" onchange="myFunction_end()">
+                    <label for="se">Sim</label>
+                    <input type="radio" id="ne" name="vistoria" value="nao" onchange="myFunction_end()">
+                    <label for="ne">Não</label>
                 </td>
             </tr>
+        </table>    
+
+        <table style="display: none" id="end_ativ">
+            <tr>
+                <td>Endereço da atividade:</td><td><input type="text" name="end_da_ativ" id="endAtiv"></td>
+            </tr>
+        </table>    
+    
+            <script>
+            function myFunction_end() {
+                if(document.getElementById("ne").checked){
+                    document.getElementById("end_ativ").style.display = 'block';
+                    document.getElementById("end_ativ").style.tableLayout = 'fixed';
+                    document.getElementById("end_ativ").style.width = '700px';
+                    document.querySelector("#end_ativ td:nth-of-type(1)").style.width = '40.5%';
+                    document.querySelector("#end_ativ td:nth-of-type(2)").style.width = '75%';
+                } else {
+                    document.getElementById("end_ativ").style.display = 'none';
+                }
+            }
+            </script>
+
+        <table>
             <tr>
                 <td>N° do parecer: </td><td><input type="text" name="campo_numPar" id="cmpNp"></td>
             </tr>
@@ -139,7 +162,7 @@
                     <label for="s">Sim</label><br>
                 </td>
             </tr>
-        </table><br>
+        </table>
 
         <main>
         <div style="display: none; margin-left: 0px" id="dados_notif_01">
