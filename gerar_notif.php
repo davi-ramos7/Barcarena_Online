@@ -71,8 +71,15 @@
                     cont=cont + 1;
                 //https://api.jquery.com/append/
 
-                    $("main").append('<div id="doc' + cont + '"><label>Documento ' + cont + ': </label><select name="campo_doc1" id="cmpdoc1" style="margin-left: 90px; margin-top: 4px;"><option value="">Selecione o documento...</option><?php $sql = "SELECT * FROM lista_de_documentos"; $resultado = mysqli_query($con,$sql); while($lh = mysqli_fetch_assoc($resultado)){ echo "<option value='".$lh['id_doc']."'>".$lh['documento']." </option>";}?> </select><button type="button" id="' + cont+ '" class="btn-apagar"> - </button></div>');
-                });
+                    $("main").append('<div id="doc' + cont + '"><label>Documento ' + cont + ' '+":"+' </label><select name="campo_doc1" id="cmpdoc1" style="margin-left: 90px; margin-top: 4px;"><option value="">Selecione o documento...</option><?php
+                            $sql = "SELECT * FROM lista_de_documentos";
+                            $resultado = mysqli_query($con,$sql);
+                            while($lh = mysqli_fetch_assoc($resultado)){
+                                echo "<option value='".$lh['id_doc']."'>".$lh['documento']." </option>";
+                            }
+                        ?>
+                    </select><button type="button" id="' + cont+ '" class="btn-apagar"> - </button></div>');
+                    });
 
                 $("form").on("click", ".btn-apagar", function () {
                     var button_id = $(this).attr("id");
