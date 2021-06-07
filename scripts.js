@@ -1,16 +1,16 @@
 $(document).ready(function(){
 
-    $('#conteudo').on('submit','#formEmpresa',function(e){
+    $('#paginas').on('submit','#empresa_form',function(e){
         e.preventDefault();
         var formulario = $(this).serialize();
         $.ajax({
             type: "post",
-            url: "ins_empresa.php",
+            url: "inserir_empresa.php",
             data: formulario,
             dataType: "text",
             success: function (response) {
                 if(response == "ok"){
-                    $('#formEmpresa').each(function(){
+                    $('#empresa_form').each(function(){
                         this.reset();
                     });
                     alert("A empresa/pessoa física foi inserida com sucesso!");
@@ -21,15 +21,15 @@ $(document).ready(function(){
         });
     });
 
-    $('#conteudo').on('click','#btn_bscCliente',function(e){
+    $('#paginas').on('focus','#cmpdoc1',function(e){
         e.preventDefault();
         $.ajax({
             type: "post",
-            url: "busca_cliente.php",
+            url: "laptop_select.php",
             data: "buscar",
             dataType: "text",
             success: function (response) {
-                $('#tblCliente').html(response);
+                $('#cmpLp').html(response);
             }
         });
     });

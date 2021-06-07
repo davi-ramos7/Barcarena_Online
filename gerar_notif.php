@@ -51,14 +51,7 @@
             <div id="doc1">
                 <label>Documento 1: </label>
                 <select name="campo_doc1" id="cmpdoc1" style="margin-left: 90px; margin-top: 4px;">
-                    <option value="">Selecione o documento...</option>
-                        <?php
-                            $sql = "SELECT * FROM lista_de_documentos";
-                            $resultado = mysqli_query($con,$sql);
-                            while($lh = mysqli_fetch_assoc($resultado)){
-                                echo "<option value='".$lh['id_doc']."'>".$lh['documento']." </option>";
-                            }
-                        ?>
+                    <option value="#">Selecione...</option>
                 </select>
                 <button type="button" id="add-campo"> + </button>
             </div>
