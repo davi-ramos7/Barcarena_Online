@@ -25,13 +25,132 @@ $(document).ready(function(){
         e.preventDefault();
         $.ajax({
             type: "post",
-            url: "laptop_select.php",
+            url: "doc_select.php",
             data: "buscar",
             dataType: "text",
             success: function (response) {
-                $('#cmpLp').html(response);
+                $('#cmpdoc1').html(response);
             }
         });
     });
+
+    $('#paginas').on('focus','#cmpdoc2',function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "doc_select.php",
+            data: "buscar",
+            dataType: "text",
+            success: function (response) {
+                $('#cmpdoc2').html(response);
+            }
+        });
+    });
+
+    $('#paginas').on('focus','#cmpdoc3',function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "doc_select.php",
+            data: "buscar",
+            dataType: "text",
+            success: function (response) {
+                $('#cmpdoc3').html(response);
+            }
+        });
+    });
+
+    $('#paginas').on('focus','#cmpdoc4',function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "doc_select.php",
+            data: "buscar",
+            dataType: "text",
+            success: function (response) {
+                $('#cmpdoc4').html(response);
+            }
+        });
+    });
+
+    $('#paginas').on('focus','#cmpdoc5',function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "doc_select.php",
+            data: "buscar",
+            dataType: "text",
+            success: function (response) {
+                $('#cmpdoc5').html(response);
+            }
+        });
+    });
+
+    $('#paginas').on('focus','#cmpdoc6',function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "doc_select.php",
+            data: "buscar",
+            dataType: "text",
+            success: function (response) {
+                $('#cmpdoc6').html(response);
+            }
+        });
+    });
+
+    $('#paginas').on('focus','#cmpdoc7',function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "doc_select.php",
+            data: "buscar",
+            dataType: "text",
+            success: function (response) {
+                $('#cmpdoc7').html(response);
+            }
+        });
+    });
+
+    $('#paginas').on('focus','#cmpdoc8',function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "doc_select.php",
+            data: "buscar",
+            dataType: "text",
+            success: function (response) {
+                $('#cmpdoc8').html(response);
+            }
+        });
+    });
+
+    $('#paginas').on('focus','#cmpdoc9',function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "doc_select.php",
+            data: "buscar",
+            dataType: "text",
+            success: function (response) {
+                $('#cmpdoc9').html(response);
+            }
+        });
+    });
+
+    $('#paginas').on('focus','#cmpdoc10',function(e){
+        e.preventDefault();
+        $.ajax({
+            type: "post",
+            url: "doc_select.php",
+            data: "buscar",
+            dataType: "text",
+            success: function (response) {
+                $('#cmpdoc10').html(response);
+            }
+        });
+    });
+
+
                
 });

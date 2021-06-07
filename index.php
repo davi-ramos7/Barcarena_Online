@@ -34,6 +34,9 @@
             </div>
         </div>
         <div id="paginas" class="conteudo">
+            <div id="upper_border">
+            </div>
+
             <?php
                 if(isset($_GET['p'])){
                     $pagina = $_GET['p'];
@@ -56,6 +59,8 @@
             ?>
         </div>
         <div class="rodape">
+        <div id="lower_border">
+        </div>
             <p>Versão 1.0</p>
         </div>
 </body>

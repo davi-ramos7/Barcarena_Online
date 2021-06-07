@@ -1,5 +1,4 @@
 <div>
-    <h3>GERAR PARECER TÉCNICO DE DISPENSA</h3>
     <form class="formulario" action="criar_parecer_dispensa.php" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
@@ -186,7 +185,7 @@
             
         <table>
             <tr>
-                <td><input type="submit" value="ENVIAR"></td>
+                <td><input type="submit" value="Enviar"></td>
             </tr>
         </table>
     </form>
