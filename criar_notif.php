@@ -19,15 +19,60 @@
         $numdoprocesso = $_POST['campo_numProc'];
         $destinatario = $_POST['campo_dest'];
         $documento1 = $_POST['campo_doc1'];
-        $documento2 = $_POST['campo_doc2'];
-        $documento3 = $_POST['campo_doc3'];
-        $documento4 = $_POST['campo_doc4'];
-        $documento5 = $_POST['campo_doc5'];
-        $documento6 = $_POST['campo_doc6'];
-        $documento7 = $_POST['campo_doc7'];
-        $documento8 = $_POST['campo_doc8'];
-        $documento9 = $_POST['campo_doc9'];
-        $documento10 = $_POST['campo_doc10'];
+
+        if (isset($_POST['campo_doc2'])) {
+        	$documento2 = $_POST['campo_doc2'];
+        } else {
+        	$documento2 = "";
+        } 
+
+        if (isset($_POST['campo_doc3'])) {
+        	$documento3 = $_POST['campo_doc3'];
+        } else {
+        	$documento3 = "";
+        } 
+
+        if (isset($_POST['campo_doc4'])) {
+        	$documento4 = $_POST['campo_doc4'];
+        } else {
+        	$documento4 = "";
+        } 
+
+        if (isset($_POST['campo_doc5'])) {
+        	$documento5 = $_POST['campo_doc5'];
+        } else {
+        	$documento5 = "";
+        } 
+
+        if (isset($_POST['campo_doc6'])) {
+        	$documento6 = $_POST['campo_doc6'];
+        } else {
+        	$documento6 = "";
+        } 
+
+        if (isset($_POST['campo_doc7'])) {
+        	$documento7 = $_POST['campo_doc7'];
+        } else {
+        	$documento7 = "";
+        } 
+
+        if (isset($_POST['campo_doc8'])) {
+        	$documento8 = $_POST['campo_doc8'];
+        } else {
+        	$documento8 = "";
+        } 
+
+        if (isset($_POST['campo_doc9'])) {
+        	$documento9 = $_POST['campo_doc9'];
+        } else {
+        	$documento9 = "";
+        } 
+
+        if (isset($_POST['campo_doc10'])) {
+        	$documento10 = $_POST['campo_doc10'];
+        } else {
+        	$documento10 = "";
+        } 
 
         require_once './vendor/autoload.php';
 
@@ -124,17 +169,22 @@ $phpWord->addParagraphStyle('pStyle3_left', $pNew3_1);
 $phpWord->addParagraphStyle('pStyle3_left_spaceAfter', $pNew3_2);
 $phpWord->addParagraphStyle('pStyle4_center', $pNew4);
 
+$sectionStyle1 = array(
+    'marginTop' => 2267.716535433, //4cm
+    'marginLeft' => 1440, //2.54cm
+    'marginRight' => 1440, //2.54cm
+    'marginBottom' => 1440 //2.54cm
+);
+
 //$depth = 1
 //$listStyle = array()
 
 /* Note: any element you append to a document must reside inside of a Section. */
 // Adding an empty Section to the document...
 
-$section = $phpWord->addSection();
+$section = $phpWord->addSection($sectionStyle1);
 
 //$phpWord->addParagraphStyle('pJustify', array('align' => 'both', 'spaceBefore' => 0, 'spaceAfter' => 0, 'spacing' => 0));
-
-$section->addTextBreak(2);  
 
 $section->addText('Barcarena/Pa, ' . $data, 'fStyle1_normal', 'pStyle2_right');
 
@@ -182,43 +232,43 @@ $phpWord->addNumberingStyle('listStyle', array(
     );
 
 if ($documento1 <> "") {
-	$section->addListItem($documento1, 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
+	$section->addListItem($documento1 . ";", 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
 }
 
 if ($documento2 <> "") {
-	$section->addListItem($documento2, 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
+	$section->addListItem($documento2 . ";" , 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
 }
 
 if ($documento3 <> "") {
-	$section->addListItem($documento3, 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
+	$section->addListItem($documento3 . ";", 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
 }
 
 if ($documento4 <> "") {
-	$section->addListItem($documento4, 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
+	$section->addListItem($documento4 . ";", 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
 }
 
 if ($documento5 <> "") {
-	$section->addListItem($documento5, 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
+	$section->addListItem($documento5 . ";", 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
 }
 
 if ($documento6 <> "") {
-	$section->addListItem($documento6, 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
+	$section->addListItem($documento6 . ";", 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
 }
 
 if ($documento7 <> "") {
-	$section->addListItem($documento7, 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
+	$section->addListItem($documento7 . ";", 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
 }
 
 if ($documento8 <> "") {
-	$section->addListItem($documento8, 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
+	$section->addListItem($documento8 . ";", 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
 }
 
 if ($documento9 <> "") {
-	$section->addListItem($documento9, 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
+	$section->addListItem($documento9 . ";", 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
 }
 
 if ($documento10 <> "") {
-	$section->addListItem($documento10, 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
+	$section->addListItem($documento10 . ";", 0, 'fStyle2_bold', 'listStyle','pStyle1_justify_whithoutHanging_spaceAfter');
 }
 
 $section->addText('Informamos a vossa senhoria que o processo nº ' . $numdoprocesso . ' só terá continuidade após a protocolização dos documentos listados. Ressalta-se que o não acatamento desta solicitação acarretará no arquivamento do processo, e que com isso a empresa estará sujeita à legislação que trata dos ilícitos ambientais, à fiscalização e às penas cabíveis e disponíveis.', 'fStyle1_normal', 'pStyle1_justify_withHanging');
@@ -239,7 +289,7 @@ $section->addText('Geólogo/Matrícula 28516-1/1', 'fStyle1_normal', 'pStyle4_ce
 
 
 $header = $section->addHeader();
-$header->addWatermark('C:\xampp\htdocs\Barcarena_Online\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
+$header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
 // Saving the document as OOXML file...
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');

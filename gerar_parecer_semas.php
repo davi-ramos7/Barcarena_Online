@@ -1,6 +1,5 @@
 <div>
-    <h3>GERAR PARECER TÉCNICO</h3>
-    <form class="formulario" action="criar_parecer_semas.php" method="post">
+    <form class="formulario" id="parecer_form_s" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
             <tr>
@@ -22,7 +21,7 @@
                 <td>
                     <span class="carregando">Aguarde, carregando...</span>
                     <select name="cmpEnd" id="cmpEnd">
-                        <option value="">Selecione o endereço...</option>
+                        <option value="">Preenchimento automático...</option>
                     </select>
                 </td>
             </tr>
@@ -31,7 +30,7 @@
                 <td>
                     <span class="carregando">Aguarde, carregando...</span>
                     <select name="cmpAtiv" id="cmpAtiv">
-                        <option value="">Selecione a atividade...</option>
+                        <option value="">Preenchimento automático...</option>
                     </select>
                 </td>
             </tr>
@@ -192,7 +191,7 @@
             
         <table>
             <tr>
-                <td><input type="submit" value="ENVIAR"></td>
+                <td><input type="submit" value="Enviar"></td>
             </tr>
         </table>
     </form>
@@ -214,7 +213,7 @@
                         $('.carregando').hide();
                     });
                 } else {
-                    $('#cmpEnd').html('<option value="">– Escolha a Subcategoria –</option>');
+                    $('#cmpEnd').html('<option value="">Preenchimento automático...</option>');
                 }
             });
         });
@@ -236,7 +235,7 @@
                             $('.carregando').hide();
                         });
                     } else {
-                        $('#cmpAtiv').html('<option value="">– Escolha a Subcategoria –</option>');
+                        $('#cmpAtiv').html('<option value="">Preenchimento automático...</option>');
                     }
                 });
             });
