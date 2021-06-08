@@ -51,7 +51,7 @@ table#table_empresa td:nth-child(1) {
     width: 10%;
 }
 
-table#table_cad td:nth-child(2) {
+table#table_empresa td:nth-child(2) {
     width: 75%;
 }
 
@@ -115,13 +115,13 @@ table#tb_notif td:nth-child(2) {
 
 #upper_border {
 	height: 1.5px;
-	background-color: white;
+	background-color: rgba(236, 226, 208, 0.8);
 	margin-top: 120px;
 }
 
 #lower_border {
 	height: 1.5px;
-	background-color: white;
+	background-color: rgba(236, 226, 208, 0.8);
 	margin-top: 0px;
 }
 
@@ -185,7 +185,7 @@ td {
 
 .formulario{
 	background: #ece2d0;
-	color: #FDFFF7;
+	color: black;
 	font-weight: normal;
 	width: 750px;
 	margin-top: 100px;
@@ -196,8 +196,8 @@ td {
 }
 
 .formulario_empresa{
-	color: #FDFFF7;
-	background: #71425c;
+	color: black;
+	background: #ece2d0;
 	width: 615px;
 	margin-top: 100px;
 	margin-right: auto;
@@ -214,24 +214,13 @@ td {
 	cursor: pointer;
 }
 
-ul#menu li a {
-	color: #ECE2D0;
-	font-weight: normal;
-}
-
-ul#menu li a:hover {
-	color: #ECE2D0;
-	font-weight: normal;
-	background-color: #71677C;
-}
-
 .botao_menu {
 	background: #330C2F;
 	font-size: 18px;
 	font-family: cursive;
 	font-weight: normal;
 	width: 168px;
-	color: #FDFFF7;
+	color: #ece2d0;
 	border: none;
 	height: 30px;
 	margin-top: -2px;
@@ -249,11 +238,10 @@ ul#menu li a:hover {
 	position: absolute;
 	background: #330C2F;
 	width: 168.5px;
+	box-shadow: 0px 8px 16px 0px rgba(28,28,28,0.5);
 }
 
 .submenu2 a {
-	color: #ECE2D0;
-	font-weight: normal;
 	padding-left: 12px;
 	padding-top: 4px;
 	padding-bottom: 4px;
@@ -270,15 +258,14 @@ ul#menu li a:hover {
 }
 
 .acao_menu:hover .botao_menu {
-	background-color: rgba(255,192,190,0.3);
+	background-color: rgba(113,103,124,0.5);
 }
 
 p {
 	font-size: 16px;
 	font-family: cursive;
 	font-weight: normal;
-	color: black;
-	color: #FDFFF7;
+	color: #ece2d0;
 	text-align: center;
 	margin-top: 30px;
 }
@@ -304,7 +291,7 @@ li {
 li a {
 	font-size: 18px;
 	font-family: cursive;
-	color: #FDFFF7;
+	color: #ece2d0;
 	background: #330C2F;
 	font-weight: normal;
 	text-decoration: none;
@@ -317,7 +304,7 @@ li a {
 }
 
 a:hover {
-	background: rgba(255,192,190,0.3);
+	background: rgba(113,103,124,0.5);
 }
 
 input[type=text] {
@@ -355,7 +342,7 @@ table#tblVer {
 label{
 	font-family: cursive;
 	font-size: 14px;
-	color: #FDFFF7;
+	color: black;
 }
 
 input[type=submit]{

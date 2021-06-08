@@ -17,7 +17,7 @@
                 <img src="Logo da Semade.png" width="170px" height="100px"> 
             </div> 
             <div class="menu">
-                <ul id="menu">
+                <ul>
                     <li><a href="index.php?p=gn">Gerar Notificação</a></li>
                     <li>
                         <div class="acao_menu">
@@ -29,8 +29,15 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="index.php?p=ce">Cadastrar Empresa</a></li>
-                    <li><a href="index.php?p=cd">Cadastrar Documento</a></li>
+                    <li>
+                        <div class="acao_menu">
+                            <button class="botao_menu">Cadastrar</button>
+                            <div class="submenu2">
+                                <a href="index.php?p=ce">Cadastrar Empresa</a>
+                                <a href="index.php?p=cd">Cadastrar Documento</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -21,6 +21,27 @@ $(document).ready(function(){
         });
     });
 
+    $('#paginas').on('submit','#doc_form',function(e){
+        e.preventDefault();
+        var formulario = $(this).serialize();
+        $.ajax({
+            type: "post",
+            url: "inserir_doc.php",
+            data: formulario,
+            dataType: "text",
+            success: function (response) {
+                if(response == "ok"){
+                    $('#doc_form').each(function(){
+                        this.reset();
+                    });
+                    alert("O documento foi inserido com sucesso!");
+                }else{
+                    alert(response);
+                }
+            }
+        });
+    });
+
     $('#paginas').on('submit','#notif_form',function(e){
         e.preventDefault();
         var formulario = $(this).serialize();
