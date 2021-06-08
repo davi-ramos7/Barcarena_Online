@@ -1,5 +1,5 @@
 <div>
-    <form class="formulario" action="criar_notif.php" method="post">
+    <form class="formulario" id="notif_form" method="post">
         <?php include_once("conexao.php"); ?>
         <table id="tb_notif">
             <tr>
@@ -22,7 +22,7 @@
                 <td>
                     <span class="carregando">Aguarde, carregando...</span>
                     <select name="cmpEnd" id="cmpEnd">
-                        <option value="">Selecione o endereço...</option>
+                        <option value="#"></option>
                     </select>
                 </td>
             </tr>
@@ -31,7 +31,7 @@
                 <td>
                     <span class="carregando">Aguarde, carregando...</span>
                     <select name="cmpAtiv" id="cmpAtiv">
-                        <option value="">Selecione a atividade...</option>
+                        <option value="#"></option>
                     </select>
                 </td>
             </tr>
