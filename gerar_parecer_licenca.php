@@ -1,5 +1,5 @@
 <div>
-    <form class="formulario" action="criar_parecer_licenca.php" method="post">
+    <form class="formulario" id="parecer_form_l" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
             <tr>
@@ -21,7 +21,7 @@
                 <td>
                     <span class="carregando">Aguarde, carregando...</span>
                     <select name="cmpEnd" id="cmpEnd">
-                        <option value="">Selecione o endereço...</option>
+                        <option value="">Preenchimento automático...</option>
                     </select>
                 </td>
             </tr>
@@ -30,7 +30,7 @@
                 <td>
                     <span class="carregando">Aguarde, carregando...</span>
                     <select name="cmpAtiv" id="cmpAtiv">
-                        <option value="">Selecione a atividade...</option>
+                        <option value="">Preenchimento automático...</option>
                     </select>
                 </td>
             </tr>
@@ -167,13 +167,13 @@
         <div style="display: none; margin-left: 0px" id="dados_notif_01">
             <label style="padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação 1: </label> <button type="button" id="add-campo"> + </button> <br>
             <label style="float: left; margin-bottom: 5px;">Nº: </label>
-            <input type="text" name="num_notif_01" id="nmNot01" style="margin-left: 10px; margin-bottom: 5px;"><br>
+            <input type="text" name="num_notif1" id="nmNot1" style="margin-left: 10px; margin-bottom: 5px;"><br>
             <label style="float:left; margin-bottom: 5px;">Data: </label>
-            <input type="date" name="date_notif_01" id="dtNot01" style="margin-left: 100px; margin-bottom: 5px;"><br>
+            <input type="date" name="date_notif1" id="dtNot1" style="margin-left: 100px; margin-bottom: 5px;"><br>
             <label style="float:left; margin-bottom: 5px;">Recebimento: </label>
-            <input type="date" name="receb_notif_01" id="rbNot01" style="margin-left: 50px; margin-bottom: 5px;"><br>
+            <input type="date" name="receb_notif1" id="rbNot1" style="margin-left: 50px; margin-bottom: 5px;"><br>
             <label style="float:left; margin-bottom: 5px;">Atendimento: </label>
-            <input type="date" name="atend_notif_01" id="atNot01" style="margin-left: 50px; margin-bottom: 5px;">
+            <input type="date" name="atend_notif1" id="atNot1" style="margin-left: 50px; margin-bottom: 5px;">
         </div>
         </main>
     
@@ -199,7 +199,7 @@
                     cont=cont + 1;
                 //https://api.jquery.com/append/
 
-                    $("main").append('<div id="campo' + cont + '"><label style="padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação '+ cont +''+":"+'</label><button type="button" id="' + cont + '" class="btn-apagar"> - </button><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif' + cont + '" id="nmNot' + cont + '" style="margin-left: 10px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif' + cont + '" id="dtNot' + cont + '" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif_' + cont + '" id="rbNot' + cont + '" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif_' + cont + '" id="atNot' + cont + '" style="margin-left: 50px; margin-bottom: 5px;"></div>');
+                    $("main").append('<div id="campo' + cont + '"><label style="padding-left: 100px; padding-right: 100px; margin-bottom: 20px;">Notificação '+ cont +''+":"+'</label><button type="button" id="' + cont + '" class="btn-apagar"> - </button><br><label style="float: left; margin-bottom: 5px;">Nº: </label><input type="text" name="num_notif' + cont + '" id="nmNot' + cont + '" style="margin-left: 10px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Data: </label><input type="date" name="date_notif' + cont + '" id="dtNot' + cont + '" style="margin-left: 100px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Recebimento: </label><input type="date" name="receb_notif' + cont + '" id="rbNot' + cont + '" style="margin-left: 50px; margin-bottom: 5px;"><br><label style="float:left; margin-bottom: 5px;">Atendimento: </label><input type="date" name="atend_notif' + cont + '" id="atNot' + cont + '" style="margin-left: 50px; margin-bottom: 5px;"></div>');
                 });
 
                 $("form").on("click", ".btn-apagar", function () {
@@ -251,7 +251,7 @@
                         $('.carregando').hide();
                     });
                 } else {
-                    $('#cmpEnd').html('<option value="">– Escolha a Subcategoria –</option>');
+                    $('#cmpEnd').html('<option value="">Preenchimento automático...</option>');
                 }
             });
         });
@@ -273,7 +273,7 @@
                             $('.carregando').hide();
                         });
                     } else {
-                        $('#cmpAtiv').html('<option value="">– Escolha a Subcategoria –</option>');
+                        $('#cmpAtiv').html('<option value="">Preenchimento automático...</option>');
                     }
                 });
             });

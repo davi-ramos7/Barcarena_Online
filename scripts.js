@@ -31,10 +31,73 @@ $(document).ready(function(){
             dataType: "text",
             success: function (response) {
                 if(response == "ok"){
-                    $('#notif_form').each(function(){
-                        this.reset();
-                    });
+                    $('#notif_form').trigger("reset");
+                    $('#cmpEnd').html("Preenchimento automático...");
+                    $('#cmpAtiv').html("Preenchimento automático...");
                     alert("A notificação foi gerada com sucesso!");
+                }else{
+                    alert(response);
+                }
+            }
+        });
+    });
+
+    $('#paginas').on('submit','#parecer_form_d',function(e){
+        e.preventDefault();
+        var formulario = $(this).serialize();
+        $.ajax({
+            type: "post",
+            url: "criar_parecer_dispensa.php",
+            data: formulario,
+            dataType: "text",
+            success: function (response) {
+                if(response == "ok"){
+                    $('#parecer_form_d').trigger("reset");
+                    $('#cmpEnd').html("Preenchimento automático...");
+                    $('#cmpAtiv').html("Preenchimento automático...");
+                    alert("O parecer foi gerado com sucesso!");
+                }else{
+                    alert(response);
+                }
+            }
+        });
+    });
+
+    $('#paginas').on('submit','#parecer_form_l',function(e){
+        e.preventDefault();
+        var formulario = $(this).serialize();
+        $.ajax({
+            type: "post",
+            url: "criar_parecer_licenca.php",
+            data: formulario,
+            dataType: "text",
+            success: function (response) {
+                if(response == "ok"){
+                    $('#parecer_form_l').trigger("reset");
+                    $('#cmpEnd').html("Preenchimento automático...");
+                    $('#cmpAtiv').html("Preenchimento automático...");
+                    alert("O parecer foi gerado com sucesso!");
+                }else{
+                    alert(response);
+                }
+            }
+        });
+    });
+
+    $('#paginas').on('submit','#parecer_form_s',function(e){
+        e.preventDefault();
+        var formulario = $(this).serialize();
+        $.ajax({
+            type: "post",
+            url: "criar_parecer_semas.php",
+            data: formulario,
+            dataType: "text",
+            success: function (response) {
+                if(response == "ok"){
+                    $('#parecer_form_s').trigger("reset");
+                    $('#cmpEnd').html("Preenchimento automático...");
+                    $('#cmpAtiv').html("Preenchimento automático...");
+                    alert("O parecer foi gerado com sucesso!");
                 }else{
                     alert(response);
                 }
