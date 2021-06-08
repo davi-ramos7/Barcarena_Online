@@ -38,6 +38,15 @@
                             </div>
                         </div>
                     </li>
+                    <li>
+                        <div class="acao_menu">
+                            <button class="botao_menu">Editar</button>
+                            <div class="submenu2">
+                                <a href="index.php?p=ee">Empresa</a>
+                                <a href="index.php?p=ed">Documento</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -65,6 +74,10 @@
                     include "gerar_parecer_dispensa.php";
                 }elseif($pagina == 'ps'){
                     include "gerar_parecer_semas.php";
+                }elseif($pagina == 'ee'){
+                    include "editar_empresa.php";
+                }elseif($pagina == 'ed'){
+                    include "editar_doc.php";
                 }
             ?>
         </div>
