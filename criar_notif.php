@@ -245,9 +245,9 @@ $header->addWatermark('C:\xampp\htdocs\Barcarena_Online\SEMADE-2021.jpg', array(
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 $objWriter->save('NOTIFICACAO.docx');
 
-echo "NOTIFICAÇÃO EMITIDA.";
+		echo "ok";
         
     }else{
-		echo "Inserir dados";
+		echo "erro";
 	}
 ?>
