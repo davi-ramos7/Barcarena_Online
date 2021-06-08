@@ -14,27 +14,105 @@
 		$nomedaempresa = $empresa;
 
         $endereco = $_POST['cmpEnd'];
+        
+        if (isset($_POST['end_da_ativ'])) {
+            $enderecodaatividade = $_POST['end_da_ativ'];
+        } else {
+            $enderecodaatividade = "";
+        }
+
         $atividade = $_POST['cmpAtiv'];
         $numdoparecer = $_POST['campo_numPar'];
         $numdoprocesso = $_POST['campo_numProc'];
         $numdoprotocolo = $_POST['campo_numProt'];
         $datadeentrada = $_POST['campo_date'];
         $solicitacao = $_POST['solicitacao'];
-        $procurador = $_POST['campo_proc'];
+
+        if (isset($_POST['campo_proc'])) {
+            $procurador = $_POST['campo_proc'];
+        } else {
+            $procurador = "";
+        }
+
         $vistoria = $_POST['vistoria'];
-        $datadavistoria = $_POST['date_vist'];
-       	$numdanotificacao1 = $_POST['num_notif1'];
-        $datadanotificacao1 = $_POST['date_notif1'];
-        $dataderecebdanotificacao1 = $_POST['receb_notif1'];
-        $datadeatendimdanotifacao1 = $_POST['atend_notif1'];
-        $numdanotificacao2 = $_POST['num_notif2'];
-        $datadanotificacao2 = $_POST['date_notif2'];
-        $dataderecebdanotificacao2 = $_POST['receb_notif2'];
-        $datadeatendimdanotifacao2 = $_POST['atend_notif2'];
-        $numdanotificacao3 = $_POST['num_notif3'];
-        $datadanotificacao3 = $_POST['date_notif3'];
-        $dataderecebdanotificacao3 = $_POST['receb_notif3'];
-        $datadeatendimdanotifacao3 = $_POST['atend_notif3'];
+
+        if (isset($_POST['date_vist'])) {
+            $datadavistoria = $_POST['date_vist'];
+        } else {
+            $datadavistoria = "";
+        }
+
+        if (isset($_POST['num_notif1'])) {
+            $numdanotificacao1 = $_POST['num_notif1'];
+        } else {
+            $numdanotificacao1 = "";
+        }
+
+        if (isset($_POST['date_notif1'])) {
+            $datadanotificacao1 = $_POST['date_notif1'];
+        } else {
+            $datadanotificacao1 = "";
+        }
+
+        if (isset($_POST['receb_notif1'])) {
+            $dataderecebdanotificacao1 = $_POST['receb_notif1'];
+        } else {
+            $dataderecebdanotificacao1 = "";
+        }
+
+        if (isset($_POST['atend_notif1'])) {
+            $datadeatendimdanotifacao1 = $_POST['atend_notif1'];
+        } else {
+            $datadeatendimdanotifacao1 = "";
+        }
+
+        if (isset($_POST['num_notif2'])) {
+            $numdanotificacao2 = $_POST['num_notif2'];
+        } else {
+            $numdanotificacao2 = "";
+        }
+
+        if (isset($_POST['date_notif2'])) {
+            $datadanotificacao2 = $_POST['date_notif2'];
+        } else {
+            $datadanotificacao2 = "";
+        }
+
+        if (isset($_POST['receb_notif2'])) {
+            $dataderecebdanotificacao2 = $_POST['receb_notif2'];
+        } else {
+            $dataderecebdanotificacao2 = "";
+        }
+
+        if (isset($_POST['atend_notif2'])) {
+            $datadeatendimdanotifacao2 = $_POST['atend_notif2'];
+        } else {
+            $datadeatendimdanotifacao2 = "";
+        }
+
+        if (isset($_POST['num_notif3'])) {
+            $numdanotificacao3 = $_POST['num_notif3'];
+        } else {
+            $numdanotificacao3 = "";
+        }
+
+        if (isset($_POST['date_notif3'])) {
+            $datadanotificacao3 = $_POST['date_notif3'];
+        } else {
+            $datadanotificacao3 = "";
+        }
+
+        if (isset($_POST['receb_notif3'])) {
+            $dataderecebdanotificacao3 = $_POST['receb_notif3'];
+        } else {
+            $dataderecebdanotificacao3 = "";
+        }
+
+        if (isset($_POST['atend_notif3'])) {
+            $datadeatendimdanotifacao3 = $_POST['atend_notif3'];
+        } else {
+            $datadeatendimdanotifacao3 = "";
+        }
 
 require_once './vendor/autoload.php';
 
