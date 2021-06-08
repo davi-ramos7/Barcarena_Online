@@ -150,7 +150,7 @@ td {
 
 .topo {
 	height: 120px;
-	background: #330C2F;
+	background: #37123c;
 	position: absolute; 
 	width: 100%;
 	top: 0;
@@ -164,13 +164,13 @@ td {
     font-size: 14pt;
     position: absolute;
 	text-align: justify;
-	background: #fbc3bc;
+	background: #71677c;
 	z-index: 0;
 }
 
 .rodape {
 	height: 80px;
-	background: #330C2F;
+	background: #37123c;
 	position: fixed;
     width: 100%;
     bottom: 0%;
@@ -184,7 +184,7 @@ td {
 }
 
 .formulario{
-	background: #71425c;
+	background: #ece2d0;
 	color: #FDFFF7;
 	font-weight: normal;
 	width: 750px;
