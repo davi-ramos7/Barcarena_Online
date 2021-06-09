@@ -40,10 +40,10 @@
                     </li>
                     <li>
                         <div class="acao_menu">
-                            <button class="botao_menu">Editar</button>
+                            <button class="botao_menu">Listar/Editar</button>
                             <div class="submenu2">
-                                <a href="index.php?p=ee">Empresa</a>
-                                <a href="index.php?p=ed">Documento</a>
+                                <a href="index.php?pagina=1">Empresas</a>
+                                <a href="index.php?p=led">Documentos</a>
                             </div>
                         </div>
                     </li>
@@ -55,8 +55,10 @@
             </div>
 
             <?php
-                if(isset($_GET['p'])){
+                if(isset($_GET['p']) && isset($_GET['pagina']) == false){
                     $pagina = $_GET['p'];
+                }elseif(isset($_GET['p']) == false && isset($_GET['pagina'])){
+                    $pagina = $_GET['pagina'];
                 }else{
                     $pagina = 'gn';
                 }
@@ -74,10 +76,12 @@
                     include "gerar_parecer_dispensa.php";
                 }elseif($pagina == 'ps'){
                     include "gerar_parecer_semas.php";
-                }elseif($pagina == 'ee'){
-                    include "editar_empresa.php";
-                }elseif($pagina == 'ed'){
-                    include "editar_doc.php";
+                }elseif(is_numeric($pagina) && isset($_GET['pagina'])){
+                    include "listar_editar_empresa.php";
+                }elseif($pagina == 'led'){
+                    include "listar_editar_doc.php";
+                }elseif(is_numeric($pagina) && isset($_GET['pagina']) == false){
+                    include "edit_empresa.php";
                 }
             ?>
         </div>

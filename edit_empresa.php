@@ -3,7 +3,7 @@ session_start();
 include_once("conexao.php");
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $result_usuario = "SELECT * FROM lista_de_empresas WHERE id = '$id'";
-$resultado_usuario = mysqli_query($conn, $result_usuario);
+$resultado_usuario = mysqli_query($con, $result_usuario);
 $row_usuario = mysqli_fetch_assoc($resultado_usuario);
 ?>
 <!DOCTYPE html>
