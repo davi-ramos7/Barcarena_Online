@@ -8,6 +8,44 @@ include_once("conexao.php");
 		<title>Listar Empresas</title>		
 	</head>
 	<body>
+		
+		<!-- include_once("conexao.php");
+		$max = 3; // define a quantidade de linha
+		if(!$pagina){
+		$pagina = 1;
+		}
+		$inicio = $pagina -1;
+		$inicio = $inicio * $max;
+
+		$consulta = "SELECT * FROM lista_de_empresas";
+
+		$query = mysqli_query($con, "$consulta LIMIT $inicio,$max");
+		$todos = mysqli_query($con, $consulta);
+		$total = mysqli_num_rows($todos);
+
+		$tp = $total / $max;
+		$regLinha = 5;//VOCE ESCOLHE O NUMERO DE REGISTRO POR LINHA
+		  $i = ceil($max / $regLinha);
+		  $j = 1;
+		  $z = 0;
+		echo "         
+		<table id='teste' border=1><tr>
+		  ";
+		while($x = mysqli_fetch_array($query)){
+		echo "<td>".$x['nome']."</td><td>".$x['atividade']."</td>";
+		    $z++;
+		    if($z == $regLinha and $j < $i){
+		      echo "</tr><tr>";
+		      $z = 0;
+		      $j++;
+		    }
+		    if($z == $regLinha and $j == $i){
+		      echo "</tr>";
+		    }
+		}
+  
+		echo "</table>"; -->
+
 		<?php
 		
 		//Receber o número da página
@@ -22,8 +60,11 @@ include_once("conexao.php");
 		
 		$result_usuarios = "SELECT * FROM lista_de_empresas LIMIT $inicio, $qnt_result_pg";
 		$resultado_usuarios = mysqli_query($con, $result_usuarios);
+
+		echo "<table id='table_ver_empresas'>";
+
 		while($row_usuario = mysqli_fetch_assoc($resultado_usuarios)){
-			echo "<table id='table_ver_empresas'>";
+			
 				echo "<tr>";
 					echo "<td>Nome: </td><td>" . $row_usuario['nome'] . "</td>";
 				echo "<tr>";
@@ -38,9 +79,10 @@ include_once("conexao.php");
 				echo "<tr>";
 				echo "<tr>";
 					echo "<td><a href='index.php?p=" . $row_usuario['id'] . "'><button>Editar</button></a></td><td></td>";
-				echo "<tr>";
-			echo "</table><br>";
+				echo "<tr>";	
 		}
+
+		echo "</table><br>";
 		
 		//Paginção - Somar a quantidade de empresas
 		$result_pg = "SELECT COUNT(id) AS num_result FROM lista_de_empresas";

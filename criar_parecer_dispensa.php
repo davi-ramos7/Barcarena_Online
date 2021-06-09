@@ -291,4 +291,9 @@ $header->addWatermark('C:\xampp\htdocs\Barcarena_Online\SEMADE-2021.jpg', array(
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 $objWriter->save('PARECER_1_D_SV.docx');
 
-echo "PARECER EMITIDO.";
+echo "ok";
+        
+    }else{
+        echo "erro";
+    }
+?>
