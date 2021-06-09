@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include_once("conexao.php");
 $id = filter_input(INPUT_GET, 'p', FILTER_SANITIZE_NUMBER_INT);
 $result_usuario = "SELECT * FROM lista_de_empresas WHERE id = '$id'";
@@ -13,14 +13,9 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
 		<title>CRUD - Editar</title>		
 	</head>
 	<body>
-		<?php
-		if(isset($_SESSION['msg'])){
-			echo $_SESSION['msg'];
-			unset($_SESSION['msg']);
-		}
-		?>
+
 		<!-- <form method="POST" action="proc_edit_usuario.php"> -->
-        <form class="formulario_empresa" id="edit_empresa_form" method="post">
+        <form class="formulario_empresa" id="edit_emp_form" method="post">
             <table id="table_empresa">
                 <tr>
                     <td><input type="hidden" name="id" value="<?php echo $row_usuario['id']; ?>"></td><td></td>

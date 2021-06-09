@@ -1,5 +1,4 @@
 <?php
-session_start();
 include_once("conexao.php");
 ?>
 <!DOCTYPE html>
@@ -10,10 +9,6 @@ include_once("conexao.php");
 	</head>
 	<body>
 		<?php
-		if(isset($_SESSION['msg'])){
-			echo $_SESSION['msg'];
-			unset($_SESSION['msg']);
-		}
 		
 		//Receber o número da página
 		$pagina_atual = filter_input(INPUT_GET,'pagina', FILTER_SANITIZE_NUMBER_INT);		
