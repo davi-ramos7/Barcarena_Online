@@ -37,6 +37,7 @@ include_once("conexao.php");
 					echo "<td>Endereço: </td><td>" . $row_usuario['endereco'] . "</td>";
 				echo "<tr>";
 				echo "<tr>";
+					echo "<td><a href='index.php?p=" . $row_usuario['id'] . "'><button>Editar</button></a></td><td></td>";
 				echo "<tr>";
 			echo "</table><br>";
 		}
