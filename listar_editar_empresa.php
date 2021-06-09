@@ -8,44 +8,6 @@ include_once("conexao.php");
 		<title>Listar Empresas</title>		
 	</head>
 	<body>
-		
-		<!-- include_once("conexao.php");
-		$max = 3; // define a quantidade de linha
-		if(!$pagina){
-		$pagina = 1;
-		}
-		$inicio = $pagina -1;
-		$inicio = $inicio * $max;
-
-		$consulta = "SELECT * FROM lista_de_empresas";
-
-		$query = mysqli_query($con, "$consulta LIMIT $inicio,$max");
-		$todos = mysqli_query($con, $consulta);
-		$total = mysqli_num_rows($todos);
-
-		$tp = $total / $max;
-		$regLinha = 5;//VOCE ESCOLHE O NUMERO DE REGISTRO POR LINHA
-		  $i = ceil($max / $regLinha);
-		  $j = 1;
-		  $z = 0;
-		echo "         
-		<table id='teste' border=1><tr>
-		  ";
-		while($x = mysqli_fetch_array($query)){
-		echo "<td>".$x['nome']."</td><td>".$x['atividade']."</td>";
-		    $z++;
-		    if($z == $regLinha and $j < $i){
-		      echo "</tr><tr>";
-		      $z = 0;
-		      $j++;
-		    }
-		    if($z == $regLinha and $j == $i){
-		      echo "</tr>";
-		    }
-		}
-  
-		echo "</table>"; -->
-
 		<?php
 		
 		//Receber o número da página
@@ -57,32 +19,35 @@ include_once("conexao.php");
 		
 		//calcular o inicio visualização
 		$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
-		
+
 		$result_usuarios = "SELECT * FROM lista_de_empresas LIMIT $inicio, $qnt_result_pg";
 		$resultado_usuarios = mysqli_query($con, $result_usuarios);
+		
+		$regLinha = 1;//VOCE ESCOLHE O NUMERO DE REGISTROS POR LINHA
+		$i = ceil($qnt_result_pg / $regLinha);
+		$j = 1;
+		$z = 0;
 
-		echo "<table id='table_ver_empresas'>";
+		echo "         
+		<table id='table_ver_empresas' border=1><tr><td>Nome</td><td>Atividade</td><td>Cnpj/Cpf</td><td>Endereço</td><tr> ";
 
-		while($row_usuario = mysqli_fetch_assoc($resultado_usuarios)){
-			
-				echo "<tr>";
-					echo "<td>Nome: </td><td>" . $row_usuario['nome'] . "</td>";
-				echo "<tr>";
-				echo "<tr>";
-					echo "<td>Atividade: </td><td>" . $row_usuario['atividade'] . "</td>";
-				echo "<tr>";
-				echo "<tr>";
-					echo "<td>Cnpj/Cpf: </td><td>" . $row_usuario['cnpj_cpf'] . "</td>";
-				echo "<tr>";
-				echo "<tr>";
-					echo "<td>Endereço: </td><td>" . $row_usuario['endereco'] . "</td>";
-				echo "<tr>";
-				echo "<tr>";
-					echo "<td><a href='index.php?p=" . $row_usuario['id'] . "'><button>Editar</button></a></td><td></td>";
-				echo "<tr>";	
+		while($x = mysqli_fetch_array($resultado_usuarios)){
+			echo "<td>".$x['nome']."</td><td>".$x['atividade']."</td><td>".$x['cnpj_cpf']."</td><td>".$x['endereco']."</td><td><a href='index.php?p=" . $x['id'] . "'><button style='margin-left:10px;'>Editar</button></a></td>";
+
+		    $z++;
+
+		    if($z == $regLinha and $j < $i){
+		      echo "</tr><tr>";
+		      $z = 0;
+		      $j++;
+
+		    }
+		    if($z == $regLinha and $j == $i){
+		      echo "</tr>";
+		    }
 		}
-
-		echo "</table><br>";
+		  
+		echo "</table>";
 		
 		//Paginção - Somar a quantidade de empresas
 		$result_pg = "SELECT COUNT(id) AS num_result FROM lista_de_empresas";

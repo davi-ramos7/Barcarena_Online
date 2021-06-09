@@ -64,25 +64,19 @@ table#tb_notif td:nth-child(2) {
 }
 
 table#table_ver_empresas td:nth-child(1) {
-	width: 15%;
+	width: 35%;
 }
 
 table#table_ver_empresas td:nth-child(2) {
-	width: 85%;
+	width: 35%;
 }
 
-table#teste td:nth-child(1) {
-	width: 50%;
+table#table_ver_empresas td:nth-child(3) {
+	width: 10%;
 }
 
-table#teste td:nth-child(2) {
-	width: 50%;
-}
-
-#teste {
-	margin-left: 10px;
-	width: 80%;
-	background: orange;
+table#table_ver_empresas td:nth-child(4) {
+	width: 30%;
 }
 
 #table_empresa {
@@ -94,7 +88,7 @@ table#teste td:nth-child(2) {
 	background: #ece2d0;
 	color: black;
 	font-weight: normal;
-	width: 600px;
+	width: 80%;
 	margin-right: auto;
     margin-left: auto;
 	border-radius: 5px;
