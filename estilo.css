@@ -63,8 +63,27 @@ table#tb_notif td:nth-child(2) {
     width: 60%;
 }
 
+table#table_ver_empresas td:nth-child(1) {
+	width: 15%;
+}
+
+table#table_ver_empresas td:nth-child(2) {
+	width: 85%;
+}
+
 #table_empresa {
 	margin-left: 10px;
+}
+
+#table_ver_empresas {
+	margin-top: 10px;
+	background: #ece2d0;
+	color: black;
+	font-weight: normal;
+	width: 600px;
+	margin-right: auto;
+    margin-left: auto;
+	border-radius: 5px;
 }
 
 #tb_notif {

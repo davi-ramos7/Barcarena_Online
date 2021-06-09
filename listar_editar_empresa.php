@@ -23,11 +23,22 @@ include_once("conexao.php");
 		$result_usuarios = "SELECT * FROM lista_de_empresas LIMIT $inicio, $qnt_result_pg";
 		$resultado_usuarios = mysqli_query($con, $result_usuarios);
 		while($row_usuario = mysqli_fetch_assoc($resultado_usuarios)){
-			echo "Nome: " . $row_usuario['nome'] . "<br>";
-			echo "Atividade: " . $row_usuario['atividade'] . "<br>";
-			echo "Cnpj/Cpf: " . $row_usuario['cnpj_cpf'] . "<br>";
-			echo "Endereço: " . $row_usuario['endereco'] . "<br>";
-			echo "<a href='index.php?p=" . $row_usuario['id'] . "'>Editar</a><br><hr>";
+			echo "<table id='table_ver_empresas'>";
+				echo "<tr>";
+					echo "<td>Nome: </td><td>" . $row_usuario['nome'] . "</td>";
+				echo "<tr>";
+				echo "<tr>";
+					echo "<td>Atividade: </td><td>" . $row_usuario['atividade'] . "</td>";
+				echo "<tr>";
+				echo "<tr>";
+					echo "<td>Cnpj/Cpf: </td><td>" . $row_usuario['cnpj_cpf'] . "</td>";
+				echo "<tr>";
+				echo "<tr>";
+					echo "<td>Endereço: </td><td>" . $row_usuario['endereco'] . "</td>";
+				echo "<tr>";
+				echo "<tr>";
+				echo "<tr>";
+			echo "</table><br>";
 		}
 		
 		//Paginção - Somar a quantidade de empresas
