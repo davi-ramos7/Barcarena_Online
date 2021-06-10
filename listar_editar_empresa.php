@@ -21,11 +21,10 @@ include_once("conexao.php");
 			if($parametro) {
 				//Setar a quantidade de itens por pagina
 				$qnt_result_pg = 100;
-				
-				//calcular o inicio visualização
-				$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
-				$result_usuarios = "SELECT * FROM lista_de_empresas WHERE nome LIKE '%$parametro%' ORDER BY nome LIMIT $inicio, $qnt_result_pg";				
+				$inicio = 0;
+
+				$result_empresas = "SELECT * FROM lista_de_empresas WHERE nome LIKE '%$parametro%' ORDER BY nome LIMIT $inicio, $qnt_result_pg";				
 
 			} else {
 				//Setar a quantidade de itens por pagina
@@ -34,14 +33,14 @@ include_once("conexao.php");
 				//calcular o inicio visualização
 				$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
-				$result_usuarios = "SELECT * FROM lista_de_empresas LIMIT $inicio, $qnt_result_pg";
+				$result_empresas = "SELECT * FROM lista_de_empresas LIMIT $inicio, $qnt_result_pg";
 			}
 
 		// } else {
 		// 	$result_usuarios = "SELECT * FROM lista_de_empresas LIMIT $inicio, $qnt_result_pg";
 		// }
 		
-		$resultado_usuarios = mysqli_query($con, $result_usuarios);
+		$resultado_empresas = mysqli_query($con, $result_empresas);
 		
 		$regLinha = 1;//VOCE ESCOLHE O NUMERO DE REGISTROS POR LINHA
 		$i = ceil($qnt_result_pg / $regLinha);
@@ -49,7 +48,7 @@ include_once("conexao.php");
 		$z = 0;
 		?>
 		
-		<form class="filtro" action="#" method="POST" target="_self">
+		<form class="filtro" action="" method="POST" target="_self">
 			<input type="text" name="parametro" placeholder="Digite aqui a sua pesquisa...">
 			<input type="submit" value="Pesquisar" id="submit_pesquisa">
 		</form>
@@ -59,7 +58,7 @@ include_once("conexao.php");
 		echo "         
 		<table id='table_ver_empresas' border=1><tr id='primeira_linha'><td>Nome</td><td>Atividade</td><td>Cnpj/Cpf</td><td>Endereço</td><tr> ";
 
-		while($x = mysqli_fetch_array($resultado_usuarios)){
+		while($x = mysqli_fetch_array($resultado_empresas)){
 			echo "<td>".$x['nome']."</td><td>".$x['atividade']."</td><td>".$x['cnpj_cpf']."</td><td>".$x['endereco']."</td><td><a href='index.php?p=" . $x['id'] . "'><button id='button_editar'>Editar</button></a></td>";
 
 		    $z++;
@@ -100,7 +99,7 @@ include_once("conexao.php");
 			}
 		}
 			
-		echo "<a href='#' style='color:black'>$pagina</a> ";
+		echo "<a href='' style='color:black'>$pagina</a> ";
 		
 		for($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++){
 			if($pag_dep <= $quantidade_pg){
