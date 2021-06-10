@@ -15,24 +15,46 @@ include_once("conexao.php");
 		$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
 		
 		//Setar a quantidade de itens por pagina
-		$qnt_result_pg = 10;
+		$qnt_result_pg = 50;
 		
 		//calcular o inicio visualização
 		$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
-		$result_usuarios = "SELECT * FROM lista_de_empresas LIMIT $inicio, $qnt_result_pg";
+		// if( $_SERVER['REQUEST_METHOD'] == 'POST') {
+
+		$parametro = filter_input(INPUT_POST,'parametro', FILTER_SANITIZE_STRING);
+
+			if($parametro) {
+				$result_usuarios = "SELECT * FROM lista_de_empresas WHERE nome LIKE '$parametro%' ORDER BY nome";
+			} else {
+				$result_usuarios = "SELECT * FROM lista_de_empresas LIMIT $inicio, $qnt_result_pg";
+			}
+
+		// } else {
+		// 	$result_usuarios = "SELECT * FROM lista_de_empresas LIMIT $inicio, $qnt_result_pg";
+		// }
+		
 		$resultado_usuarios = mysqli_query($con, $result_usuarios);
 		
 		$regLinha = 1;//VOCE ESCOLHE O NUMERO DE REGISTROS POR LINHA
 		$i = ceil($qnt_result_pg / $regLinha);
 		$j = 1;
 		$z = 0;
+		?>
+
+		
+		<form action="#" method="POST" target="_self">
+			<input type="text" name="parametro">
+			<input type="submit" value="buscar">
+		</form>
+
+		<?php
 
 		echo "         
-		<table id='table_ver_empresas' border=1><tr><td>Nome</td><td>Atividade</td><td>Cnpj/Cpf</td><td>Endereço</td><tr> ";
+		<table id='table_ver_empresas' border=1><tr id='primeira_linha'><td>Nome</td><td>Atividade</td><td>Cnpj/Cpf</td><td>Endereço</td><tr> ";
 
 		while($x = mysqli_fetch_array($resultado_usuarios)){
-			echo "<td>".$x['nome']."</td><td>".$x['atividade']."</td><td>".$x['cnpj_cpf']."</td><td>".$x['endereco']."</td><td><a href='index.php?p=" . $x['id'] . "'><button style='margin-left:10px;'>Editar</button></a></td>";
+			echo "<td>".$x['nome']."</td><td>".$x['atividade']."</td><td>".$x['cnpj_cpf']."</td><td>".$x['endereco']."</td><td><a href='index.php?p=" . $x['id'] . "'><button id='button_editar'>Editar</button></a></td>";
 
 		    $z++;
 
@@ -47,7 +69,7 @@ include_once("conexao.php");
 		    }
 		}
 		  
-		echo "</table>";
+		echo "</table><br>";
 		
 		//Paginção - Somar a quantidade de empresas
 		$result_pg = "SELECT COUNT(id) AS num_result FROM lista_de_empresas";
@@ -59,7 +81,7 @@ include_once("conexao.php");
 		
 		//Limitar os links antes e depois
 		$max_links = 2;
-		echo "<a href='index.php?pagina=1'>Primeira</a> ";
+		echo "<a href='index.php?pagina=1' id='primeira'>Primeira</a> ";
 		
 		for($pag_ant = $pagina - $max_links; $pag_ant <= $pagina - 1; $pag_ant++){
 			if($pag_ant >= 1){
@@ -67,7 +89,7 @@ include_once("conexao.php");
 			}
 		}
 			
-		echo "$pagina ";
+		echo "<a href='#' style='color:black'>$pagina</a> ";
 		
 		for($pag_dep = $pagina + 1; $pag_dep <= $pagina + $max_links; $pag_dep++){
 			if($pag_dep <= $quantidade_pg){
@@ -75,7 +97,7 @@ include_once("conexao.php");
 			}
 		}
 		
-		echo "<a href='index.php?pagina=$quantidade_pg'>Ultima</a>";
+		echo "<a href='index.php?pagina=$quantidade_pg'>Última</a>";
 		
 		?>		
 	</body>
