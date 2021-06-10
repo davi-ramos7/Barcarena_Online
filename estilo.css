@@ -341,6 +341,10 @@ li a {
 	border-style: solid;
 }
 
+#g_not {
+	margin-top: 0.7px;
+}
+
 a#primeira {
 	margin-left: 45%;
 }

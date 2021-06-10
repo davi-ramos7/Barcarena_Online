@@ -18,7 +18,7 @@
             </div> 
             <div class="menu">
                 <ul>
-                    <li><a href="index.php?p=gn">Gerar Notificação</a></li>
+                    <li id="g_not"><a href="index.php?p=gn">Gerar Notificação</a></li>
                     <li>
                         <div class="acao_menu">
                             <button class="botao_menu">Gerar Parecer</button>

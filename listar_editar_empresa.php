@@ -22,13 +22,17 @@ include_once("conexao.php");
 				//Setar a quantidade de itens por pagina
 				$qnt_result_pg = 100;
 
-				$inicio = 0;
+				$pagina = 1;
+
+				//calcular o inicio visualização
+				$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
+				// $inicio = 0;
 
 				$result_empresas = "SELECT * FROM lista_de_empresas WHERE nome LIKE '%$parametro%' ORDER BY nome LIMIT $inicio, $qnt_result_pg";				
 
 			} else {
 				//Setar a quantidade de itens por pagina
-				$qnt_result_pg = 100;
+				$qnt_result_pg = 50;
 				
 				//calcular o inicio visualização
 				$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
