@@ -96,6 +96,8 @@
                     <option value="Renovação de Licença de Operação">Renovação de Licença de Operação</option>
                     <option value="Dispensa de Licenciamento Ambiental">Dispensa de Licenciamento Ambiental</option>
                     <option value="Renovação de Dispensa de Licenciamento Ambiental">Renovação de Dispensa de Licenciamento Ambiental</option>
+                    <option value="Autorização para Depósito de Resíduos Inertes">Autorização para Depósito de Resíduos Inertes</option>
+                    <option value="Renovação de Autorização para Depósitos de Resíduos Inertes">Renovação de Autorização para Depósitos de Resíduos Inertes</option>
                     </select>
                 </td>
             </tr>
@@ -104,9 +106,9 @@
             </tr>
             <tr>
                 <td>Houve vistoria? </td><td>
-                    <input type="radio" id="n" name="vistoria" value="não" onchange="myFunction_1()">
+                    <input type="radio" id="n" name="endereco" value="não" onchange="myFunction_1()">
                     <label for="n">Não</label>
-                    <input type="radio" id="s" name="vistoria" value="sim" onchange="myFunction_1()">
+                    <input type="radio" id="s" name="endereco" value="sim" onchange="myFunction_1()">
                     <label for="s">Sim</label><br>
                 </td>
             </tr>

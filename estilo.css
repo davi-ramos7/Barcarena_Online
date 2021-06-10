@@ -47,6 +47,18 @@ td:nth-child(2) {
     width: 75%;
 }
 
+table#table_doc td:nth-child(1) {
+    width: 20%;
+}
+
+table#table_doc td:nth-child(2) {
+    width: 50%;
+}
+
+table#table_doc td:nth-child(3) {
+    width: 10%;
+}
+
 table#table_empresa td:nth-child(1) {
     width: 10%;
 }
@@ -85,6 +97,11 @@ table#table_ver_docs td:nth-child(1) {
 
 #table_empresa {
 	margin-left: 10px;
+}
+
+#table_doc {
+	background: orange;
+	width: 720px;
 }
 
 #table_ver_empresas {

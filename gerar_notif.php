@@ -46,15 +46,20 @@
             </tr>
         </table>
 
-        <main> 
-            <div id="doc1">
-                <label>Documento 1: </label>
-                <select name="campo_doc1" id="cmpdoc1" style="margin-left: 90px; margin-top: 4px;">
-                    <option value="#">Selecione...</option>
-                </select>
-                <button type="button" id="add-campo"> + </button>
-            </div>
-        </main>            
+        <table id="table_doc">
+            <tr id="doc1">
+                <td>Documento 1: </td><td><select name="campo_doc1" id="cmpdoc1" style="margin-top: 4px">
+                        <option value="#">Selecione...</option>
+                    </select></td><td><button type="button" id="add-campo"> + </button></td>
+            </tr>
+                <!-- <div id="doc1">
+                    <label>Documento 1: </label>
+                    <select name="campo_doc1" id="cmpdoc1" style="margin-top: 4px;">
+                        <option value="#">Selecione...</option>
+                    </select>
+                    <button type="button" id="add-campo"> + </button>
+                </div> -->
+        </table>          
 
             <script>
             var cont = 1;
@@ -63,7 +68,7 @@
                     cont=cont + 1;
                 //https://api.jquery.com/append/
 
-                    $("main").append('<div id="doc' + cont + '"><label>Documento ' + cont + ' '+":"+' </label><select name="campo_doc' + cont + '" id="cmpdoc' + cont + '" style="margin-left: 84px; margin-top: 4px; margin-right: 6px"><option value="#">Selecione...</option></select><button type="button" id="' + cont+ '" class="btn-apagar"> - </button></div>');
+                    $("main").append('<tr id="doc' + cont + '"><td>Documento ' + cont + ' '+":"+' </td><td><select name="campo_doc' + cont + '" id="cmpdoc' + cont + '" style="margin-top: 4px; margin-right: 6px"><option value="#">Selecione...</option></select></td><td><button type="button" id="' + cont+ '" class="btn-apagar"> - </button></td></tr>');
                     });
 
                 $("form").on("click", ".btn-apagar", function () {

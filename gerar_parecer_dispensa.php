@@ -44,9 +44,9 @@
             </tr>
             <tr>
                 <td>O endereço da empresa é o mesmo da atividade? </td><td>
-                    <input type="radio" id="se" name="vistoria" value="sim" onchange="myFunction_end()">
+                    <input type="radio" id="se" name="endereco" value="sim" onchange="myFunction_end()">
                     <label for="se">Sim</label>
-                    <input type="radio" id="ne" name="vistoria" value="nao" onchange="myFunction_end()">
+                    <input type="radio" id="ne" name="endereco" value="nao" onchange="myFunction_end()">
                     <label for="ne">Não</label>
                 </td>
             </tr>
@@ -90,6 +90,14 @@
                     <select id="solicitacao" name="solicitacao">
                     <option value="Dispensa de Licenciamento Ambiental">Dispensa de Licenciamento Ambiental</option>
                     <option value="Renovação de Dispensa de Licenciamento Ambiental">Renovação de Dispensa de Licenciamento Ambiental</option>
+                    <option value="Licença Prévia">Licença Prévia</option>
+                    <option value="Renovação de Licença Prévia">Renovação de Licença Prévia</option>
+                    <option value="Licença de Instalação">Licença de Instalação</option>
+                    <option value="Renovação de Licença de Instalação">Renovação de Licença de Instalação</option>
+                    <option value="Licença de Operação">Licença de Operação</option>
+                    <option value="Renovação de Licença de Operação">Renovação de Licença de Operação</option>
+                    <option value="Autorização para Depósito de Resíduos Inertes">Autorização para Depósito de Resíduos Inertes</option>
+                    <option value="Renovação de Autorização para Depósitos de Resíduos Inertes">Renovação de Autorização para Depósitos de Resíduos Inertes</option>
                     </select>
                 </td>
             </tr>

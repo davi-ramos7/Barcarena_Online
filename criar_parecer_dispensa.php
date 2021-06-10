@@ -25,7 +25,10 @@
         $numdoparecer = $_POST['campo_numPar'];
         $numdoprocesso = $_POST['campo_numProc'];
         $numdoprotocolo = $_POST['campo_numProt'];
-        $datadeentrada = $_POST['campo_date'];
+
+        $datadeentrada_eng = $_POST['campo_date'];
+        $datadeentrada = date('d/m/Y', strtotime($datadeentrada_eng));
+
         $solicitacao = $_POST['solicitacao'];
 
         if (isset($_POST['campo_proc'])) {
@@ -37,7 +40,8 @@
         $vistoria = $_POST['vistoria'];
 
         if (isset($_POST['date_vist'])) {
-            $datadavistoria = $_POST['date_vist'];
+            $datadavistoria_eng = $_POST['date_vist'];
+            $datadavistoria = date('d/m/Y', strtotime($datadavistoria_eng));
         } else {
             $datadavistoria = "";
         }
@@ -49,19 +53,23 @@
         }
 
         if (isset($_POST['date_notif1'])) {
-            $datadanotificacao1 = $_POST['date_notif1'];
+            $datadanotificacao1_eng = $_POST['date_notif1'];
+            $datadanotificacao1 = date('d/m/Y', strtotime($datadanotificacao1_eng));
         } else {
             $datadanotificacao1 = "";
         }
 
         if (isset($_POST['receb_notif1'])) {
-            $dataderecebdanotificacao1 = $_POST['receb_notif1'];
+            $dataderecebdanotificacao1_eng = $_POST['receb_notif1'];
+            $dataderecebdanotificacao1 = date('d/m/Y', strtotime($dataderecebdanotificacao1_eng));
+
         } else {
             $dataderecebdanotificacao1 = "";
         }
 
         if (isset($_POST['atend_notif1'])) {
-            $datadeatendimdanotifacao1 = $_POST['atend_notif1'];
+            $datadeatendimdanotifacao1_eng = $_POST['atend_notif1'];
+            $datadeatendimdanotifacao1 = date('d/m/Y', strtotime($datadeatendimdanotifacao1_eng));
         } else {
             $datadeatendimdanotifacao1 = "";
         }
@@ -73,19 +81,23 @@
         }
 
         if (isset($_POST['date_notif2'])) {
-            $datadanotificacao2 = $_POST['date_notif2'];
+            $datadanotificacao2_eng = $_POST['date_notif2'];
+            $datadanotificacao2 = date('d/m/Y', strtotime($datadanotificacao2_eng));
         } else {
             $datadanotificacao2 = "";
         }
 
         if (isset($_POST['receb_notif2'])) {
-            $dataderecebdanotificacao2 = $_POST['receb_notif2'];
+            $dataderecebdanotificacao2_eng = $_POST['receb_notif2'];
+            $dataderecebdanotificacao2 = date('d/m/Y', strtotime($dataderecebdanotificacao2_eng));
+
         } else {
             $dataderecebdanotificacao2 = "";
         }
 
         if (isset($_POST['atend_notif2'])) {
-            $datadeatendimdanotifacao2 = $_POST['atend_notif2'];
+            $datadeatendimdanotifacao2_eng = $_POST['atend_notif2'];
+            $datadeatendimdanotifacao2 = date('d/m/Y', strtotime($datadeatendimdanotifacao2_eng));
         } else {
             $datadeatendimdanotifacao2 = "";
         }
@@ -97,22 +109,26 @@
         }
 
         if (isset($_POST['date_notif3'])) {
-            $datadanotificacao3 = $_POST['date_notif3'];
+            $datadanotificacao3_eng = $_POST['date_notif3'];
+            $datadanotificacao3 = date('d/m/Y', strtotime($datadanotificacao3_eng));
         } else {
             $datadanotificacao3 = "";
         }
 
         if (isset($_POST['receb_notif3'])) {
-            $dataderecebdanotificacao3 = $_POST['receb_notif3'];
+            $dataderecebdanotificacao3_eng = $_POST['receb_notif3'];
+            $dataderecebdanotificacao3 = date('d/m/Y', strtotime($dataderecebdanotificacao3_eng));
+
         } else {
             $dataderecebdanotificacao3 = "";
         }
 
         if (isset($_POST['atend_notif3'])) {
-            $datadeatendimdanotifacao3 = $_POST['atend_notif3'];
+            $datadeatendimdanotifacao3_eng = $_POST['atend_notif3'];
+            $datadeatendimdanotifacao3 = date('d/m/Y', strtotime($datadeatendimdanotifacao3_eng));
         } else {
             $datadeatendimdanotifacao3 = "";
-        }  
+        }
 
 require_once './vendor/autoload.php';
 
@@ -289,7 +305,7 @@ $header = $section->addHeader();
 $header->addWatermark('C:\xampp\htdocs\Barcarena_Online\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-$objWriter->save('PARECER_1_D_SV.docx');
+$objWriter->save('PARECER_DISPENSA.docx');
 
 echo "ok";
         
