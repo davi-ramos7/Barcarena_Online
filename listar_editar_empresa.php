@@ -13,20 +13,27 @@ include_once("conexao.php");
 		//Receber o número da página
 		$pagina_atual = filter_input(INPUT_GET,'pagina', FILTER_SANITIZE_NUMBER_INT);		
 		$pagina = (!empty($pagina_atual)) ? $pagina_atual : 1;
-		
-		//Setar a quantidade de itens por pagina
-		$qnt_result_pg = 50;
-		
-		//calcular o inicio visualização
-		$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
 		// if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		$parametro = filter_input(INPUT_POST,'parametro', FILTER_SANITIZE_STRING);
 
 			if($parametro) {
-				$result_usuarios = "SELECT * FROM lista_de_empresas WHERE nome LIKE '$parametro%' ORDER BY nome";
+				//Setar a quantidade de itens por pagina
+				$qnt_result_pg = 100;
+				
+				//calcular o inicio visualização
+				$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
+
+				$result_usuarios = "SELECT * FROM lista_de_empresas WHERE nome LIKE '%$parametro%' ORDER BY nome LIMIT $inicio, $qnt_result_pg";				
+
 			} else {
+				//Setar a quantidade de itens por pagina
+				$qnt_result_pg = 100;
+				
+				//calcular o inicio visualização
+				$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
+
 				$result_usuarios = "SELECT * FROM lista_de_empresas LIMIT $inicio, $qnt_result_pg";
 			}
 
@@ -41,7 +48,6 @@ include_once("conexao.php");
 		$j = 1;
 		$z = 0;
 		?>
-
 		
 		<form class="filtro" action="#" method="POST" target="_self">
 			<input type="text" name="parametro" placeholder="Digite aqui a sua pesquisa...">
@@ -72,7 +78,12 @@ include_once("conexao.php");
 		echo "</table><br>";
 		
 		//Paginção - Somar a quantidade de empresas
-		$result_pg = "SELECT COUNT(id) AS num_result FROM lista_de_empresas";
+		if ($parametro) {
+			$result_pg = "SELECT COUNT(id) AS num_result FROM lista_de_empresas WHERE nome LIKE '%$parametro%'";
+		} else {
+			$result_pg = "SELECT COUNT(id) AS num_result FROM lista_de_empresas";
+		}
+		
 		$resultado_pg = mysqli_query($con, $result_pg);
 		$row_pg = mysqli_fetch_assoc($resultado_pg);
 		//echo $row_pg['num_result'];
