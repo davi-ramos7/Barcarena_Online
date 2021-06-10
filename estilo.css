@@ -84,7 +84,7 @@ table#table_ver_empresas td:nth-child(4) {
 }
 
 #table_ver_empresas {
-	margin-top: 50px;
+	margin-top: 15px;
 	background: #ece2d0;
 	color: black;
 	font-weight: normal;
@@ -237,6 +237,11 @@ td {
     margin-left: auto;
 	border-radius: 5px;
 	padding: 10px;
+}
+
+.filtro {
+	margin-top: 30px;
+	margin-left: 30px;
 }
 
 .menu {
@@ -399,6 +404,17 @@ input[type=submit]{
 	border-radius: 4px;
 	cursor: pointer;
 	margin-right: 20px;
+}
+
+#submit_pesquisa{
+	background: blue;
+	color: #FDFFF7;
+	font-size: 12px;
+	font-family: cursive;
+	border: 1px solid;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-left: 10px;
 }
 
 #button_editar {

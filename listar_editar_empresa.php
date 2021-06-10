@@ -43,9 +43,9 @@ include_once("conexao.php");
 		?>
 
 		
-		<form action="#" method="POST" target="_self">
-			<input type="text" name="parametro">
-			<input type="submit" value="buscar">
+		<form class="filtro" action="#" method="POST" target="_self">
+			<input type="text" name="parametro" placeholder="Digite aqui a sua pesquisa...">
+			<input type="submit" value="Pesquisar" id="submit_pesquisa">
 		</form>
 
 		<?php
