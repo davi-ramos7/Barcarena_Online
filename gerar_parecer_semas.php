@@ -7,7 +7,7 @@
                    <select name="cmpEmp" id="cmpEmp">
                         <option value="">Selecione a empresa...</option>
                         <?php
-                            $sql = "SELECT * FROM lista_de_empresas";
+                            $sql = "SELECT * FROM lista_de_empresas ORDER BY nome";
                             $resultado = mysqli_query($con,$sql);
                             while($lh = mysqli_fetch_assoc($resultado)){
                                 echo "<option value='".$lh['id']."'>".$lh['nome']." </option>";

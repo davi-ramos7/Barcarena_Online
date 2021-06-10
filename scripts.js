@@ -40,6 +40,25 @@ $(document).ready(function(){
         });
     });
 
+    $('#paginas').on('submit','#edit_doc_form',function(e){
+        e.preventDefault();
+        var formulario = $(this).serialize();
+        $.ajax({
+            type: "post",
+            url: "proc_edit_doc.php",
+            data: formulario,
+            dataType: "text",
+            success: function (response) {
+                if(response == "ok"){
+                    alert("O cadastro foi editado com sucesso!");
+                    window.location.href = "index.php?p=led";
+                }else{
+                    alert(response);
+                }
+            }
+        });
+    });
+
     $('#paginas').on('submit','#doc_form',function(e){
         e.preventDefault();
         var formulario = $(this).serialize();

@@ -37,7 +37,7 @@ include_once("conexao.php");
 				//calcular o inicio visualização
 				$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;
 
-				$result_empresas = "SELECT * FROM lista_de_empresas LIMIT $inicio, $qnt_result_pg";
+				$result_empresas = "SELECT * FROM lista_de_empresas ORDER BY nome LIMIT $inicio, $qnt_result_pg";
 			}
 
 		// } else {

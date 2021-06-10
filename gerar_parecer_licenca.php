@@ -7,7 +7,7 @@
                    <select name="cmpEmp" id="cmpEmp">
                         <option value="">Selecione a empresa...</option>
                         <?php
-                            $sql = "SELECT * FROM lista_de_empresas";
+                            $sql = "SELECT * FROM lista_de_empresas ORDER BY nome";
                             $resultado = mysqli_query($con,$sql);
                             while($lh = mysqli_fetch_assoc($resultado)){
                                 echo "<option value='".$lh['id']."'>".$lh['nome']." </option>";
@@ -94,8 +94,8 @@
                     <option value="Renovação de Licença de Instalação">Renovação de Licença de Instalação</option>
                     <option value="Licença de Operação">Licença de Operação</option>
                     <option value="Renovação de Licença de Operação">Renovação de Licença de Operação</option>
-                    <!-- <option value="Autorização para Depósito de Resíduos Inertes">Autorização para Depósito de Resíduos Inertes</option>
-                    <option value="Renovação de Autorização para Depósitos de Resíduos Inertes">Renovação de Autorização para Depósitos de Resíduos Inertes</option> -->
+                    <option value="Autorização para Depósito de Resíduos Inertes">Autorização para Depósito de Resíduos Inertes</option>
+                    <option value="Renovação de Autorização para Depósitos de Resíduos Inertes">Renovação de Autorização para Depósitos de Resíduos Inertes</option>
                     </select>
                 </td>
             </tr>

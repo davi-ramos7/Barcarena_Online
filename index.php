@@ -55,10 +55,12 @@
             </div>
 
             <?php
-                if(isset($_GET['p']) && isset($_GET['pagina']) == false){
+                if(isset($_GET['p']) && isset($_GET['pagina']) == false && isset($_GET['id']) == false){
                     $pagina = $_GET['p'];
-                }elseif(isset($_GET['p']) == false && isset($_GET['pagina'])){
+                }elseif(isset($_GET['p']) == false && isset($_GET['pagina']) && isset($_GET['id']) == false){
                     $pagina = $_GET['pagina'];
+                }elseif(isset($_GET['p']) == false && isset($_GET['pagina']) == false && isset($_GET['id'])){
+                    $pagina = $_GET['id'];
                 }else{
                     $pagina = 'gn';
                 }
@@ -80,8 +82,10 @@
                     include "listar_editar_empresa.php";
                 }elseif($pagina == 'led'){
                     include "listar_editar_doc.php";
-                }elseif(is_numeric($pagina) && isset($_GET['pagina']) == false){
+                }elseif(is_numeric($pagina) && isset($_GET['pagina']) == false && isset($_GET['id']) == false){
                     include "edit_empresa.php";
+                }elseif(is_numeric($pagina) && isset($_GET['pagina']) == false && isset($_GET['p']) == false){
+                    include "edit_doc.php";
                 }
             ?>
         </div>
