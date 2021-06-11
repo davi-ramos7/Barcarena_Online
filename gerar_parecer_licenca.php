@@ -134,26 +134,6 @@
             }
             </script>
 
-        <!-- <table style="display: none" id="dados_notif_01">
-            <thead>
-                <tr>
-                  <th colspan="2">Notificação 01</th><td><button type="button" id="add-campo"> + </button></td>
-                </tr>
-            </thead>
-            <tr> 
-                <td>Nº: </td><td><input type="text" name="num_notif_01" id="nmNot01"></td>
-            </tr>
-            <tr>
-                <td>Data: </td><td><input type="date" name="date_notif_01" id="dtNot01"></td>
-            </tr>
-            <tr> 
-                <td>Recebimento: </td><td><input type="date" name="receb_notif_01" id="rbNot01"></td>
-            </tr>
-            <tr>
-                <td>Atendimento: </td><td><input type="date" name="atend_notif_01" id="atNot01"></td>
-            </tr>
-        </table> -->   
-
         <table>
             <tr>
                 <td>Houve notificação? </td><td>

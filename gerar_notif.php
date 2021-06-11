@@ -48,7 +48,7 @@
 
         <table id="table_doc">
             <tr id="doc1">
-                <td>Documento 1: </td><td><select name="campo_doc1" id="cmpdoc1" style="margin-top: 4px">
+                <td>Documento 1: </td><td><select name="campo_doc1" id="cmpdoc1">
                         <option value="#">Selecione...</option>
                     </select></td><td><button type="button" id="add-campo"> + </button></td>
             </tr>
@@ -68,7 +68,7 @@
                     cont=cont + 1;
                 //https://api.jquery.com/append/
 
-                    $("main").append('<tr id="doc' + cont + '"><td>Documento ' + cont + ' '+":"+' </td><td><select name="campo_doc' + cont + '" id="cmpdoc' + cont + '" style="margin-top: 4px; margin-right: 6px"><option value="#">Selecione...</option></select></td><td><button type="button" id="' + cont+ '" class="btn-apagar"> - </button></td></tr>');
+                    $("#table_doc").append('<tr id="doc' + cont + '"><td>Documento ' + cont + ' '+":"+' </td><td><select name="campo_doc' + cont + '" id="cmpdoc' + cont + '" style="margin-top: 4px; margin-right: 6px"><option value="#">Selecione...</option></select></td><td><button type="button" id="' + cont+ '" class="btn-apagar" style="margin-left:2px"> - </button></td></tr>');
                     });
 
                 $("form").on("click", ".btn-apagar", function () {

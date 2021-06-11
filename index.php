@@ -31,6 +31,16 @@
                     </li>
                     <li>
                         <div class="acao_menu">
+                            <button class="botao_menu">Gerar Minuta</button>
+                            <div class="submenu2">
+                                <a href="index.php?p=gml">Licença</a>
+                                <a href="index.php?p=gmd">Dispensa</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                    <li>
+                        <div class="acao_menu">
                             <button class="botao_menu">Cadastrar</button>
                             <div class="submenu2">
                                 <a href="index.php?p=ce">Cadastrar Empresa</a>
@@ -78,6 +88,10 @@
                     include "gerar_parecer_dispensa.php";
                 }elseif($pagina == 'ps'){
                     include "gerar_parecer_semas.php";
+                }elseif($pagina == 'gml'){
+                    include "gerar_minuta_licenca.php";
+                }elseif($pagina == 'gmd'){
+                    include "gerar_minuta_dispensa.php";
                 }elseif(is_numeric($pagina) && isset($_GET['pagina'])){
                     include "listar_editar_empresa.php";
                 }elseif($pagina == 'led'){

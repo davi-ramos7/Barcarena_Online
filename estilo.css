@@ -48,15 +48,15 @@ td:nth-child(2) {
 }
 
 table#table_doc td:nth-child(1) {
-    width: 20%;
+    width: 21.5%;
 }
 
 table#table_doc td:nth-child(2) {
-    width: 50%;
+    width: 72%;
 }
 
 table#table_doc td:nth-child(3) {
-    width: 10%;
+    width: 6.5%;
 }
 
 table#table_empresa td:nth-child(1) {
@@ -68,11 +68,11 @@ table#table_empresa td:nth-child(2) {
 }
 
 table#tb_notif td:nth-child(1) {
-    width: 40%;
+    width: 35%;
 }
 
 table#tb_notif td:nth-child(2) {
-    width: 60%;
+    width: 65%;
 }
 
 table#table_ver_empresas td:nth-child(1) {
@@ -100,7 +100,6 @@ table#table_ver_docs td:nth-child(1) {
 }
 
 #table_doc {
-	background: orange;
 	width: 720px;
 }
 
@@ -190,6 +189,14 @@ table#table_ver_docs td:nth-child(1) {
 	height: 1.5px;
 	background-color: rgba(236, 226, 208, 0.8);
 	margin-top: 0px;
+}
+
+#porte {
+	width: 60px;
+}
+
+#cmpNFant {
+	width: 500px;
 }
 
 th {
@@ -376,7 +383,7 @@ li a {
 }
 
 #g_not {
-	margin-top: 1px;
+	margin-top: 0.8px;
 }
 
 a#primeira {
