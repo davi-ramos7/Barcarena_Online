@@ -1,5 +1,5 @@
 <div>
-    <form class="formulario" id="minuta_l" method="post">
+    <form class="formulario" id="minuta_d" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
             <tr>
@@ -35,19 +35,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Tipo de licença: </td><td>
-                    <select id="tipo_licenca" name="tipo_licenca">
-                    <option value="Licença Prévia">Licença Prévia</option>
-                    <option value="Renovação de Licença Prévia">Renovação de Licença Prévia</option>
-                    <option value="Licença de Instalação">Licença de Instalação</option>
-                    <option value="Renovação de Licença de Instalação">Renovação de Licença de Instalação</option>
-                    <option value="Licença de Operação">Licença de Operação</option>
-                    <option value="Renovação de Licença de Operação">Renovação de Licença de Operação</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>N° da licença: </td><td><input type="text" name="campo_num_lic" id="cmpNLic"></td>
+                <td>N° da dispensa: </td><td><input type="text" name="campo_num_lic" id="cmpNLic"></td>
             </tr>
             <tr>
                 <td>N° do processo: </td><td><input type="text" name="campo_numProc" id="cmpNproc"></td>
@@ -59,31 +47,13 @@
                 <td>Nome fantasia: </td><td><input type="text" name="campo_nome_fant" id="cmpNFant"></td>
             </tr>
             <tr>
-                <td>Porte e Potencial Poluidor: </td><td>
-                    <select id="porte" name="porte_potencial">
-                    <option value="A-I">A-I</option>
-                    <option value="A-II">A-II</option>
-                    <option value="A-III">A-III</option>
-                    <option value="B-I">B-I</option>
-                    <option value="B-II">B-II</option>
-                    <option value="B-III">B-III</option>
-                    <option value="C-I">C-I</option>
-                    <option value="C-II">C-II</option>
-                    <option value="C-III">C-III</option>
-                    <option value="D-I">D-I</option>
-                    <option value="D-II">D-II</option>
-                    <option value="D-III">D-III</option>                    
-                    </select>
-                </td>
-            </tr>            
-            <tr>
                 <td>Bairro/Distrito: </td><td><input type="text" name="campo_bairro" id="cmpBairro"></td>
             </tr> 
             <tr>
                 <td>CEP: </td><td><input type="text" name="campo_cep" id="cmpCep"></td>
             </tr>
             <tr>
-                <td>Inscrição Estadual: </td><td><input type="text" name="campo_insc" id="cmpInsc"></td>
+                <td>Inscrição Estadual/RG: </td><td><input type="text" name="campo_insc" id="cmpInsc"></td>
             </tr>
             <tr>
                 <td>CNPJ/CPF: </td><td><input type="text" name="campo_cnpj" id="cmpCnpj"></td>
@@ -92,7 +62,7 @@
                 <td>Coordenadas geográficas: </td><td><input type="text" name="campo_cg" id="cmpCg"></td>
             </tr>
             <tr>
-                <td>Observações: </td><td><textarea rows="4" cols="70" maxlength="500" name="campo_obs"></textarea></td>
+                <td>Observações: </td><td><textarea rows="4" cols="60" maxlength="500" id="campo_obs"></textarea></td>
             </tr>
             <tr>
                 <td>Houve condicionantes? </td><td>

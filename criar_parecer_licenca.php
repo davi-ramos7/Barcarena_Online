@@ -130,6 +130,34 @@
             $datadeatendimdanotifacao3 = "";
         }
 
+        if (isset($_POST['num_notif4'])) {
+            $numdanotificacao4 = $_POST['num_notif4'];
+        } else {
+            $numdanotificacao4 = "";
+        }
+
+        if (isset($_POST['date_notif4'])) {
+            $datadanotificacao4_eng = $_POST['date_notif4'];
+            $datadanotificacao4 = date('d/m/Y', strtotime($datadanotificacao4_eng));
+        } else {
+            $datadanotificacao4 = "";
+        }
+
+        if (isset($_POST['receb_notif4'])) {
+            $dataderecebdanotificacao4_eng = $_POST['receb_notif4'];
+            $dataderecebdanotificacao4 = date('d/m/Y', strtotime($dataderecebdanotificacao4_eng));
+
+        } else {
+            $dataderecebdanotificacao4 = "";
+        }
+
+        if (isset($_POST['atend_notif4'])) {
+            $datadeatendimdanotifacao4_eng = $_POST['atend_notif4'];
+            $datadeatendimdanotifacao4 = date('d/m/Y', strtotime($datadeatendimdanotifacao4_eng));
+        } else {
+            $datadeatendimdanotifacao4 = "";
+        }
+
         $porte = $_POST['campo_porte'];
         $potencialpoluidor = $_POST['campo_pp'];
         $valordataxa = $_POST['campo_vtaxa'];
@@ -306,19 +334,24 @@ if ($numdanotificacao1 == "") {
 
 }
 
-if ($numdanotificacao1 <> "" && $numdanotificacao2 == "" && $numdanotificacao3 == "") {
+if ($numdanotificacao1 <> "" && $numdanotificacao2 == "" && $numdanotificacao3 == "" && $numdanotificacao4 == "") {
 
 $section->addText("Após verificação de pendências no processo, por meio de análise processual, visando subsidiar sua análise, este Departamento de Licenciamento Ambiental – DLA emitiu a NOTIFICAÇÃO DE LICENCIAMENTO DE N° " . $numdanotificacao1 . ", em " . $datadanotificacao1 . ", com o prazo de 30 dias para cumprimento, a qual foi recebida no dia " . $dataderecebdanotificacao1 . " e atendida no dia " . $datadeatendimdanotifacao1 . ".", 'fStyle1_normal', 'pStyle1_justify');
 }
 
-if ($numdanotificacao1 <> "" && $numdanotificacao2 <> "" && $numdanotificacao3 == "") {
+if ($numdanotificacao1 <> "" && $numdanotificacao2 <> "" && $numdanotificacao3 == "" && $numdanotificacao4 == "") {
 
 $section->addText("Após verificação de pendências no processo, por meio de análise processual, visando subsidiar sua análise, este Departamento de Licenciamento Ambiental – DLA emitiu as NOTIFICAÇÕES DE LICENCIAMENTO DE N° " . $numdanotificacao1 . " e " . $numdanotificacao2 . ", em " . $datadanotificacao1 . " e " . $datadanotificacao2 . ", respectivamente, com o prazo de 30 dias para cumprimento, as quais foram recebidas nos dias " . $dataderecebdanotificacao1 . " e " . $dataderecebdanotificacao2 . ", e atendidas nos dias " . $datadeatendimdanotifacao1 . " e " . $datadeatendimdanotifacao2 . ".", 'fStyle1_normal', 'pStyle1_justify');
 }
 
-if ($numdanotificacao1 <> "" && $numdanotificacao2 <> "" && $numdanotificacao3 <> "") {
+if ($numdanotificacao1 <> "" && $numdanotificacao2 <> "" && $numdanotificacao3 <> "" && $numdanotificacao4 == "") {
 
 $section->addText("Após verificação de pendências no processo, por meio de análise processual, visando subsidiar sua análise, este Departamento de Licenciamento Ambiental – DLA emitiu as NOTIFICAÇÕES DE LICENCIAMENTO DE N° " . $numdanotificacao1 . ", " . $numdanotificacao2 . " e " . $numdanotificacao3 . ", em " . $datadanotificacao1 . ", " . $datadanotificacao2 . " e " . $datadanotificacao3 .", respectivamente, com o prazo de 30 dias para cumprimento, as quais foram recebidas nos dias " . $dataderecebdanotificacao1 . ", " . $dataderecebdanotificacao2 . " e " . $dataderecebdanotificacao3 .", e atendidas nos dias " . $datadeatendimdanotifacao1 . ", " . $datadeatendimdanotifacao2 . " e " . $datadeatendimdanotifacao3 . ".", 'fStyle1_normal', 'pStyle1_justify');
+}
+
+if ($numdanotificacao1 <> "" && $numdanotificacao2 <> "" && $numdanotificacao3 <> "" && $numdanotificacao4 == "") {
+
+$section->addText("Após verificação de pendências no processo, por meio de análise processual, visando subsidiar sua análise, este Departamento de Licenciamento Ambiental – DLA emitiu as NOTIFICAÇÕES DE LICENCIAMENTO DE N° " . $numdanotificacao1 . ", " . $numdanotificacao2 . ", " . $numdanotificacao3 . " e " . $numdanotificacao4 . ", em " . $datadanotificacao1 . ", " . $datadanotificacao2 . ", " . $datadanotificacao3 .", e " . $datadanotificacao4 .", respectivamente, com o prazo de 30 dias para cumprimento, as quais foram recebidas nos dias " . $dataderecebdanotificacao1 . ", " . $dataderecebdanotificacao2 . ", " . $dataderecebdanotificacao3 .", e " . $dataderecebdanotificacao4 . " e atendidas nos dias " . $datadeatendimdanotifacao1 . ", " . $datadeatendimdanotifacao2 . ", " . $datadeatendimdanotifacao3 . " e "  . $datadeatendimdanotifacao4 . ".", 'fStyle1_normal', 'pStyle1_justify');
 }
 
 $section->addText("2.   ENQUADRAMENTO E ANÁLISE TÉCNICA", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');

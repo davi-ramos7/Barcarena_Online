@@ -6,15 +6,15 @@ if(isset($_POST['cmpEmp'])){
         include_once("conexao.php");
     
         $sql = "SELECT * FROM lista_de_empresas WHERE id=$id";
-        $linha= mysqli_query($con, $sql);
+        $linha = mysqli_query($con, $sql);
 
         while ($linhas=mysqli_fetch_assoc($linha)) {
-            $empresa=$linhas['nome'];
+            $empresa = $linhas['nome'];
         }
 
-        $nomedaempresa = $empresa;
+        $Nome_da_Empresa = $empresa;
 
-        $enderecodaempresa = $_POST['cmpEnd'];
+        $Endereco_do_Empreendimento = $_POST['cmpEnd'];
 
         if (isset($_POST['end_da_ativ'])) {
             $enderecodaatividade = $_POST['end_da_ativ'];
@@ -22,70 +22,68 @@ if(isset($_POST['cmpEmp'])){
             $enderecodaatividade = "";
         }
 
-        $atividadeCNPJ = $_POST['cmpAtiv'];
-        $numdoparecer = $_POST['campo_numPar'];
-        $solicitacao = $_POST['solicitacao'];
-        $numdoprocesso = $_POST['campo_numProc'];
-        $numdoprotocolo = $_POST['campo_numProt'];
+        $Atividade_Licenciada_Valor_Autorizado = $_POST['cmpAtiv'];
 
-        $datadeentrada_eng = $_POST['campo_date'];
-        $datadeentrada = date('d/m/Y', strtotime($datadeentrada_eng));
+        $ano = date("Y");
+        $Emissao = date('d/m/') . $ano;
 
-        $porte = $_POST['campo_porte'];
-        $potencialpoluidor = $_POST['campo_pp'];
+        $Solicitacao = $_POST['tipo_licenca'];
 
-        if (isset($_POST['campo_doc2'])) {
-        	$documento2 = $_POST['campo_doc2'];
+        $Num_da_LO = $_POST['campo_num_lic'];
+        $Num_do_Processo = $_POST['campo_numProc'];
+        $Validade = $_POST['campo_val'];
+        $Porte = $_POST['porte_potencial'];
+        $Nome_Fantasia = $_POST['campo_nume_fant'];
+        $Bairro_Distrito = $_POST['campo_bairro'];
+        $CEP = $_POST['campo_cep'];
+        $CNPJ_CPF = $_POST['campo_cnpj'];
+        $Inscricao_Estadual = $_POST['campo_insc'];
+        $Coordenadas_Geograficas = $_POST['campo_cg'];
+        $Observacoes = $_POST['campo_obs'];
+        
+        if (isset($_POST['campo_cond1'])) {
+        	$Condicionante1 = $_POST['campo_cond1'];
+            $Prazo_da_Condicionante1_eng = $_POST['campo_data1'];
+            $Prazo_da_Condicionante1 = date('d/m/Y', strtotime($Prazo_da_Condicionante1_eng));
         } else {
-        	$documento2 = "";
+        	$Condicionante1 = "";
+            $Prazo_da_Condicionante1 = "";
+        }
+
+        if (isset($_POST['campo_cond2'])) {
+        	$Condicionante2 = $_POST['campo_cond2'];
+            $Prazo_da_Condicionante2_eng = $_POST['campo_data2'];
+            $Prazo_da_Condicionante2 = date('d/m/Y', strtotime($Prazo_da_Condicionante2_eng));
+        } else {
+        	$Condicionante2 = "";
+            $Prazo_da_Condicionante2 = "";
         } 
 
-        if (isset($_POST['campo_doc3'])) {
-        	$documento3 = $_POST['campo_doc3'];
+        if (isset($_POST['campo_cond3'])) {
+        	$Condicionante3 = $_POST['campo_cond3'];
+            $Prazo_da_Condicionante3_eng = $_POST['campo_data3'];
+            $Prazo_da_Condicionante3 = date('d/m/Y', strtotime($Prazo_da_Condicionante3_eng));
         } else {
-        	$documento3 = "";
+        	$Condicionante3 = "";
+            $Prazo_da_Condicionante3 = "";
         } 
 
-        if (isset($_POST['campo_doc4'])) {
-        	$documento4 = $_POST['campo_doc4'];
+        if (isset($_POST['campo_cond4'])) {
+        	$Condicionante4 = $_POST['campo_cond4'];
+            $Prazo_da_Condicionante4_eng = $_POST['campo_data4'];
+            $Prazo_da_Condicionante4 = date('d/m/Y', strtotime($Prazo_da_Condicionante4_eng));
         } else {
-        	$documento4 = "";
+        	$Condicionante4 = "";
+            $Prazo_da_Condicionante4 = "";
         } 
 
-        if (isset($_POST['campo_doc5'])) {
-        	$documento5 = $_POST['campo_doc5'];
+        if (isset($_POST['campo_cond5'])) {
+        	$Condicionante5 = $_POST['campo_cond5'];
+            $Prazo_da_Condicionante5_eng = $_POST['campo_data5'];
+            $Prazo_da_Condicionante5 = date('d/m/Y', strtotime($Prazo_da_Condicionante5_eng));
         } else {
-        	$documento5 = "";
-        } 
-
-        if (isset($_POST['campo_doc6'])) {
-        	$documento6 = $_POST['campo_doc6'];
-        } else {
-        	$documento6 = "";
-        } 
-
-        if (isset($_POST['campo_doc7'])) {
-        	$documento7 = $_POST['campo_doc7'];
-        } else {
-        	$documento7 = "";
-        } 
-
-        if (isset($_POST['campo_doc8'])) {
-        	$documento8 = $_POST['campo_doc8'];
-        } else {
-        	$documento8 = "";
-        } 
-
-        if (isset($_POST['campo_doc9'])) {
-        	$documento9 = $_POST['campo_doc9'];
-        } else {
-        	$documento9 = "";
-        } 
-
-        if (isset($_POST['campo_doc10'])) {
-        	$documento10 = $_POST['campo_doc10'];
-        } else {
-        	$documento10 = "";
+        	$Condicionante5 = "";
+            $Prazo_da_Condicionante5 = "";
         }
 
 require_once './vendor/autoload.php';
@@ -163,16 +161,7 @@ $Coordenadas_Geograficas = "ler(EntradaForm)";
 $Observacoes = "ler(EntradaForm)";
 $data = $dia . " de " . $mes . " de " . $ano;
 $Num_do_Processo = "ler(EntradaForm)";
-$Condicionante1 = "ler(EntradaForm)";
-$Prazo_da_Condicionante1 = "ler(EntradaForm)";
-$Condicionante2 = "ler(EntradaForm)";
-$Prazo_da_Condicionante2 = "ler(EntradaForm)";
-$Condicionante3 = "ler(EntradaForm)";
-$Prazo_da_Condicionante3 = "ler(EntradaForm)";
-$Condicionante4 = "ler(EntradaForm)";
-$Prazo_da_Condicionante4 = "ler(EntradaForm)";
-$Condicionante5 = "ler(EntradaForm)";
-$Prazo_da_Condicionante5 = "ler(EntradaForm)";
+
 
 // Creating the new document...
 $phpWord = new \PhpOffice\PhpWord\PhpWord();
@@ -1006,19 +995,15 @@ $header->addImage('C:\Users\HP\Google Drive\PMB2.png', array('width' => 63.9,
 $header->addText('PREFEITURA MUNICIPAL DE BARCARENA', 'fStyle8_bold', 'pStyle4_center');
 $header->addText('SECRETARIA MUNICIPAL DE MEIO AMBIENTE E DESENVOLVIMENTO ECONÔMICO - SEMADE', 'fStyle8_bold', 'pStyle4_center');
 $header->addText('DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL', 'fStyle8_bold', 'pStyle4_center');
-$header->addWatermark('C:\Users\HP\Google Drive\PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
+$header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
 
 // Saving the document as OOXML file...
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
 $objWriter->save('LICENCA.docx');
 
-echo "LICENÇA EMITIDA.";
-
-//'PosHorizontalRel' => 'margin', 'PosVerticalRel' => 'margin',
-//'height' => 500, 'width' => 500
-//'height' => 843, 'width' => 596.1
-//'marginLeft' => 0, 'marginTop' => 0
-//marginTop' => 200, 'marginLeft' => 55
-//'PosHorizontalRel' => 'outer-margin-area', 'PosVerticalRel' => 'outer-margin-area',
-//'PosHorizontal' => 'left', 'PosVertical' => 'top' 
-//'PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page'
+    echo "ok";
+        
+    }else{
+        echo "erro";
+    }
+?>
