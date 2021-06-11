@@ -38,11 +38,8 @@
                 <td>Tipo de licença: </td><td>
                     <select id="tipo_licenca" name="tipo_licenca">
                     <option value="Licença Prévia">Licença Prévia</option>
-                    <option value="Renovação de Licença Prévia">Renovação de Licença Prévia</option>
                     <option value="Licença de Instalação">Licença de Instalação</option>
-                    <option value="Renovação de Licença de Instalação">Renovação de Licença de Instalação</option>
                     <option value="Licença de Operação">Licença de Operação</option>
-                    <option value="Renovação de Licença de Operação">Renovação de Licença de Operação</option>
                     </select>
                 </td>
             </tr>
@@ -92,7 +89,7 @@
                 <td>Coordenadas geográficas: </td><td><input type="text" name="campo_cg" id="cmpCg"></td>
             </tr>
             <tr>
-                <td>Observações: </td><td><textarea rows="4" cols="70" maxlength="500" name="campo_obs"></textarea></td>
+                <td>Observações: </td><td><textarea rows="4" cols="60" maxlength="500" name="campo_obs"></textarea></td>
             </tr>
             <tr>
                 <td>Houve condicionantes? </td><td>

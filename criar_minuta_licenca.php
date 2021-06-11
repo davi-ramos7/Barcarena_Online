@@ -29,7 +29,7 @@ if(isset($_POST['cmpEmp'])){
 
         $Solicitacao = $_POST['tipo_licenca'];
 
-        $Num_da_LO = $_POST['campo_num_lic'];
+        $Num_da_Lic = $_POST['campo_num_lic'];
         $Num_do_Processo = $_POST['campo_numProc'];
         $Validade = $_POST['campo_val'];
         $Porte = $_POST['porte_potencial'];
@@ -282,10 +282,18 @@ $table->addRow($height1, $rowStyle1);
 //$table->addCell(4500, array('vMerge' => 'restart', 'bgColor'=>"FFFF00"))->addText('dummy');
 //$table->addCell(4500)->addText('Test', ['alignment' => 'center', 'italic' => true, 'underline' => 'dash', 'fgColor' => 'yellow', 'color' => '996699']);
 
-$cell1 = $table->addCell($width1, $cellStyle2_2)->addText('LICENÇA DE OPERAÇÃO', 'fStyle18_bold', 'pStyle4_center');
-$cell2 = $table->addCell($width2, $cellStyle2_1);
-$cell3 = $table->addCell($width3, $cellStyle1_2);
-$text = $cell3->addText('N° ' . $Num_da_LO, 'fStyle10_bold', 'pStyle1_justify_table');
+if ($Solicitacao == "LICENÇA DE OPERAÇÃO") {
+    $cell1 = $table->addCell($width1, $cellStyle2_2)->addText('LICENÇA DE OPERAÇÃO', 'fStyle18_bold', 'pStyle4_center');
+} elseif ($Solicitacao == "LICENÇA PRÉVIA") {
+    $cell1 = $table->addCell($width1, $cellStyle2_2)->addText('LICENÇA PRÉVIA', 'fStyle18_bold', 'pStyle4_center');
+} elseif ($Solicitacao == "LICENÇA DE INSTALAÇÃO") {
+    $cell1 = $table->addCell($width1, $cellStyle2_2)->addText('LICENÇA DE INSTALAÇÃO', 'fStyle18_bold', 'pStyle4_center');
+}
+
+    $cell2 = $table->addCell($width2, $cellStyle2_1);
+    $cell3 = $table->addCell($width3, $cellStyle1_2);
+    $text = $cell3->addText('N° ' . $Num_da_Lic, 'fStyle10_bold', 'pStyle1_justify_table');
+
 
 $table->addRow($height1, $rowStyle1);
 
@@ -476,7 +484,12 @@ $width8 = 10431.496062992; //18.4cm
 
 $table->addRow($height8, $rowStyle1);
 
-$cell1 = $table->addCell($width8, $cellStyle1_2)->addText('ANEXO I - LICENÇA DE OPERAÇÃO', 'fStyle10_bold', 'pStyle4_center');
+if ($Solicitacao == "LICENÇA DE OPERAÇÃO") {
+    $cell1 = $table->addCell($width8, $cellStyle1_2)->addText('ANEXO I - LICENÇA DE OPERAÇÃO', 'fStyle10_bold', 'pStyle4_center');
+} elseif ($Solicitacao == "LICENÇA PRÉVIA") {
+    $cell1 = $table->addCell($width8, $cellStyle1_2)->addText('ANEXO I - LICENÇA PRÉVIA', 'fStyle10_bold', 'pStyle4_center');
+} elseif ($Solicitacao == "LICENÇA DE INSTALAÇÃO") {
+    $cell1 = $table->addCell($width8, $cellStyle1_2)->addText('ANEXO I - LICENÇA DE INSTALAÇÃO', 'fStyle10_bold', 'pStyle4_center');
 
 //Linha 2
 
