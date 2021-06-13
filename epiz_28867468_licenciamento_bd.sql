@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Jun-2021 às 04:36
+-- Tempo de geração: 13-Jun-2021 às 07:46
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `licenciamento_bd`
+-- Banco de dados: `epiz_28867468_licenciamento_bd`
 --
 
 -- --------------------------------------------------------
