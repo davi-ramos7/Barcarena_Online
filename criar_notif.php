@@ -292,8 +292,17 @@ $header = $section->addHeader();
 $header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
 // Saving the document as OOXML file...
-$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-$objWriter->save('NOTIFICACAO.docx');
+
+// $filename = "NOTIFICACAO.docx";
+header( 'Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document' );// you should look for the real header that you need if it"s not Word 2007!!!
+header( 'Content-Disposition: attachment; filename="NOTIFICACAO.docx"' );
+
+$h2d_file_uri = tempnam( "", "htd" );
+$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter( $phpWord, 'Word2007' );
+$objWriter->save( "php://output" );// this would output it like echo, but in combination with header: it will be sent
+
+// $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+// $objWriter->save('NOTIFICACAO.docx');
 
 		echo "ok";
         
