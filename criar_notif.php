@@ -136,9 +136,6 @@ $ano = date("Y");
 $data = $dia . " de " . $mes . " de " . $ano;
 $quebradelinha = "<br>";
 
-# Inclusão de arquivo para "Comando de Entrada".
-//@include ("../EntradaForm.php");
-
 // Creating the new document...
 $phpWord = new \PhpOffice\PhpWord\PhpWord();
 
@@ -294,15 +291,16 @@ $header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\SEMADE-2021.jpg', a
 // Saving the document as OOXML file...
 
 // $filename = "NOTIFICACAO.docx";
-header( 'Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document' );// you should look for the real header that you need if it"s not Word 2007!!!
-header( 'Content-Disposition: attachment; filename="NOTIFICACAO.docx"' );
+// header( 'Content-Type: application/vnd.openxmlformats-officedocument.wordprocessingml.document' );// you should look for the real header that you need if it"s not Word 2007!!!
+// header( 'Content-Type:application/force-download' );
+// header( 'Content-Disposition: attachment; filename="NOTIFICACAO.docx"' );
 
-$h2d_file_uri = tempnam( "", "htd" );
-$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter( $phpWord, 'Word2007' );
-$objWriter->save( "php://output" );// this would output it like echo, but in combination with header: it will be sent
+// $h2d_file_uri = tempnam( "", "htd" );
+// $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter( $phpWord, 'Word2007' );
+// //$objWriter->save( "php://output" );// this would output it like echo, but in combination with header: it will be sent
 
-// $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-// $objWriter->save('NOTIFICACAO.docx');
+$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+$objWriter->save('NOTIFICACAO.docx');
 
 		echo "ok";
         

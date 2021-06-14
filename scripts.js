@@ -80,6 +80,27 @@ $(document).ready(function(){
         });
     });
 
+    $('#paginas').on('submit','#minuta_l',function(e){
+        e.preventDefault();
+        var formulario = $(this).serialize();
+        $.ajax({
+            type: "post",
+            url: "criar_minuta_licenca.php",
+            data: formulario,
+            dataType: "text",
+            success: function (response) {
+                if(response == "ok"){
+                    $('#minuta_l').trigger("reset");
+                    $('#cmpEnd').html("Preenchimento automático...");
+                    $('#cmpAtiv').html("Preenchimento automático...");
+                    alert("A licença foi gerada com sucesso!");
+                }else{
+                    alert(response);
+                }
+            }
+        });
+    });
+
     $('#paginas').on('submit','#notif_form',function(e){
         e.preventDefault();
         var formulario = $(this).serialize();

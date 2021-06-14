@@ -29,11 +29,14 @@ if(isset($_POST['cmpEmp'])){
 
         $Solicitacao = $_POST['tipo_licenca'];
 
-        $Num_da_Lic = $_POST['campo_num_lic'];
+        $Num_da_LO = $_POST['campo_num_lic'];
         $Num_do_Processo = $_POST['campo_numProc'];
-        $Validade = $_POST['campo_val'];
+        
+        $Validade_eng = $_POST['campo_val'];
+        $Validade = date('d/m/Y', strtotime($Validade_eng));
+
         $Porte = $_POST['porte_potencial'];
-        $Nome_Fantasia = $_POST['campo_nume_fant'];
+        $Nome_Fantasia = $_POST['campo_nome_fant'];
         $Bairro_Distrito = $_POST['campo_bairro'];
         $CEP = $_POST['campo_cep'];
         $CNPJ_CPF = $_POST['campo_cnpj'];
@@ -43,8 +46,7 @@ if(isset($_POST['cmpEmp'])){
         
         if (isset($_POST['campo_cond1'])) {
         	$Condicionante1 = $_POST['campo_cond1'];
-            $Prazo_da_Condicionante1_eng = $_POST['campo_data1'];
-            $Prazo_da_Condicionante1 = date('d/m/Y', strtotime($Prazo_da_Condicionante1_eng));
+            $Prazo_da_Condicionante1 = $_POST['campo_prazo1'];
         } else {
         	$Condicionante1 = "";
             $Prazo_da_Condicionante1 = "";
@@ -52,8 +54,7 @@ if(isset($_POST['cmpEmp'])){
 
         if (isset($_POST['campo_cond2'])) {
         	$Condicionante2 = $_POST['campo_cond2'];
-            $Prazo_da_Condicionante2_eng = $_POST['campo_data2'];
-            $Prazo_da_Condicionante2 = date('d/m/Y', strtotime($Prazo_da_Condicionante2_eng));
+            $Prazo_da_Condicionante2 = $_POST['campo_prazo2'];
         } else {
         	$Condicionante2 = "";
             $Prazo_da_Condicionante2 = "";
@@ -61,8 +62,7 @@ if(isset($_POST['cmpEmp'])){
 
         if (isset($_POST['campo_cond3'])) {
         	$Condicionante3 = $_POST['campo_cond3'];
-            $Prazo_da_Condicionante3_eng = $_POST['campo_data3'];
-            $Prazo_da_Condicionante3 = date('d/m/Y', strtotime($Prazo_da_Condicionante3_eng));
+            $Prazo_da_Condicionante3 = $_POST['campo_prazo3'];
         } else {
         	$Condicionante3 = "";
             $Prazo_da_Condicionante3 = "";
@@ -70,8 +70,7 @@ if(isset($_POST['cmpEmp'])){
 
         if (isset($_POST['campo_cond4'])) {
         	$Condicionante4 = $_POST['campo_cond4'];
-            $Prazo_da_Condicionante4_eng = $_POST['campo_data4'];
-            $Prazo_da_Condicionante4 = date('d/m/Y', strtotime($Prazo_da_Condicionante4_eng));
+            $Prazo_da_Condicionante4 = $_POST['campo_prazo4'];
         } else {
         	$Condicionante4 = "";
             $Prazo_da_Condicionante4 = "";
@@ -79,8 +78,7 @@ if(isset($_POST['cmpEmp'])){
 
         if (isset($_POST['campo_cond5'])) {
         	$Condicionante5 = $_POST['campo_cond5'];
-            $Prazo_da_Condicionante5_eng = $_POST['campo_data5'];
-            $Prazo_da_Condicionante5 = date('d/m/Y', strtotime($Prazo_da_Condicionante5_eng));
+            $Prazo_da_Condicionante5 = $_POST['campo_prazo5'];
         } else {
         	$Condicionante5 = "";
             $Prazo_da_Condicionante5 = "";
@@ -95,73 +93,57 @@ $mes = 0;
 
 switch (date("m")) {
 
-	case 1:
-		$mes = "Janeiro";
-		break;
+    case 1:
+        $mes = "Janeiro";
+        break;
 
-	case 2:
-		$mes = "Fevereiro";
-		break;
+    case 2:
+        $mes = "Fevereiro";
+        break;
 
-	case 3:
-		$mes = "Março";
-		break;
+    case 3:
+        $mes = "Março";
+        break;
 
-	case 4:
-		$mes = "Abril";
-		break;
+    case 4:
+        $mes = "Abril";
+        break;
 
-	case 5:
-		$mes = "Maio";
-		break;
+    case 5:
+        $mes = "Maio";
+        break;
 
-	case 6:
-		$mes = "Junho";
-		break;
+    case 6:
+        $mes = "Junho";
+        break;
 
-	case 7:
-		$mes = "Julho";
-		break;
+    case 7:
+        $mes = "Julho";
+        break;
 
-	case 8:
-		$mes = "Agosto";
-		break;
+    case 8:
+        $mes = "Agosto";
+        break;
 
-	case 9:
-		$mes = "Setembro";
-		break;
+    case 9:
+        $mes = "Setembro";
+        break;
 
-	case 10:
-		$mes = "Outubro";
-		break;
+    case 10:
+        $mes = "Outubro";
+        break;
 
-	case 11:
-		$mes = "Novembro";
-		break;
-	
-	default:
-		$mes = "Dezembro";
-		break;
+    case 11:
+        $mes = "Novembro";
+        break;
+    
+    default:
+        $mes = "Dezembro";
+        break;
 }
 
-$ano = date("Y");
-$Num_da_LO = "ler(EntradaForm)";
-$Emissao = date('d/m/') . $ano;
-$Validade = "ler(EntradaForm)";
-$Nome_da_Empresa = "ler(EntradaForm)";
-$Porte = "ler(EntradaForm)";
-$Nome_Fantasia = "ler(EntradaForm)";
-$Endereco_do_Empreendimento = "ler(EntradaForm)";
-$Bairro_Distrito = "ler(EntradaForm)";
-$CEP = "ler(EntradaForm)";
-$Inscricao_Estadual = "ler(EntradaForm)";
-$CNPJ_CPF = "ler(EntradaForm)";
-$Atividade_Licenciada_Valor_Autorizado = "ler(EntradaForm)";
-$Coordenadas_Geograficas = "ler(EntradaForm)";
-$Observacoes = "ler(EntradaForm)";
-$data = $dia . " de " . $mes . " de " . $ano;
-$Num_do_Processo = "ler(EntradaForm)";
 
+$data = $dia . " de " . $mes . " de " . $ano;
 
 // Creating the new document...
 $phpWord = new \PhpOffice\PhpWord\PhpWord();
@@ -244,7 +226,7 @@ $phpWord->addParagraphStyle('pStyle4_center_spaceBefore1', $pNew4_4);
 $phpWord->addParagraphStyle('pStyle4_center_spaceBefore2', $pNew4_5);
 
 $sectionStyle1 = array(
-	'marginTop' => 1417.322834646, //2.5cm
+    'marginTop' => 1417.322834646, //2.5cm
     'marginLeft' => 850.393700787, //1.5cm
     'marginRight' => 850.393700787, //1.5cm
     'marginBottom' => 720 //1.27cm
@@ -282,18 +264,10 @@ $table->addRow($height1, $rowStyle1);
 //$table->addCell(4500, array('vMerge' => 'restart', 'bgColor'=>"FFFF00"))->addText('dummy');
 //$table->addCell(4500)->addText('Test', ['alignment' => 'center', 'italic' => true, 'underline' => 'dash', 'fgColor' => 'yellow', 'color' => '996699']);
 
-if ($Solicitacao == "LICENÇA DE OPERAÇÃO") {
-    $cell1 = $table->addCell($width1, $cellStyle2_2)->addText('LICENÇA DE OPERAÇÃO', 'fStyle18_bold', 'pStyle4_center');
-} elseif ($Solicitacao == "LICENÇA PRÉVIA") {
-    $cell1 = $table->addCell($width1, $cellStyle2_2)->addText('LICENÇA PRÉVIA', 'fStyle18_bold', 'pStyle4_center');
-} elseif ($Solicitacao == "LICENÇA DE INSTALAÇÃO") {
-    $cell1 = $table->addCell($width1, $cellStyle2_2)->addText('LICENÇA DE INSTALAÇÃO', 'fStyle18_bold', 'pStyle4_center');
-}
-
-    $cell2 = $table->addCell($width2, $cellStyle2_1);
-    $cell3 = $table->addCell($width3, $cellStyle1_2);
-    $text = $cell3->addText('N° ' . $Num_da_Lic, 'fStyle10_bold', 'pStyle1_justify_table');
-
+$cell1 = $table->addCell($width1, $cellStyle2_2)->addText($Solicitacao, 'fStyle18_bold', 'pStyle4_center');
+$cell2 = $table->addCell($width2, $cellStyle2_1);
+$cell3 = $table->addCell($width3, $cellStyle1_2);
+$text = $cell3->addText('N° ' . $Num_da_LO, 'fStyle10_bold', 'pStyle1_justify_table');
 
 $table->addRow($height1, $rowStyle1);
 
@@ -457,7 +431,7 @@ $section->addText('Secretária Executiva Municipal de Meio Ambiente e Desenvolvi
 $section->addText('Decreto Municipal nº 0006/2021 – GPMB', 'fStyle9_normal', 'pStyle4_center');
 
 $sectionStyle2 = array(
-	'marginTop' => 1417.322834646, //2.5cm
+    'marginTop' => 1417.322834646, //2.5cm
     'marginLeft' => 850.393700787, //1.5cm
     'marginRight' => 850.393700787, //1.5cm
     'marginBottom' => 720, //1.27cm
@@ -484,12 +458,7 @@ $width8 = 10431.496062992; //18.4cm
 
 $table->addRow($height8, $rowStyle1);
 
-if ($Solicitacao == "LICENÇA DE OPERAÇÃO") {
-    $cell1 = $table->addCell($width8, $cellStyle1_2)->addText('ANEXO I - LICENÇA DE OPERAÇÃO', 'fStyle10_bold', 'pStyle4_center');
-} elseif ($Solicitacao == "LICENÇA PRÉVIA") {
-    $cell1 = $table->addCell($width8, $cellStyle1_2)->addText('ANEXO I - LICENÇA PRÉVIA', 'fStyle10_bold', 'pStyle4_center');
-} elseif ($Solicitacao == "LICENÇA DE INSTALAÇÃO") {
-    $cell1 = $table->addCell($width8, $cellStyle1_2)->addText('ANEXO I - LICENÇA DE INSTALAÇÃO', 'fStyle10_bold', 'pStyle4_center');
+$cell1 = $table->addCell($width8, $cellStyle1_2)->addText('ANEXO I - ' . $Solicitacao, 'fStyle10_bold', 'pStyle4_center');
 
 //Linha 2
 
@@ -507,7 +476,7 @@ $cell1 = $table->addCell($width8, $cellStyle1_1);
 
 $textrun = $cell1->addTextRun('pStyle1_justify_withHanging_withSpace');
 
-$textrun->addText('Informamos a Vossa Senhoria que durante a vigência da Licença de Operação de n° ', 'fStyle9_normal');
+$textrun->addText('Informamos a Vossa Senhoria que durante a vigência da ' . $Solicitacao . ' de n° ', 'fStyle9_normal');
 
 $textrun->addText($Num_da_LO, 'fStyle9_bold');
 
@@ -519,461 +488,501 @@ $textrun->addText(', deverá cumprir com as exigências abaixo relacionadas:', '
 
 
 $textrun = $cell1->addTextRun('pStyle1_justify_table_3');
-$textrun->addText('•	Permitir o ', 'fStyle9_italic');
+$textrun->addText('•    Permitir o ', 'fStyle9_italic');
 $textrun->addText('livre acesso ', 'fStyle9_italic_bold');
 $textrun->addText('aos funcionários da SEMADE em ação fiscalizatória;', 'fStyle9_italic');
 
 $textrun = $cell1->addTextRun('pStyle1_justify_table_3');
-$textrun->addText('•	Informar a esta SEMADE ', 'fStyle9_italic');
+$textrun->addText('•    Informar a esta SEMADE ', 'fStyle9_italic');
 $textrun->addText('quaisquer alterações ', 'fStyle9_italic_bold');
 $textrun->addText('nas informações prestadas que resultaram desta Licença, bem como ', 'fStyle9_italic');
 $textrun->addText('modificações ', 'fStyle9_italic_bold');
 $textrun->addText('na estrutura física e documentais do empreendimento, conforme Lei Ambiental Municipal;', 'fStyle9_italic');
 
 $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-$textrun->addText('•	Comunicar imediatamente à SEMADE a ocorrência de qualquer acidente que venha causar dano ambiental.', 'fStyle9_italic');
+$textrun->addText('•    Comunicar imediatamente à SEMADE a ocorrência de qualquer acidente que venha causar dano ambiental.', 'fStyle9_italic');
 
 $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
 if ($Condicionante1 <> "" && $Condicionante2 == "") {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 == "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 == "" && $Prazo_da_Condicionante1 <> $Prazo_da_Condicionante2) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 == "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 == $Prazo_da_Condicionante3) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 == "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 <> $Prazo_da_Condicionante3) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 == "" && $Prazo_da_Condicionante1 <> $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 == $Prazo_da_Condicionante3) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 == "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 == $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 == $Prazo_da_Condicionante4) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 == "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 == $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 <> $Prazo_da_Condicionante4) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante4 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante4 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 == "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 <> $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 <> $Prazo_da_Condicionante4) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 == "" && $Prazo_da_Condicionante1 <> $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 == $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 == $Prazo_da_Condicionante4) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 == "" && $Prazo_da_Condicionante1 <> $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 <> $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 == $Prazo_da_Condicionante4) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 == "" && $Prazo_da_Condicionante1 <> $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 <> $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 <> $Prazo_da_Condicionante4) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 <> "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 == $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 == $Prazo_da_Condicionante4 && $Prazo_da_Condicionante4 == $Prazo_da_Condicionante5) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante5, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante5 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 <> "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 == $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 == $Prazo_da_Condicionante4 && $Prazo_da_Condicionante4 <> $Prazo_da_Condicionante5) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante5 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante5, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante5 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante5 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 <> "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 == $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 <> $Prazo_da_Condicionante4 && $Prazo_da_Condicionante4 <> $Prazo_da_Condicionante5) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante4 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante4 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante5 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante5, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante5 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante5 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 <> "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 <> $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 <> $Prazo_da_Condicionante4 && $Prazo_da_Condicionante4 <> $Prazo_da_Condicionante5) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante4 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante4 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante5 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante5, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante5 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante5 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 <> "" && $Prazo_da_Condicionante1 <> $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 <> $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 <> $Prazo_da_Condicionante4 && $Prazo_da_Condicionante4 <> $Prazo_da_Condicionante5) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante4 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante4 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante5 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante5, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante5 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante5 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 <> "" && $Prazo_da_Condicionante1 <> $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 == $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 == $Prazo_da_Condicionante4 && $Prazo_da_Condicionante4 == $Prazo_da_Condicionante5) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante2 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante5, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante5 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 <> "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 <> $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 == $Prazo_da_Condicionante4 && $Prazo_da_Condicionante4 == $Prazo_da_Condicionante5) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante3 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante5, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante5 . ";", 'fStyle9_bold');
 
 } elseif ($Condicionante1 <> "" && $Condicionante2 <> "" && $Condicionante3 <> "" && $Condicionante4 <> "" && $Condicionante5 <> "" && $Prazo_da_Condicionante1 == $Prazo_da_Condicionante2 && $Prazo_da_Condicionante2 == $Prazo_da_Condicionante3 && $Prazo_da_Condicionante3 <> $Prazo_da_Condicionante4 && $Prazo_da_Condicionante4 == $Prazo_da_Condicionante5) {
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante1, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante1 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante2, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante1 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante3, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante2 . ";", 'fStyle9_bold');
 
-	$cell1->addText('Prazo de ' . $Prazo_da_Condicionante4 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante3 . ";", 'fStyle9_bold');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante4, 'fStyle9_bold');
+    $cell1->addText('Prazo de ' . $Prazo_da_Condicionante4 . ' dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
-	$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-	$textrun->addText('•	', 'fStyle9_normal');
-	$textrun->addText($Condicionante5, 'fStyle9_bold');
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante4 . ";", 'fStyle9_bold');
+
+    $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+    $textrun->addText('•    ', 'fStyle9_normal');
+    $textrun->addText($Condicionante5 . ";", 'fStyle9_bold');
 
 } else {
 
@@ -982,7 +991,7 @@ if ($Condicionante1 <> "" && $Condicionante2 == "") {
 $cell1->addText('Prazo de 365 dias', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
 $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
-$textrun->addText('•	', 'fStyle9_normal');
+$textrun->addText('•    ', 'fStyle9_normal');
 $textrun->addText('Relatório de Informações Ambientais Anual – RIAA, com ART do Engenheiro Responsável.', 'fStyle9_bold');
 
 $cell1->addText('Solicitamos sua especial atenção para o fato de que o não atendimento das condições consignadas neste expediente levará ao enquadramento automático do empreendimento nas normas penais da Legislação Ambiental em vigor.', 'fStyle9_normal', 'pStyle1_justify_withHanging');
@@ -1008,7 +1017,7 @@ $header->addImage('C:\Users\HP\Google Drive\PMB2.png', array('width' => 63.9,
 $header->addText('PREFEITURA MUNICIPAL DE BARCARENA', 'fStyle8_bold', 'pStyle4_center');
 $header->addText('SECRETARIA MUNICIPAL DE MEIO AMBIENTE E DESENVOLVIMENTO ECONÔMICO - SEMADE', 'fStyle8_bold', 'pStyle4_center');
 $header->addText('DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL', 'fStyle8_bold', 'pStyle4_center');
-$header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
+$header->addWatermark('C:\Users\HP\Google Drive\PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
 
 // Saving the document as OOXML file...
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');

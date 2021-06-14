@@ -37,9 +37,9 @@
             <tr>
                 <td>Tipo de licença: </td><td>
                     <select id="tipo_licenca" name="tipo_licenca">
-                    <option value="Licença Prévia">Licença Prévia</option>
-                    <option value="Licença de Instalação">Licença de Instalação</option>
-                    <option value="Licença de Operação">Licença de Operação</option>
+                    <option value="LICENÇA PRÉVIA">Licença Prévia</option>
+                    <option value="LICENÇA DE INSTALAÇÃO">Licença de Instalação</option>
+                    <option value="LICENÇA DE OPERAÇÃO">Licença de Operação</option>
                     </select>
                 </td>
             </tr>
@@ -108,7 +108,7 @@
                     </select></td><td><button type="button" id="add-campo"> + </button></td>
             </tr>
             <tr class="cond1">
-                <td>Prazo: </td><td><input type="date" name="campo_data1"></td>
+                <td>Prazo: </td><td><input type="number" name="campo_prazo1"></td>
             </tr>
         </table>    
     
@@ -135,7 +135,7 @@
                     cont=cont + 1;
                 //https://api.jquery.com/append/
 
-                    $("#table_doc").append('<tr class="cond' + cont + '"><td>Condicionante n° ' + cont + ' '+":"+' </td><td><select name="campo_cond' + cont + '" id="cmpdoc' + cont + '" style="margin-top: 4px; margin-right: 6px"><option value="#">Selecione...</option></select></td><td><button type="button" id="' + cont+ '" class="btn-apagar" style="margin-left:2px"> - </button></td></tr><tr class="cond' + cont + '"><td>Prazo: </td><td><input type="date" name="campo_data' + cont + '"></td></tr>');
+                    $("#table_doc").append('<tr class="cond' + cont + '"><td>Condicionante n° ' + cont + ' '+":"+' </td><td><select name="campo_cond' + cont + '" id="cmpdoc' + cont + '" style="margin-top: 4px; margin-right: 6px"><option value="#">Selecione...</option></select></td><td><button type="button" id="' + cont+ '" class="btn-apagar" style="margin-left:2px"> - </button></td></tr><tr class="cond' + cont + '"><td>Prazo: </td><td><input type="number" name="campo_prazo' + cont + '"></td></tr>');
                 });
 
                 $("form").on("click", ".btn-apagar", function () {
