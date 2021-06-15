@@ -62,7 +62,7 @@
                 <td>Coordenadas geográficas: </td><td><input type="text" name="campo_cg" id="cmpCg"></td>
             </tr>
             <tr>
-                <td>Observações: </td><td><textarea rows="4" cols="60" maxlength="500" id="campo_obs"></textarea></td>
+                <td>Observações: </td><td><textarea rows="4" cols="60" maxlength="500" name="campo_obs"></textarea></td>
             </tr>
             <tr>
                 <td>Houve condicionantes? </td><td>
@@ -81,7 +81,7 @@
                     </select></td><td><button type="button" id="add-campo"> + </button></td>
             </tr>
             <tr class="cond1">
-                <td>Prazo: </td><td><input type="date" name="campo_data1"></td>
+                <td>Prazo: </td><td><input type="number" name="campo_prazo1"></td>
             </tr>
         </table>    
     
@@ -108,7 +108,7 @@
                     cont=cont + 1;
                 //https://api.jquery.com/append/
 
-                    $("#table_doc").append('<tr class="cond' + cont + '"><td>Condicionante n° ' + cont + ' '+":"+' </td><td><select name="campo_cond' + cont + '" id="cmpdoc' + cont + '" style="margin-top: 4px; margin-right: 6px"><option value="#">Selecione...</option></select></td><td><button type="button" id="' + cont+ '" class="btn-apagar" style="margin-left:2px"> - </button></td></tr><tr class="cond' + cont + '"><td>Prazo: </td><td><input type="date" name="campo_data' + cont + '"></td></tr>');
+                    $("#table_doc").append('<tr class="cond' + cont + '"><td>Condicionante n° ' + cont + ' '+":"+' </td><td><select name="campo_cond' + cont + '" id="cmpdoc' + cont + '" style="margin-top: 4px; margin-right: 6px"><option value="#">Selecione...</option></select></td><td><button type="button" id="' + cont+ '" class="btn-apagar" style="margin-left:2px"> - </button></td></tr><tr class="cond' + cont + '"><td>Prazo: </td><td><input type="number" name="campo_prazo' + cont + '"></td></tr>');
                 });
 
                 $("form").on("click", ".btn-apagar", function () {

@@ -32,7 +32,6 @@ if(isset($_POST['cmpEmp'])){
         $Validade_eng = $_POST['campo_val'];
         $Validade = date('d/m/Y', strtotime($Validade_eng));
 
-        $Porte = $_POST['porte_potencial'];
         $Nome_Fantasia = $_POST['campo_nome_fant'];
         $Bairro_Distrito = $_POST['campo_bairro'];
         $CEP = $_POST['campo_cep'];
@@ -43,8 +42,7 @@ if(isset($_POST['cmpEmp'])){
         
         if (isset($_POST['campo_cond1'])) {
             $Condicionante1 = $_POST['campo_cond1'];
-            $Prazo_da_Condicionante1_eng = $_POST['campo_data1'];
-            $Prazo_da_Condicionante1 = date('d/m/Y', strtotime($Prazo_da_Condicionante1_eng));
+            $Prazo_da_Condicionante1 = $_POST['campo_prazo1'];
         } else {
             $Condicionante1 = "";
             $Prazo_da_Condicionante1 = "";
@@ -52,8 +50,7 @@ if(isset($_POST['cmpEmp'])){
 
         if (isset($_POST['campo_cond2'])) {
             $Condicionante2 = $_POST['campo_cond2'];
-            $Prazo_da_Condicionante2_eng = $_POST['campo_data2'];
-            $Prazo_da_Condicionante2 = date('d/m/Y', strtotime($Prazo_da_Condicionante2_eng));
+            $Prazo_da_Condicionante2 = $_POST['campo_prazo2'];
         } else {
             $Condicionante2 = "";
             $Prazo_da_Condicionante2 = "";
@@ -61,8 +58,7 @@ if(isset($_POST['cmpEmp'])){
 
         if (isset($_POST['campo_cond3'])) {
             $Condicionante3 = $_POST['campo_cond3'];
-            $Prazo_da_Condicionante3_eng = $_POST['campo_data3'];
-            $Prazo_da_Condicionante3 = date('d/m/Y', strtotime($Prazo_da_Condicionante3_eng));
+            $Prazo_da_Condicionante3 = $_POST['campo_prazo3'];
         } else {
             $Condicionante3 = "";
             $Prazo_da_Condicionante3 = "";
@@ -70,8 +66,7 @@ if(isset($_POST['cmpEmp'])){
 
         if (isset($_POST['campo_cond4'])) {
             $Condicionante4 = $_POST['campo_cond4'];
-            $Prazo_da_Condicionante4_eng = $_POST['campo_data4'];
-            $Prazo_da_Condicionante4 = date('d/m/Y', strtotime($Prazo_da_Condicionante4_eng));
+            $Prazo_da_Condicionante4 = $_POST['campo_prazo4'];
         } else {
             $Condicionante4 = "";
             $Prazo_da_Condicionante4 = "";
@@ -79,8 +74,7 @@ if(isset($_POST['cmpEmp'])){
 
         if (isset($_POST['campo_cond5'])) {
             $Condicionante5 = $_POST['campo_cond5'];
-            $Prazo_da_Condicionante5_eng = $_POST['campo_data5'];
-            $Prazo_da_Condicionante5 = date('d/m/Y', strtotime($Prazo_da_Condicionante5_eng));
+            $Prazo_da_Condicionante5 = $_POST['campo_prazo5'];
         } else {
             $Condicionante5 = "";
             $Prazo_da_Condicionante5 = "";
@@ -420,7 +414,7 @@ $section->addTextBreak(2);
 $section->addText('____________________________________', 'fStyle9_normal', 'pStyle4_center_spaceAfter');
 $section->addText('JULIANA NOBRE SOARES', 'fStyle11_bold', 'pStyle4_center');
 $section->addText('Secretária Executiva Municipal de Meio Ambiente e Desenvolvimento Econômico', 'fStyle9_normal', 'pStyle4_center');
-$section->addText('Decreto Municipal nº 004/2017 – GPMB', 'fStyle9_normal', 'pStyle4_center');
+$section->addText('Decreto Municipal nº 0006/2021 – GPMB', 'fStyle9_normal', 'pStyle4_center');
 
 $sectionStyle2 = array(
     'marginTop' => 1417.322834646, //2.5cm
@@ -991,12 +985,12 @@ $section2->addTextBreak(2);
 $section2->addText('____________________________________', 'fStyle9_normal', 'pStyle4_center_spaceAfter');
 $section2->addText('JULIANA NOBRE SOARES', 'fStyle11_bold', 'pStyle4_center');
 $section2->addText('Secretária Executiva Municipal de Meio Ambiente e Desenvolvimento Econômico', 'fStyle9_normal', 'pStyle4_center');
-$section2->addText('Decreto Municipal nº 004/2017 – GPMB', 'fStyle9_normal', 'pStyle4_center');
+$section2->addText('Decreto Municipal nº 0006/2021 – GPMB', 'fStyle9_normal', 'pStyle4_center');
 
 
 $header = $section->addHeader();
-//$header->addImage('C:\Users\HP\Google Drive\PMB2.png', array('positioning' => 'relative', 'PosHorizontalRel' => 'margin', 'marginTop' => 200, 'marginLeft' => 55, 'height' => 53.75, 'width' => 63.9, 'wrappingStyle' => 'infront'));
-$header->addImage('C:\Users\HP\Google Drive\PMB2.png', array('width' => 63.9,
+$header->addImage('C:\Users\HP\Google Drive\PMB2.png', array('positioning' => 'relative', 'PosHorizontalRel' => 'margin', 'marginTop' => 200, 'marginLeft' => 55, 'height' => 53.75, 'width' => 63.9, 'wrappingStyle' => 'infront'));
+$header->addImage('C:\xampp\htdocs\Barcarena_Online-main\PMB2.png', array('width' => 63.9,
     'height' => 53.75,
     'positioning' => \PhpOffice\PhpWord\Style\Image::POSITION_ABSOLUTE,
     'posHorizontal' => \PhpOffice\PhpWord\Style\Image::POSITION_ABSOLUTE,

@@ -410,7 +410,7 @@ $cell1 = $table->addCell($width4, $cellStyle4);
 $text = $cell1->addText('OBRIGAÇÕES:', 'fStyle8_bold', 'pStyle1_justify_table');
 $text = $cell1->addText('- Publicar a sua concessão, no prazo de 30 (trinta) dias, observando os termos da Lei Municipal n.º 1982, de 19 de Dezembro de 2003, em conformidade com o Decreto n° 083, de 03 de Junho de 2004.', 'fStyle8_normal', 'pStyle1_justify_whithoutHanging');
 $text = $cell1->addText('- Solicitar sua renovação com antecedência mínima de 120 (cento e vinte) dias do prazo do término de sua vigência.', 'fStyle8_normal', 'pStyle1_justify_whithoutHanging');
-$text = $cell1->addText('- Comunicar de imediato a esta secretaria qualquer alterações nas informações que subsidiaram a sua concessão.', 'fStyle8_normal', 'pStyle1_justify_whithoutHanging');
+$text = $cell1->addText('- Comunicar de imediato a esta secretaria quaisquer alterações nas informações que subsidiaram a sua concessão.', 'fStyle8_normal', 'pStyle1_justify_whithoutHanging');
 $text = $cell1->addText('- Dar cumprimento às condicionantes constantes no verso deste documento (Anexo-I).', 'fStyle8_normal', 'pStyle1_justify_whithoutHanging');
 
 $height7 = 566.929133858; //1.0cm
@@ -501,8 +501,6 @@ $textrun->addText('na estrutura física e documentais do empreendimento, conform
 
 $textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
 $textrun->addText('•    Comunicar imediatamente à SEMADE a ocorrência de qualquer acidente que venha causar dano ambiental.', 'fStyle9_italic');
-
-$cell1->addText('Item: Pendência', 'fStyle9_bold', 'pStyle3_left_spaceAfter');
 
 if ($Condicionante1 <> "" && $Condicionante2 == "") {
 
@@ -1006,7 +1004,7 @@ $section2->addText('Decreto Municipal nº 0006/2021 – GPMB', 'fStyle9_normal',
 
 $header = $section->addHeader();
 //$header->addImage('C:\Users\HP\Google Drive\PMB2.png', array('positioning' => 'relative', 'PosHorizontalRel' => 'margin', 'marginTop' => 200, 'marginLeft' => 55, 'height' => 53.75, 'width' => 63.9, 'wrappingStyle' => 'infront'));
-$header->addImage('C:\Users\HP\Google Drive\PMB2.png', array('width' => 63.9,
+$header->addImage('C:\xampp\htdocs\Barcarena_Online-main\PMB2.png', array('width' => 63.9,
     'height' => 53.75,
     'positioning' => \PhpOffice\PhpWord\Style\Image::POSITION_ABSOLUTE,
     'posHorizontal' => \PhpOffice\PhpWord\Style\Image::POSITION_ABSOLUTE,
@@ -1017,7 +1015,7 @@ $header->addImage('C:\Users\HP\Google Drive\PMB2.png', array('width' => 63.9,
 $header->addText('PREFEITURA MUNICIPAL DE BARCARENA', 'fStyle8_bold', 'pStyle4_center');
 $header->addText('SECRETARIA MUNICIPAL DE MEIO AMBIENTE E DESENVOLVIMENTO ECONÔMICO - SEMADE', 'fStyle8_bold', 'pStyle4_center');
 $header->addText('DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL', 'fStyle8_bold', 'pStyle4_center');
-$header->addWatermark('C:\Users\HP\Google Drive\PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
+$header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
 
 $doc_filename = "LICENCA_". date("d-m-Y"). " " . $Nome_da_Empresa . ".docx";
 
