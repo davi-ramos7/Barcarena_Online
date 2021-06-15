@@ -1,5 +1,5 @@
 <div>
-    <form class="formulario" action="criar_notif.php" id="notif_form" method="post">
+    <form class="formulario" id="notif_form" method="post">
         <?php include_once("conexao.php"); ?>
         <table id="tb_notif">
             <tr>
@@ -80,11 +80,19 @@
 
         <table>
             <tr>
-                <td><input type="submit" class="btn-enviar" value="Enviar"></td><td></td>
+                <td><input type="submit" class="btn-enviar" value="Enviar"><input type="reset" class="btn-resetar" value="Apagar"></td><td></td>
             </tr>
         </table>
     </form>
 </div>
+
+    <script type="text/javascript">
+        
+        $("form").on("click", ".btn-resetar", function () {
+            $('#cmpEnd').html("Preenchimento automático...");
+            $('#cmpAtiv').html("Preenchimento automático...");
+        });
+    </script>
 
     <script type="text/javascript">
         $(function(){

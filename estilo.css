@@ -48,11 +48,11 @@ td:nth-child(2) {
 }
 
 table#table_doc td:nth-child(1) {
-    width: 21.5%;
+    width: 22%;
 }
 
 table#table_doc td:nth-child(2) {
-    width: 72%;
+    width: 71.5%;
 }
 
 table#table_doc td:nth-child(3) {
@@ -101,6 +101,7 @@ table#table_ver_docs td:nth-child(1) {
 
 #table_doc {
 	width: 720px;
+	margin-top: 0px;
 }
 
 #table_ver_empresas {
@@ -431,7 +432,7 @@ label{
 	color: black;
 }
 
-input[type=submit]{
+input[type=submit], [type="reset"] {
 	background: blue;
 	color: #FDFFF7;
 	font-weight: bold;

@@ -136,6 +136,8 @@ switch (date("m")) {
         break;
 }
 
+$data = $dia . " de " . $mes . " de " . $ano;
+
 // Creating the new document...
 $phpWord = new \PhpOffice\PhpWord\PhpWord();
 
@@ -1003,7 +1005,7 @@ $header->addText('SECRETARIA MUNICIPAL DE MEIO AMBIENTE E DESENVOLVIMENTO ECONÔ
 $header->addText('DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL', 'fStyle8_bold', 'pStyle4_center');
 $header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
 
-$doc_filename = "DISPENSA_". date("d-m-Y"). " " . $Nome_da_Empresa . ".docx";
+$doc_filename = "DISPENSA_". date("d-m-Y"). "_" . $Nome_da_Empresa . ".docx";
 
     // Save file
     // Saving the document as OOXML file...
