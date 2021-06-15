@@ -298,6 +298,8 @@
 	$temp_file_uri = tempnam('', 'anytext');
 	$objWriter->save($temp_file_uri);
 
+	
+
 	//download code
 	header('Content-Description: File Transfer');
 	header("Content-Type: application/docx");//header('Content-Type: application/octet-stream');
