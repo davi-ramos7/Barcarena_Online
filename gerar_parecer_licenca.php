@@ -1,5 +1,5 @@
 <div>
-    <form class="formulario" id="parecer_form_l" method="post">
+    <form class="formulario" action="criar_parecer_licenca.php" id="parecer_form_l" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
             <tr>

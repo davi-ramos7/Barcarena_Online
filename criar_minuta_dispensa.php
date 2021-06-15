@@ -1009,12 +1009,25 @@ $header->addText('SECRETARIA MUNICIPAL DE MEIO AMBIENTE E DESENVOLVIMENTO ECONÔ
 $header->addText('DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL', 'fStyle8_bold', 'pStyle4_center');
 $header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
 
-// Saving the document as OOXML file...
-$objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
-$objWriter->save('DISPENSA.docx');
+$doc_filename = "DISPENSA_". date("d-m-Y"). " " . $Nome_da_Empresa . ".docx";
 
-    echo "ok";
-        
+    // Save file
+    // Saving the document as OOXML file...
+    $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
+
+    $temp_file_uri = tempnam('', 'anytext');
+    $objWriter->save($temp_file_uri);
+
+    //download code
+    header('Content-Description: File Transfer');
+    header("Content-Type: application/docx");//header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename='.$doc_filename);
+    header('Content-Transfer-Encoding: binary');
+    header('Expires: 0');
+    header('Content-Length: ' . filesize($temp_file_uri));
+    readfile($temp_file_uri);
+    unlink($temp_file_uri); // deletes the temporary file
+            
     }else{
         echo "erro";
     }

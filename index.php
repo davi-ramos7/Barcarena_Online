@@ -22,7 +22,7 @@
                     <li>
                         <div class="acao_menu">
                             <button class="botao_menu">Gerar Parecer</button>
-                            <div class="submenu2">
+                            <div class="submenu">
                                 <a href="index.php?p=pl">Parecer para Licença</a>
                                 <a href="index.php?p=pd">Parecer para Dispensa</a>
                                 <a href="index.php?p=ps">Parecer de Encaminhamento à SEMAS/Pa</a>
@@ -32,7 +32,7 @@
                     <li>
                         <div class="acao_menu">
                             <button class="botao_menu">Gerar Minuta</button>
-                            <div class="submenu2">
+                            <div class="submenu">
                                 <a href="index.php?p=gml">Licença</a>
                                 <a href="index.php?p=gmd">Dispensa</a>
                             </div>
@@ -42,7 +42,7 @@
                     <li>
                         <div class="acao_menu">
                             <button class="botao_menu">Cadastrar</button>
-                            <div class="submenu2">
+                            <div class="submenu">
                                 <a href="index.php?p=ce">Cadastrar Empresa</a>
                                 <a href="index.php?p=cd">Cadastrar Documento</a>
                             </div>
@@ -51,7 +51,7 @@
                     <li>
                         <div class="acao_menu">
                             <button class="botao_menu">Listar/Editar</button>
-                            <div class="submenu2">
+                            <div class="submenu">
                                 <a href="index.php?pagina=1">Empresas</a>
                                 <a href="index.php?p=led">Documentos</a>
                             </div>

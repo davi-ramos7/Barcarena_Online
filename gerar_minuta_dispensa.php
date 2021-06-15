@@ -1,5 +1,5 @@
 <div>
-    <form class="formulario" id="minuta_d" method="post">
+    <form class="formulario" action="criar_minuta_dispensa.php" id="minuta_d" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
             <tr>

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/autoload.php';
+require_once 'C:\xampp\htdocs\Barcarena_Online-main\vendor\autoload.php';
 
 // Modelo de notificação
 
@@ -79,7 +79,7 @@ $documento9 = "ler(EntradaForm)";
 $documento10 = "ler(EntradaForm)";
 
 # Inclusão de arquivo para "Comando de Entrada".
-@include ("../EntradaForm.php");
+@include ("EntradaForm.php");
 
 // Creating the new document...
 $phpWord = new \PhpOffice\PhpWord\PhpWord();
@@ -231,7 +231,7 @@ $section->addText('Geólogo/Matrícula 28516-1/1', 'fStyle1_normal', 'pStyle4_ce
 
 
 $header = $section->addHeader();
-$header->addWatermark('C:\Users\HP\Google Drive\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
+$header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
 // Saving the document as OOXML file...
 $objWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord, 'Word2007');
