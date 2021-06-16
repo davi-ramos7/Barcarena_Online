@@ -1,5 +1,5 @@
 <div>
-    <form class="formulario" id="notif_form" method="post">
+    <form class="formulario" id="notif_form">
         <?php include_once("conexao.php"); ?>
         <table id="tb_notif">
             <tr>

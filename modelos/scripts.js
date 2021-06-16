@@ -10,10 +10,8 @@ $(document).ready(function(){
             data: formulario,
             dataType: "text",
             success: function (response) {
-                if(response == "ok"){
+                if(response == true){
                     $('#notif_form').trigger("reset");
-                    $('#cmpEnd').html("Preenchimento automático...");
-                    $('#cmpAtiv').html("Preenchimento automático...");
                     alert("A notificação foi gerada com sucesso!");
                 }else{
                     alert(response);

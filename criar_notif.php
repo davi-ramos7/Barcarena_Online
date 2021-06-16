@@ -308,7 +308,8 @@
 	header('Expires: 0');
 	header('Content-Length: ' . filesize($temp_file_uri));
 	readfile($temp_file_uri);
-	unlink($temp_file_uri); // deletes the temporary file
+	// unlink($temp_file_uri); // deletes the temporary file
+	exit("ok");
 	        
 	}else{
 		echo "erro";
