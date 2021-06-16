@@ -211,11 +211,19 @@
 
         <table>
             <tr>
-                <td><input type="submit" value="Enviar"></td>
+                <td><input type="submit" value="Enviar"><input type="reset" class="btn-resetar" value="Apagar"></td>
             </tr>
         </table>
     </form>
 </div>
+
+        <script type="text/javascript">
+        
+            $("form").on("click", ".btn-resetar", function () {
+                $('#cmpEnd').html("Preenchimento automático...");
+                $('#cmpAtiv').html("Preenchimento automático...");
+            });
+        </script>
 
         <script type="text/javascript">
         $(function(){
