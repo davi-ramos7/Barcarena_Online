@@ -402,7 +402,7 @@ $section->addText('Geólogo/Matrícula 28516-1/1', 'fStyle1_normal', 'pStyle4_ce
 $header = $section->addHeader();
 $header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
-$doc_filename = "PARECER_". date("d-m-Y"). " " . $nomedaempresa . ".docx";
+$doc_filename = "PARECER_". date("d-m-Y"). "_" . $nomedaempresa . ".docx";
 
     // Save file
     // Saving the document as OOXML file...

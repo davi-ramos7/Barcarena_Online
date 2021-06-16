@@ -289,7 +289,7 @@
 	$header = $section->addHeader();
 	$header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
-	$doc_filename = "NOTIFICACAO_". date("d-m-Y"). " " . $nomedaempresa . ".docx";
+	$doc_filename = "NOTIFICACAO_". date("d-m-Y"). "_" . $nomedaempresa . ".docx";
 
 	// Save file
 	// Saving the document as OOXML file...
@@ -297,6 +297,8 @@
 
 	$temp_file_uri = tempnam('', 'anytext');
 	$objWriter->save($temp_file_uri);
+
+	
 
 	//download code
 	header('Content-Description: File Transfer');
@@ -306,7 +308,8 @@
 	header('Expires: 0');
 	header('Content-Length: ' . filesize($temp_file_uri));
 	readfile($temp_file_uri);
-	unlink($temp_file_uri); // deletes the temporary file
+	// unlink($temp_file_uri); // deletes the temporary file
+	exit("ok");
 	        
 	}else{
 		echo "erro";
