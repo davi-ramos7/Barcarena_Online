@@ -11,17 +11,26 @@
             $empresa=$linhas['nome'];
         }
 
-        $nomedaempresa = $empresa;
+        $nome = $empresa;
 
-        $enderecodaempresa = $_POST['cmpEnd'];
+        $endereco = $_POST['cmpEnd'];
 
-        if (isset($_POST['end_da_ativ'])) {
-            $enderecodaatividade = $_POST['end_da_ativ'];
+        $atividadeEnquadramento = $_POST['cmpAtiv'];
+
+        $pessoa = $_POST['pessoa'];
+
+        if (isset($_POST['ativ_sol'])) {
+            $atividadesol = $_POST['ativ_sol'];
         } else {
-            $enderecodaatividade = "";
+            $atividadesol = "";
         }
 
-        $atividadeCNPJ = $_POST['cmpAtiv'];
+        if (isset($_POST['end_da_ativ'])) {
+            $enderecoatvemp = $_POST['end_da_ativ'];
+        } else {
+            $enderecoatvemp = "";
+        }
+
         $numdoparecer = $_POST['campo_numPar'];
         $numdoprocesso = $_POST['campo_numProc'];
         $numdoprotocolo = $_POST['campo_numProt'];
@@ -273,31 +282,15 @@ $section->addText("PARECER TÉCNICO N° " . $numdoparecer, 'fStyle2_bold', 'pSty
 
 $section->addText('PROCESSO Nº ' . $numdoprocesso, 'fStyle2_bold', 'pStyle3_left_spaceAfter'); 
 
-if ($nomedaempresa <> "") {
-
 $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter');   
 
 $textrun->addText('EMPRESA: ', 'fStyle1_normal');
-$textrun->addText($nomedaempresa, 'fStyle2_bold');
+$textrun->addText($nome, 'fStyle2_bold');
 
 $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter');
 
 $textrun->addText('ATIVIDADE ECONÔMICA: ', 'fStyle1_normal');
-$textrun->addText($atividadeCNPJ, 'fStyle2_bold');  
-
-} else {
-
-$textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter');   
-
-$textrun->addText('PESSOA FÍSICA: ', 'fStyle1_normal');
-$textrun->addText($nomedapessoafisica, 'fStyle2_bold');
-
-$textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter');
-
-$textrun->addText('ATIVIDADE ECONÔMICA: ', 'fStyle1_normal');
-$textrun->addText($atividadeEnquadramento, 'fStyle2_bold');
-
-}
+$textrun->addText($atividadesol, 'fStyle2_bold');
 
 //$section->addTextBreak();
 
@@ -306,25 +299,44 @@ $textrun = $section->addTextRun('pStyle1_justify_withoutHanging');
 $textrun->addText('SOLICITAÇÃO: ', 'fStyle1_normal');
 $textrun->addText($solicitacao, 'fStyle2_bold');
 
-if ($procurador == "" && $nomedaempresa <> "" && $enderecodaatividade <> "") {
+if ($procurador == "" && $pessoa == "pj" && $enderecoatvemp <> "") {
 
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $nomedaempresa . ", situado(a) na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", a empresa " . $nome . ", localizada na(o) " . $endereco . ", requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadesol . ", a ser realizada no seguinte endereço: " . $enderecoatvemp . ".", 'fStyle1_normal', 'pStyle1_justify');
 } 
 
-if ($procurador == "" && $nomedaempresa <> "" && $enderecodaatividade == "") {
+if ($procurador == "" && $pessoa == "pj" && $enderecoatvemp == "") {
 
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $nomedaempresa . ", situado(a) na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ".", 'fStyle1_normal', 'pStyle1_justify');
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", a empresa " . $nome . ", localizada na " . $endereco . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadesol . ".", 'fStyle1_normal', 'pStyle1_justify');
 } 
 
-if ($procurador <> "" && $nomedaempresa <> "" && $enderecodaatividade <> "") {
+if ($procurador <> "" && $pessoa == "pj" && $enderecoatvemp <> "") {
 
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) de " . $nomedaempresa . ", situado(a) na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE)  " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ", a ser realizada no seguinte endereço: " . $enderecodaatividade . ".", 'fStyle1_normal', 'pStyle1_justify');
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) da empresa " . $nome . ", localizada na " . $endereco . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadesol . ", a ser realizada no seguinte endereço: " . $enderecoatvemp . ".", 'fStyle1_normal', 'pStyle1_justify');
 }
 
-if ($procurador <> "" && $nomedaempresa <> "" && $enderecodaatividade == "") {
+if ($procurador <> "" && $pessoa == "pj" && $enderecoatvemp == "") {
 
-    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) de " . $nomedaempresa . ", situado(a) na " . $enderecodaempresa . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE)  " . $solicitacao . " para a atividade denominada " . $atividadeCNPJ . ".", 'fStyle1_normal', 'pStyle1_justify');
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) da empresa " . $nome . ", localizada na " . $endereco . ", BARCARENA-PA, requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadesol . ".", 'fStyle1_normal', 'pStyle1_justify');
 }
+
+if ($procurador == "" && $pessoa == "pf" && $enderecoatvemp <> "") {
+
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $nome . " requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ", a ser realizada no seguinte endereço: " . $enderecoatvemp . ".", 'fStyle1_normal', 'pStyle1_justify');
+} 
+
+if ($procurador == "" && $pessoa == "pf" && $enderecoatvemp == "" ) {
+
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $nome . " requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ".", 'fStyle1_normal', 'pStyle1_justify');
+}
+
+if ($procurador <> "" && $nome <> "" && $enderecoatvemp <> "" ) {
+
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) do(a) Sr(a) " . $nome . ", requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ", a ser realizada no seguinte endereço: " . $enderecoatvemp . ".", 'fStyle1_normal', 'pStyle1_justify');
+} 
+
+if ($procurador <> "" && $nome <> "" && $enderecoatvemp == "" ) {
+
+    $section->addText("Através do processo n° " . $numdoprocesso . ", protocolado sob n° " . $numdoprotocolo . ", em " . $datadeentrada . ", " . $procurador . ", procurador(a) do(a) Sr(a) " . $nome . ", requereu junto a esta Secretaria Municipal de Meio Ambiente e Desenvolvimento Econômico (SEMADE) " . $solicitacao . " para a atividade denominada " . $atividadeEnquadramento . ".", 'fStyle1_normal', 'pStyle1_justify');
 
 $section->addText("1.   HISTÓRICO DA DOCUMENTAÇÃO", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
 
@@ -356,35 +368,32 @@ $section->addText("Após verificação de pendências no processo, por meio de a
 
 $section->addText("2.   ENQUADRAMENTO E ANÁLISE TÉCNICA", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
 
-if ($diadataxa == $diadepagamentodataxa)  {
+if ($nome <> ""; $atividadeEnquadramento == "Extração de areia, saibro, cascalho, argila e seixo, fora de corpos hídricos, com ou sem beneficiamento associado" && $diadataxa <> $diadepagamentodataxa) {
 
-$section->addText("A empresa " . $nomedaempresa . " foi enquadrada na RESOLUÇÃO COEMA N° 162 DE 02 DE FEVEREIRO DE 2021, a qual “Estabelece as atividades de impacto ambiental local, para fins de licenciamento ambiental, de competência dos Municípios no âmbito do Estado do Pará, e dá outras providências.”, na tipologia " . $atividadeCNPJ . " (PORTE " . $porte . " e POTENCIAL POLUIDOR " . $potencialpoluidor . "), o que resultou em uma taxa equivalente a R$ " . $valordataxa . ", gerada no dia " . $diadataxa . " e paga no mesmo dia.", 'fStyle1_normal', 'pStyle1_justify');
+$section->addText("A atividade de EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS foi enquadrada na RESOLUÇÃO COEMA N° 162 DE 02 DE FEVEREIRO DE 2021, a qual “Estabelece as atividades de impacto ambiental local, para fins de licenciamento ambiental, de competência dos Municípios no âmbito do Estado do Pará, e dá outras providências.”, em PORTE " . $porte . " AR (ÁREA REQUERIDA NO DNPM EM ha) e POTENCIAL POLUIDOR " . $potencialpoluidor .", o que resultou em uma taxa equivalente a R$ " . $valordataxa . ". O respectivo boleto de pagamento desta taxa foi gerado no dia " . $diadataxa . " e pago no dia " . $diadepagamentodataxa . ".", 'fStyle1_normal', 'pStyle1_justify');
 
-$textrun = $section->addTextRun('pStyle1_justify');
+} elseif ($atividadeEnquadramento == "EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS" && $diadataxa == $diadepagamentodataxa) {
 
-$textrun->addText("A análise da documentação apresentada, vistoria técnica ", 'fStyle1_normal');
-$textrun->addText("in loco ", 'fStyle3_italic');
-$textrun->addText("e o pagamento da taxa referente à análise do processo de licenciamento em questão, permitiram constatar que a empresa ", 'fStyle1_normal');
-$textrun->addText($nomedaempresa, 'fStyle2_bold');
-$textrun->addText(" encontra-se apta a desenvolver a atividade pretendida, razão pela qual sugere-se a concessão de ", 'fStyle1_normal');
-$textrun->addText($solicitacao, 'fStyle2_bold');
-$textrun->addText(" à mesma.", 'fStyle1_normal');
+$section->addText("A atividade de EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS foi enquadrada na RESOLUÇÃO COEMA N° 162 DE 02 DE FEVEREIRO DE 2021, a qual “Estabelece as atividades de impacto ambiental local, para fins de licenciamento ambiental, de competência dos Municípios no âmbito do Estado do Pará, e dá outras providências.”, em PORTE " . $porte . " AR (ÁREA REQUERIDA NO DNPM EM ha) e POTENCIAL POLUIDOR " . $potencialpoluidor .", o que resultou em uma taxa equivalente a R$ " . $valordataxa . ". O respectivo boleto de pagamento desta taxa foi gerado no dia " . $diadataxa . " e pago no mesmo dia.", 'fStyle1_normal', 'pStyle1_justify');
+
+} elseif ($atividadeEnquadramento <> "EXTRAÇÃO DE AREIA/SAIBRO/ARGILA, FORA DE RECURSOS HÍDRICOS" && $diadataxa == $diadepagamentodataxa)  {
+
+$section->addText("A empresa " . $nome . " foi enquadrada na RESOLUÇÃO COEMA N° 162 DE 02 DE FEVEREIRO DE 2021, a qual “Estabelece as atividades de impacto ambiental local, para fins de licenciamento ambiental, de competência dos Municípios no âmbito do Estado do Pará, e dá outras providências.”, na tipologia " . $atividadeEnquadramento . " (PORTE " . $porte . " e POTENCIAL POLUIDOR " . $potencialpoluidor . "), o que resultou em uma taxa equivalente a R$ " . $valordataxa . ", gerada no dia " . $diadataxa . " e paga no mesmo dia.", 'fStyle1_normal', 'pStyle1_justify');
 
 } else {
 
-$section->addText("A atividade desenvolvida pela empresa " . $nomedaempresa . " foi enquadrada na RESOLUÇÃO COEMA N° 162 DE 02 DE FEVEREIRO DE 2021, a qual “Estabelece as atividades de impacto ambiental local, para fins de licenciamento ambiental, de competência dos Municípios no âmbito do Estado do Pará, e dá outras providências.”, na tipologia " . $atividadeCNPJ . " (PORTE " . $porte . " e POTENCIAL POLUIDOR " . $potencialpoluidor . "), o que resultou em uma taxa equivalente a R$ " . $valordataxa . ", gerada no dia " . $diadataxa . " e paga no dia " . $diadepagamentodataxa . ".", 'fStyle1_normal', 'pStyle1_justify');
+$section->addText("A atividade desenvolvida pela empresa " . $nome . " foi enquadrada na RESOLUÇÃO COEMA N° 162 DE 02 DE FEVEREIRO DE 2021, a qual “Estabelece as atividades de impacto ambiental local, para fins de licenciamento ambiental, de competência dos Municípios no âmbito do Estado do Pará, e dá outras providências.”, na tipologia " . $atividadeEnquadramento . " (PORTE " . $porte . " e POTENCIAL POLUIDOR " . $potencialpoluidor . "), o que resultou em uma taxa equivalente a R$ " . $valordataxa . ", gerada no dia " . $diadataxa . " e paga no dia " . $diadepagamentodataxa . ".", 'fStyle1_normal', 'pStyle1_justify');
+}
 
 $textrun = $section->addTextRun('pStyle1_justify');
 
 $textrun->addText("A análise da documentação apresentada, vistoria técnica ", 'fStyle1_normal');
 $textrun->addText("in loco ", 'fStyle3_italic');
 $textrun->addText("e o pagamento da taxa referente à análise do processo de licenciamento em questão, permitiram constatar que a empresa ", 'fStyle1_normal');
-$textrun->addText($nomedaempresa, 'fStyle2_bold');
+$textrun->addText($nome, 'fStyle2_bold');
 $textrun->addText(" encontra-se apta a desenvolver a atividade pretendida, razão pela qual sugere-se a concessão de ", 'fStyle1_normal');
 $textrun->addText($solicitacao, 'fStyle2_bold');
 $textrun->addText(" à mesma.", 'fStyle1_normal');
-
-}
 
 $section->addText("Encaminho este parecer técnico para o Departamento Jurídico desta SEMADE, para anuência e parecer jurídico, para que este Departamento de Licenciamento Ambiental possa dar andamento a este processo de forma legal.", 'fStyle1_normal', 'pStyle1_justify');
 
@@ -402,7 +411,7 @@ $section->addText('Geólogo/Matrícula 28516-1/1', 'fStyle1_normal', 'pStyle4_ce
 $header = $section->addHeader();
 $header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
-$doc_filename = "PARECER_". date("d-m-Y"). "_" . $nomedaempresa . ".docx";
+$doc_filename = "PARECER_". date("d-m-Y"). "_" . $nome . ".docx";
 
     // Save file
     // Saving the document as OOXML file...

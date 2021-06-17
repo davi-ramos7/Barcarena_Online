@@ -26,7 +26,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Atividade: </td>
+                <td>Atividade de Enquadramento: </td>
                 <td>
                     <span class="carregando">Aguarde, carregando...</span>
                     <select name="cmpAtiv" id="cmpAtiv">
@@ -42,6 +42,39 @@
                     <label for="pf">Pessoa física</label><br>
                 </td>
             </tr>
+            <tr>
+                <td>A atividade solicitada é a mesma do enquadramento?</td><td>
+                    <input type="radio" id="satv" name="atvsol" value="sim" onchange="myFunction_atv()">
+                    <label for="satv">Sim</label>
+                    <input type="radio" id="natv" name="atvsol" value="nao" onchange="myFunction_atv()">
+                    <label for="natv">Não</label><br>
+                </td>
+            </tr>
+        </table>
+
+        <table style="display: none" id="atv_sol">
+            <tr>
+                <td>Atividade solicitada:</td><td><input type="text" name="ativ_sol" id="atvSol"></td>
+            </tr>
+        </table>    
+    
+            <script>
+            function myFunction_atv() {
+                if(document.getElementById("natv").checked){
+                    document.getElementById("atv_sol").style.display = 'block';
+                    //document.getElementById("atv_sol").style.tableLayout = 'fixed';
+                    //document.getElementById("atv_sol").style.width = '1000px';
+                    //document.querySelector("#atv_sol td:nth-of-type(1)").style.background = 'red';
+                    //document.querySelector("#atv_sol td:nth-of-type(2)").style.background = 'silver';
+                    document.querySelector("#atv_sol td:nth-of-type(1)").style.width = '25.7%';
+                    //document.querySelector("#atv_sol td:nth-of-type(2)").style.width = '74.3%';
+                } else {
+                    document.getElementById("atv_sol").style.display = 'none';
+                }
+            }
+            </script>
+
+        <table>
             <tr>
                 <td>O endereço da empresa é o mesmo da atividade? </td><td>
                     <input type="radio" id="se" name="endereco" value="sim" onchange="myFunction_end()">
@@ -62,10 +95,10 @@
             function myFunction_end() {
                 if(document.getElementById("ne").checked){
                     document.getElementById("end_ativ").style.display = 'block';
-                    document.getElementById("end_ativ").style.tableLayout = 'fixed';
-                    document.getElementById("end_ativ").style.width = '700px';
+                    // document.getElementById("end_ativ").style.tableLayout = 'fixed';
+                    // document.getElementById("end_ativ").style.width = '700px';
                     document.querySelector("#end_ativ td:nth-of-type(1)").style.width = '40.5%';
-                    document.querySelector("#end_ativ td:nth-of-type(2)").style.width = '75%';
+                    // document.querySelector("#end_ativ td:nth-of-type(2)").style.width = '75%';
                 } else {
                     document.getElementById("end_ativ").style.display = 'none';
                 }
@@ -207,11 +240,11 @@
             <tr>
                 <td>Pagamento da taxa: </td><td><input type="date" name="campo_ptaxa" id="cmpPt"></td>
             </tr>
-        </table><br>
+        </table>
 
         <table>
             <tr>
-                <td><input type="submit" value="Enviar"><input type="reset" class="btn-resetar" value="Apagar"></td>
+                <td><input type="submit" value="Enviar"><input type="reset" class="btn-resetar" value="Apagar"></td><td></td>
             </tr>
         </table>
     </form>
