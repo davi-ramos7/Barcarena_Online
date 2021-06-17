@@ -11,17 +11,26 @@
 	 		$empresa=$linhas['nome'];
 		}
 
-		$nomedaempresa = $empresa;
+		$nome = $empresa;
 
         $endereco = $_POST['cmpEnd'];
-        
-        if (isset($_POST['end_da_ativ'])) {
-            $enderecodaatividade = $_POST['end_da_ativ'];
+
+        $atividadeEnquadramento = $_POST['cmpAtiv'];
+
+        $pessoa = $_POST['pessoa'];
+
+        if (isset($_POST['ativ_sol'])) {
+            $atividadesol = $_POST['ativ_sol'];
         } else {
-            $enderecodaatividade = "";
+            $atividadesol = "";
         }
 
-        $atividade = $_POST['cmpAtiv'];
+        if (isset($_POST['end_da_ativ'])) {
+            $enderecoatvemp = $_POST['end_da_ativ'];
+        } else {
+            $enderecoatvemp = "";
+        }
+
         $numdoparecer = $_POST['campo_numPar'];
         $numdoprocesso = $_POST['campo_numProc'];
         $numdoprotocolo = $_POST['campo_numProt'];
@@ -130,6 +139,34 @@
             $datadeatendimdanotifacao3 = "";
         }
 
+        if (isset($_POST['num_notif4'])) {
+            $numdanotificacao4 = $_POST['num_notif4'];
+        } else {
+            $numdanotificacao4 = "";
+        }
+
+        if (isset($_POST['date_notif4'])) {
+            $datadanotificacao4_eng = $_POST['date_notif4'];
+            $datadanotificacao4 = date('d/m/Y', strtotime($datadanotificacao4_eng));
+        } else {
+            $datadanotificacao4 = "";
+        }
+
+        if (isset($_POST['receb_notif4'])) {
+            $dataderecebdanotificacao4_eng = $_POST['receb_notif4'];
+            $dataderecebdanotificacao4 = date('d/m/Y', strtotime($dataderecebdanotificacao4_eng));
+
+        } else {
+            $dataderecebdanotificacao4 = "";
+        }
+
+        if (isset($_POST['atend_notif4'])) {
+            $datadeatendimdanotifacao4_eng = $_POST['atend_notif4'];
+            $datadeatendimdanotifacao4 = date('d/m/Y', strtotime($datadeatendimdanotifacao4_eng));
+        } else {
+            $datadeatendimdanotifacao4 = "";
+        }
+
 require_once './vendor/autoload.php';
 
 $dia = date("d");
@@ -236,15 +273,25 @@ $section->addText("PARECER TÉCNICO N° " . $numdoparecer, 'fStyle2_bold', 'pSty
 
 $section->addText('PROCESSO Nº ' . $numdoprocesso, 'fStyle2_bold', 'pStyle3_left_spaceAfter');
 
-$textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter'); 
+if ($pessoa == "pj") {
+    $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter'); 
+    $textrun->addText('EMPRESA: ', 'fStyle1_normal');
+    $textrun->addText($nome, 'fStyle2_bold');  
+} else {
+    $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter'); 
+    $textrun->addText('A: ', 'fStyle1_normal');
+    $textrun->addText($nome, 'fStyle2_bold');  
+}
 
-$textrun->addText('EMPRESA: ', 'fStyle1_normal');
-$textrun->addText($nomedaempresa, 'fStyle2_bold');  
-
-$textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter'); 
-
-$textrun->addText('ATIVIDADE ECONÔMICA: ', 'fStyle1_normal');
-$textrun->addText($atividade, 'fStyle2_bold');  
+if ($atividadesol <> "") {
+    $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter'); 
+    $textrun->addText('ATIVIDADE ECONÔMICA: ', 'fStyle1_normal');
+    $textrun->addText($atividadesol, 'fStyle2_bold');
+} else {
+    $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter'); 
+    $textrun->addText('ATIVIDADE ECONÔMICA: ', 'fStyle1_normal');
+    $textrun->addText($atividadeEnquadramento, 'fStyle2_bold');
+}  
 
 //$section->addTextBreak();
 
@@ -258,7 +305,7 @@ $section->addText("INTRODUÇÃO", 'fStyle2_bold', 'pStyle1_justify_withoutHangin
 $textrun = $section->addTextRun('pStyle1_justify');
 
 $textrun->addText("No dia " . $datadeentrada . " a empresa ", 'fStyle1_normal');
-$textrun->addText($nomedaempresa, 'fStyle2_bold');
+$textrun->addText($nome, 'fStyle2_bold');
 $textrun->addText(", situada na ", 'fStyle1_normal');
 $textrun->addText($endereco, 'fStyle2_bold');
 $textrun->addText(", protocolou documentos nesta SEMADE a fim de obter ", 'fStyle1_normal');
@@ -273,13 +320,13 @@ $section->addText("CONSIDERANDO que a Resolução CONAMA n° 237/1997 cita em se
 
 $section->addText('"Compete ao órgão ambiental municipal, ouvidos os órgãos competentes da União, dos Estados e do Distrito Federal, quando couber, o licenciamento ambiental de empreendimentos e atividades de impacto ambiental local e daquelas que lhe forem delegadas pelo Estado por instrumento legal ou convênio."', 'fStyle1_normal', 'pStyle1_justify_citacoes');
 
-$section->addText("CONSIDERANDO que a empresa " . $nomedaempresa . " pretende desenvolver de forma legal a atividade " . $atividade . ";", 'fStyle1_normal', 'pStyle1_consideracoes');
+$section->addText("CONSIDERANDO que a empresa " . $nome . " pretende desenvolver de forma legal a atividade " . $atividade . ";", 'fStyle1_normal', 'pStyle1_consideracoes');
 
-$section->addText("CONSIDERANDO que a atividade " . $atividade . " não consta na tabela anexa à Resolução COEMA n° 162/2021, a qual:", 'fStyle1_normal', 'pStyle1_consideracoes');
+$section->addText("CONSIDERANDO que a atividade " . $atividadeEnquadramento . " não consta na tabela anexa à Resolução COEMA n° 162/2021, a qual:", 'fStyle1_normal', 'pStyle1_consideracoes');
 
 $section->addText('“Estabelece as atividades de impacto ambiental local, para fins de licenciamento ambiental, de competência dos Municípios no âmbito do Estado do Pará, e dá outras providências.”', 'fStyle1_normal', 'pStyle1_justify_citacoes');
 
-$section->addText("CONSIDERANDO que a atividade ". $atividade . " consta na tabela anexa à Resolução COEMA n° 117/2014, que:", 'fStyle1_normal', 'pStyle1_consideracoes');
+$section->addText("CONSIDERANDO que a atividade ". $atividadeEnquadramento . " consta na tabela anexa à Resolução COEMA n° 117/2014, que:", 'fStyle1_normal', 'pStyle1_consideracoes');
 
 $section->addText('“...estabelece a tabela de enquadramento das atividades sujeitas à cobrança de taxas pelo exercício regular do poder de polícia administrativa ambiental nas classes previstas na Lei Estadual nº 6.724, de 02 de fevereiro de 2005 que alterou a Lei Estadual nº 6.013, de 27 de dezembro de 1996.”', 'fStyle1_normal', 'pStyle1_justify_citacoes');
 
@@ -305,7 +352,7 @@ $section->addText('Geólogo/Matrícula 28516-1/1', 'fStyle1_normal', 'pStyle4_ce
 $header = $section->addHeader();
 $header->addWatermark('C:\xampp\htdocs\Barcarena_Online\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
-$doc_filename = "PARECER_". date("d-m-Y"). "_" . $nomedaempresa . ".docx";
+$doc_filename = "PARECER_". date("d-m-Y"). "_" . $nome . ".docx";
 
     // Save file
     // Saving the document as OOXML file...

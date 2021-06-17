@@ -267,15 +267,22 @@ $section->addText('PROCESSO Nº ' . $numdoprocesso, 'fStyle2_bold', 'pStyle3_lef
 
 $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter');   
 
-$textrun->addText('EMPRESA: ', 'fStyle1_normal');
-$textrun->addText($nome, 'fStyle2_bold');
-
-$textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter');
+if ($pessoa == "pj") {
+    $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter'); 
+    $textrun->addText('EMPRESA: ', 'fStyle1_normal');
+    $textrun->addText($nome, 'fStyle2_bold');  
+} else {
+    $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter'); 
+    $textrun->addText('A: ', 'fStyle1_normal');
+    $textrun->addText($nome, 'fStyle2_bold');  
+}
 
 if ($atividadesol <> "") {
+    $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter'); 
     $textrun->addText('ATIVIDADE ECONÔMICA: ', 'fStyle1_normal');
     $textrun->addText($atividadesol, 'fStyle2_bold');
 } else {
+    $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter'); 
     $textrun->addText('ATIVIDADE ECONÔMICA: ', 'fStyle1_normal');
     $textrun->addText($atividadeEnquadramento, 'fStyle2_bold');
 }

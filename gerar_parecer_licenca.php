@@ -26,7 +26,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Atividade de Enquadramento: </td>
+                <td>Atividade de enquadramento: </td>
                 <td>
                     <span class="carregando">Aguarde, carregando...</span>
                     <select name="cmpAtiv" id="cmpAtiv">
@@ -36,9 +36,9 @@
             </tr>
             <tr>
                 <td>Pessoa física ou jurídica? </td><td>
-                    <input type="radio" id="pf" name="pessoa" value="pj" onchange="myFunction_endp()">
+                    <input type="radio" id="pf" name="pessoa" value="pf" onchange="myFunction_endp()">
                     <label for="pf">Pessoa física</label>
-                    <input type="radio" id="pj" name="pessoa" value="pf" onchange="myFunction_endp()">
+                    <input type="radio" id="pj" name="pessoa" value="pj" onchange="myFunction_endp()">
                     <label for="pj">Pessoa jurídica</label>
                 </td>
             </tr>
