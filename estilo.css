@@ -437,13 +437,26 @@ label{
 	color: black;
 }
 
-input[type=submit], [type="reset"] {
+input[type=submit] {
 	background: blue;
 	color: #FDFFF7;
 	font-weight: bold;
 	padding: 5px 5px;
-	font-size: 14px;
-	font-family: cursive;
+	font-size: 16px;
+	font-family: calibri;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-right: 20px;
+}
+
+input[type="reset"] {
+	background: red;
+	color: #FDFFF7;
+	font-weight: bold;
+	padding: 5px 5px;
+	font-size: 16px;
+	font-family: calibri;
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
