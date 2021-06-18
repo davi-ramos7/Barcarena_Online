@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen and (min-width:641px)">
+    <link rel="stylesheet" type="text/css" href="mobile.css" media="screen and (max-width:640px)">
     
     <title>DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL</title>
     <script src="jquery-3.5.1.min.js"></script>
