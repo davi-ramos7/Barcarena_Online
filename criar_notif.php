@@ -303,7 +303,7 @@
 	//download code
 	header('Content-Description: File Transfer');
 	header("Content-Type: application/docx");//header('Content-Type: application/octet-stream');
-	header('Content-Disposition: attachment; filename='.$doc_filename);
+	header('Content-Disposition: attachment; filename="'.$doc_filename.'"');
 	header('Content-Transfer-Encoding: binary');
 	header('Expires: 0');
 	header('Content-Length: ' . filesize($temp_file_uri));

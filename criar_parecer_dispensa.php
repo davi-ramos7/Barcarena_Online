@@ -401,7 +401,7 @@ $section->addText('David Ramos Pereira', 'fStyle1_normal', 'pStyle4_center');
 $section->addText('Geólogo/Matrícula 28516-1/1', 'fStyle1_normal', 'pStyle4_center');
 
 $header = $section->addHeader();
-$header->addWatermark('C:\xampp\htdocs\Barcarena_Online\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
+$header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
 $doc_filename = "PARECER_". date("d-m-Y"). "_" . $nome . ".docx";
 
@@ -415,7 +415,7 @@ $doc_filename = "PARECER_". date("d-m-Y"). "_" . $nome . ".docx";
     //download code
     header('Content-Description: File Transfer');
     header("Content-Type: application/docx");//header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename='.$doc_filename);
+    header('Content-Disposition: attachment; filename="'.$doc_filename.'"');
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
     header('Content-Length: ' . filesize($temp_file_uri));

@@ -493,7 +493,7 @@ $textrun->addText('•    Comunicar imediatamente à SEMADE a ocorrência de qua
 $textrun = $cell1->addTextRun('pStyle1_justify_table_3');
 $textrun->addText('•    Evitar todas as formas de acúmulo de água que possam propiciar a proliferação do mosquito Aedes aegypti, transmissor de dengue, zica e chikungunya;', 'fStyle9_italic');
 
-$textrun = $cell1->addTextRun('pStyle1_justify_withHanging_withSpace');
+$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
 $textrun->addText('•    Acondicionar os resíduos em locais apropriados (impermeáveis, secos e cobertos) até o recolhimento periódico dos mesmos pela prefeitura ou por empresa licenciada, para que seja dado tratamento e destinação final adequados.', 'fStyle9_italic');
 
 if ($Condicionante1 <> "" && $Condicionante2 == "") {
@@ -1017,7 +1017,7 @@ $doc_filename = "DISPENSA_". date("d-m-Y"). "_" . $Nome_da_Empresa . ".docx";
     //download code
     header('Content-Description: File Transfer');
     header("Content-Type: application/docx");//header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename='.$doc_filename);
+    header('Content-Disposition: attachment; filename="'.$doc_filename.'"');
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
     header('Content-Length: ' . filesize($temp_file_uri));
