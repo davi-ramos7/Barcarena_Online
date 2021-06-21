@@ -13,26 +13,27 @@
 	
 </head>
 <body>
+    <div id="wrapper">
         <div class="topo">
             <div class="logo">
-                <img src="Logo da Semade.png" width="170px" height="100px"> 
+                <img src='./imagens/Logo da Semade.png' id="logo"> 
             </div> 
             <div class="menu">
                 <ul>
-                    <li id="g_not"><a href="index.php?p=gn">Gerar Notificação</a></li>
+                    <li><a href="index.php?p=gn"><button class="botao_menu_1">Gerar Notificação</button></a></li>
                     <li>
                         <div class="acao_menu">
-                            <button class="botao_menu">Gerar Parecer</button>
+                            <button class="botao_menu_2">Gerar Parecer</button>
                             <div class="submenu">
-                                <a href="index.php?p=pl">Parecer para Licença</a>
-                                <a href="index.php?p=pd">Parecer para Dispensa</a>
-                                <a href="index.php?p=ps">Parecer de Encaminhamento à SEMAS/Pa</a>
+                                <a href="index.php?p=pl">Licença</a>
+                                <a href="index.php?p=pd">Dispensa</a>
+                                <a href="index.php?p=ps">SEMAS/Pa</a>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="acao_menu">
-                            <button class="botao_menu">Gerar Minuta</button>
+                            <button class="botao_menu_2">Gerar Minuta</button>
                             <div class="submenu">
                                 <a href="index.php?p=gml">Licença</a>
                                 <a href="index.php?p=gmd">Dispensa</a>
@@ -42,16 +43,16 @@
                     <li>
                     <li>
                         <div class="acao_menu">
-                            <button class="botao_menu">Cadastrar</button>
+                            <button class="botao_menu_2">Cadastrar</button>
                             <div class="submenu">
-                                <a href="index.php?p=ce">Cadastrar Empresa</a>
-                                <a href="index.php?p=cd">Cadastrar Documento</a>
+                                <a href="index.php?p=ce">Empresa</a>
+                                <a href="index.php?p=cd">Documento</a>
                             </div>
                         </div>
                     </li>
                     <li>
                         <div class="acao_menu">
-                            <button class="botao_menu">Listar/Editar</button>
+                            <button class="botao_menu_2">Listar/Editar</button>
                             <div class="submenu">
                                 <a href="index.php?pagina=1">Empresas</a>
                                 <a href="index.php?p=led">Documentos</a>
@@ -109,5 +110,6 @@
         </div>
             <p>Versão 1.0</p>
         </div>
+    </div>
 </body>
 </html>

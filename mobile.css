@@ -1,6 +1,6 @@
 body {
-	width: 100%;
-	height: 100%;
+	min-width: 300px;
+	max-width: 640px;
 	margin: 0 auto;
 }
 
@@ -11,7 +11,7 @@ body {
 
 h1 {
 	font-size: 30px;
-	font-family: cursive;
+	font-family: calibri;
 	font-weight: bold;
 	margin-top: 4%;
 	margin-left: 30%;
@@ -19,7 +19,7 @@ h1 {
 
 h3 {
 	font-size: 18px;
-	font-family: cursive;
+	font-family: calibri;
 	font-weight: bold;
 	margin-left: 30%;
 }
@@ -30,11 +30,11 @@ main{
 
 table{
 	table-layout: fixed;
-	width: 700px;
+	width: 500px;
 	margin-top: 10px;
-	margin-left: 5%;
-	font-size: 14px;
-	font-family: cursive;
+	margin-left: 0%;
+	font-size: 10px;
+	font-family: calibri;
 	position: relative;
 	z-index: 1;
 }
@@ -69,11 +69,11 @@ table#table_empresa td:nth-child(2) {
 }
 
 table#tb_notif td:nth-child(1) {
-    width: 35%;
+    width: 15%;
 }
 
 table#tb_notif td:nth-child(2) {
-    width: 65%;
+    width: 85%;
 }
 
 table#table_ver_empresas td:nth-child(1) {
@@ -101,19 +101,19 @@ table#table_ver_docs td:nth-child(1) {
 }
 
 #table_doc {
-	width: 720px;
+	width: 300px;
 	margin-top: 0px;
 }
 
 #table_ver_empresas {
-	margin-top: 15px;
+	margin-top: 12px;
 	background: #ece2d0;
 	color: black;
 	font-weight: normal;
 	width: 90%;
     margin-left: 30px;
 	border-radius: 5px;
-	font-size: 12px;
+	font-size: 10px;
 	text-align: center;
 }
 
@@ -125,30 +125,30 @@ table#table_ver_docs td:nth-child(1) {
 	width: 30%;
     margin-left: 30%;
 	border-radius: 5px;
-	font-size: 12px;
+	font-size: 10px;
 	text-align: center;
 }
 
 #primeira_linha {
 	background: #37123c;
 	color: #ece2d0;
-	font-size: 14px;
+	font-size: 10px;
 }
 
 #tb_notif {
-	width: 450px;
+	width: 480px;
 }
 
 #nome_empresa {
-	width: 500px;
+	width: 350px;
 }
 
 #atividade_empresa {
-	width: 500px;
+	width: 350px;
 }
 
 #end_empresa {
-	width: 500px;
+	width: 350px;
 }
 
 #campo2 {
@@ -184,7 +184,7 @@ table#table_ver_docs td:nth-child(1) {
 #upper_border {
 	height: 1.5px;
 	background-color: rgba(236, 226, 208, 0.8);
-	margin-top: 120px;
+	margin-top: 100px;
 }
 
 #lower_border {
@@ -198,7 +198,7 @@ table#table_ver_docs td:nth-child(1) {
 }
 
 #cmpNFant {
-	width: 500px;
+	width: 300px;
 }
 
 th {
@@ -219,29 +219,29 @@ td {
 
 .titulo{
 	font-size: 18px;
-	font-family: cursive;
+	font-family: calibri;
 	text-align: center;
 	margin-top: 130px;
 }
 
 .topo {
-	height: 120px;
+	height: 100px;
 	background: #37123c;
-	position: absolute; 
+	position: fixed; 
 	width: 100%;
 	top: 0;
-	z-index: 2;
+	z-index: 1;
 }
 
 .conteudo {
     width: 100%;
     top: 0px;
-    height: 600%;
-    font-size: 14pt;
-    position: absolute;
+    height: 200%;
+    font-size: 10px;
+    position: fixed;
 	text-align: justify;
 	background: #71677c;
-	z-index: 1;
+	z-index: 0;
 }
 
 .rodape {
@@ -251,12 +251,12 @@ td {
     width: 100%;
     bottom: 0%;
 	text-align: left;
-	z-index: 2;
+	z-index: 1;
 }
 
 #logo{
-	width: 170px;
-	height: 100px;
+	width: 130px;
+	height: 80px;
 	margin-top: 10px;
 	margin-left: 15px;
 }
@@ -265,7 +265,7 @@ td {
 	background: #ece2d0;
 	color: black;
 	font-weight: normal;
-	width: 750px;
+	width: 400px;
 	margin-top: 100px;
 	margin-right: auto;
     margin-left: auto;
@@ -276,7 +276,7 @@ td {
 .formulario_empresa{
 	color: black;
 	background: #ece2d0;
-	width: 615px;
+	width: 400px;
 	margin-top: 100px;
 	margin-right: auto;
     margin-left: auto;
@@ -290,7 +290,7 @@ td {
 }
 
 .menu {
-	margin-top: -39px;
+	margin-top: -32px;
 	float: right;
 	margin-right: 0px;
 	cursor: pointer;
@@ -299,12 +299,12 @@ td {
 
 .botao_menu_1 {
 	background: #330C2F;
-	font-size: 15px;
-	font-family: cursive;
+	font-size: 10px;
+	font-family: calibri;
 	font-weight: normal;
-	width: 142px;
+	width: 90px;
 	color: #ece2d0;
-	height: 30px;
+	height: 20px;
 	margin-top: -2px;
 	cursor: pointer;
 	text-decoration: none;
@@ -315,12 +315,12 @@ td {
 
 .botao_menu_2 {
 	background: #330C2F;
-	font-size: 15px;
-	font-family: cursive;
+	font-size: 10px;
+	font-family: calibri;
 	font-weight: normal;
-	width: 115px;
+	width: 80px;
 	color: #ece2d0;
-	height: 30px;
+	height: 20px;
 	margin-top: -2px;
 	cursor: pointer;
 	text-decoration: none;
@@ -333,7 +333,7 @@ td {
 	display: none;
 	position: absolute;
 	background: #330C2F;
-	width: 115px;
+	width: 80px;
 	box-shadow: 0px 8px 16px 0px rgba(28,28,28,0.5);
 }
 
@@ -356,8 +356,8 @@ td {
 }
 
 p {
-	font-size: 15px;
-	font-family: cursive;
+	font-size: 10px;
+	font-family: calibri;
 	font-weight: normal;
 	color: #ece2d0;
 	text-align: center;
@@ -379,8 +379,8 @@ li {
 }
 
 li a {
-	font-size: 14px;
-	font-family: cursive;
+	font-size: 10px;
+	font-family: calibri;
 	color: #ece2d0;
 	font-weight: normal;
 	text-decoration: none;
@@ -392,8 +392,8 @@ a#primeira {
 }
 
 a {
-	font-size: 13px;
-	font-family: cursive;
+	font-size: 10px;
+	font-family: calibri;
 	color: #ece2d0;
 }
 
@@ -402,8 +402,8 @@ a:hover {
 }
 
 input[type=text] {
-	font-family: cursive;
-	font-size: 14px;
+	font-family: calibri;
+	font-size: 10px;
 	width: 250px;
 	padding: 0;
 	border: 1px solid rgb(204,204,204);
@@ -412,12 +412,12 @@ input[type=text] {
 }
 
 input[type=text]#atvSol {
-	width: 500px;
+	width: 400px;
 }
 
 input[type=date], [type=number] {
-	font-family: cursive;
-	font-size: 14px;
+	font-family: calibri;
+	font-size: 10px;
 	width: 140px;
 	padding: 0;
 	border: 1px solid rgb(204,204,204);
@@ -426,9 +426,9 @@ input[type=date], [type=number] {
 }
 
 select{
-	font-family: cursive;
-	font-size: 14px;
-	width: 500px;
+	font-family: calibri;
+	font-size: 10px;
+	width: 300px;
 }
 
 table#tblVer {
@@ -438,8 +438,8 @@ table#tblVer {
 }
 
 label{
-	font-family: cursive;
-	font-size: 14px;
+	font-family: calibri;
+	font-size: 10px;
 	color: black;
 }
 
@@ -448,7 +448,7 @@ input[type=submit] {
 	color: #FDFFF7;
 	font-weight: bold;
 	padding: 5px 5px;
-	font-size: 16px;
+	font-size: 10px;
 	font-family: calibri;
 	border: none;
 	border-radius: 4px;
@@ -461,7 +461,7 @@ input[type="reset"] {
 	color: #FDFFF7;
 	font-weight: bold;
 	padding: 5px 5px;
-	font-size: 16px;
+	font-size: 10px;
 	font-family: calibri;
 	border: none;
 	border-radius: 4px;
@@ -472,8 +472,8 @@ input[type="reset"] {
 #submit_pesquisa{
 	background: blue;
 	color: #FDFFF7;
-	font-size: 12px;
-	font-family: cursive;
+	font-size: 10px;
+	font-family: calibri;
 	border: 1px solid;
 	border-radius: 4px;
 	cursor: pointer;
@@ -483,8 +483,8 @@ input[type="reset"] {
 #button_editar {
 	background: blue;
 	color: #FDFFF7;
-	font-size: 12px;
-	font-family: cursive;
+	font-size: 10px;
+	font-family: calibri;
 	border: 1px solid;
 	border-radius: 4px;
 	cursor: pointer;

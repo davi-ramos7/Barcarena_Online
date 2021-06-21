@@ -493,7 +493,7 @@ $textrun->addText('•    Comunicar imediatamente à SEMADE a ocorrência de qua
 $textrun = $cell1->addTextRun('pStyle1_justify_table_3');
 $textrun->addText('•    Evitar todas as formas de acúmulo de água que possam propiciar a proliferação do mosquito Aedes aegypti, transmissor de dengue, zica e chikungunya;', 'fStyle9_italic');
 
-$textrun = $cell1->addTextRun('pStyle1_justify_whithoutHanging_spaceAfter');
+$textrun = $cell1->addTextRun('pStyle1_justify_withHanging_withSpace');
 $textrun->addText('•    Acondicionar os resíduos em locais apropriados (impermeáveis, secos e cobertos) até o recolhimento periódico dos mesmos pela prefeitura ou por empresa licenciada, para que seja dado tratamento e destinação final adequados.', 'fStyle9_italic');
 
 if ($Condicionante1 <> "" && $Condicionante2 == "") {
@@ -992,7 +992,7 @@ $section2->addText('Decreto Municipal nº 0006/2021 – GPMB', 'fStyle9_normal',
 
 $header = $section->addHeader();
 // $header->addImage('C:\xampp\htdocs\Barcarena_Online-main\PMB2.png', array('positioning' => 'relative', 'PosHorizontalRel' => 'margin', 'marginTop' => 200, 'marginLeft' => 55, 'height' => 53.75, 'width' => 63.9, 'wrappingStyle' => 'infront'));
-$header->addImage('C:\xampp\htdocs\Barcarena_Online-main\PMB2.png', array('width' => 63.9,
+$header->addImage('./imagens/PMB2.png', array('width' => 63.9,
     'height' => 53.75,
     'positioning' => \PhpOffice\PhpWord\Style\Image::POSITION_ABSOLUTE,
     'posHorizontal' => \PhpOffice\PhpWord\Style\Image::POSITION_ABSOLUTE,
@@ -1003,7 +1003,7 @@ $header->addImage('C:\xampp\htdocs\Barcarena_Online-main\PMB2.png', array('width
 $header->addText('PREFEITURA MUNICIPAL DE BARCARENA', 'fStyle8_bold', 'pStyle4_center');
 $header->addText('SECRETARIA MUNICIPAL DE MEIO AMBIENTE E DESENVOLVIMENTO ECONÔMICO - SEMADE', 'fStyle8_bold', 'pStyle4_center');
 $header->addText('DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL', 'fStyle8_bold', 'pStyle4_center');
-$header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
+$header->addWatermark('./imagens/PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
 
 $doc_filename = "DISPENSA_". date("d-m-Y"). "_" . $Nome_da_Empresa . ".docx";
 
@@ -1017,7 +1017,7 @@ $doc_filename = "DISPENSA_". date("d-m-Y"). "_" . $Nome_da_Empresa . ".docx";
     //download code
     header('Content-Description: File Transfer');
     header("Content-Type: application/docx");//header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename="'.$doc_filename.'"');
+    header('Content-Disposition: attachment; filename='.$doc_filename);
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
     header('Content-Length: ' . filesize($temp_file_uri));

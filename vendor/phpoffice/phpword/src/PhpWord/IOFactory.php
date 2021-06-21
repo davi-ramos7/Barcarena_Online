@@ -105,5 +105,4 @@ abstract class IOFactory
 
         return !$reflection->isAbstract() && !$reflection->isInterface();
     }
-    
 }

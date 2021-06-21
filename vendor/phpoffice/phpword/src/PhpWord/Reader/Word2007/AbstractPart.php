@@ -743,5 +743,4 @@ abstract class AbstractPart
 
         return $mode;
     }
-
 }
