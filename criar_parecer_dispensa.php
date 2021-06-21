@@ -401,7 +401,7 @@ $section->addText('David Ramos Pereira', 'fStyle1_normal', 'pStyle4_center');
 $section->addText('Geólogo/Matrícula 28516-1/1', 'fStyle1_normal', 'pStyle4_center');
 
 $header = $section->addHeader();
-$header->addWatermark('C:\xampp\htdocs\Barcarena_Online\SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
+$header->addWatermark('./imagens/SEMADE-2021.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page', 'height' => 843, 'width' => 596.1));
 
 $doc_filename = "PARECER_". date("d-m-Y"). "_" . $nome . ".docx";
 

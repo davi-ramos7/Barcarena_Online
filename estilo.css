@@ -302,7 +302,7 @@ td {
 	font-size: 15px;
 	font-family: cursive;
 	font-weight: normal;
-	width: 139px;
+	width: 142px;
 	color: #ece2d0;
 	height: 30px;
 	margin-top: -2px;
@@ -382,13 +382,9 @@ li a {
 	font-size: 14px;
 	font-family: cursive;
 	color: #ece2d0;
-	background: #330C2F;
 	font-weight: normal;
 	text-decoration: none;
 	text-align: center;
-	border-radius: 2px;
-	border-width: 1px;
-	border-style: solid;
 }
 
 a#primeira {

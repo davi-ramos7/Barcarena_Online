@@ -16,7 +16,7 @@
     <div id="wrapper">
         <div class="topo">
             <div class="logo">
-                <img src="Logo da Semade.png" id="logo"> 
+                <img src='./imagens/Logo da Semade.png' id="logo"> 
             </div> 
             <div class="menu">
                 <ul>

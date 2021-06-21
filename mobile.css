@@ -1,6 +1,6 @@
 body {
-	width: 100%;
-	height: 100%;
+	min-width: 300px;
+	max-width: 640px;
 	margin: 0 auto;
 }
 
@@ -101,7 +101,7 @@ table#table_ver_docs td:nth-child(1) {
 }
 
 #table_doc {
-	width: 720px;
+	width: 300px;
 	margin-top: 0px;
 }
 
@@ -136,7 +136,7 @@ table#table_ver_docs td:nth-child(1) {
 }
 
 #tb_notif {
-	width: 500px;
+	width: 480px;
 }
 
 #nome_empresa {
@@ -198,7 +198,7 @@ table#table_ver_docs td:nth-child(1) {
 }
 
 #cmpNFant {
-	width: 400px;
+	width: 300px;
 }
 
 th {
@@ -227,7 +227,7 @@ td {
 .topo {
 	height: 100px;
 	background: #37123c;
-	position: absolute; 
+	position: fixed; 
 	width: 100%;
 	top: 0;
 	z-index: 1;
@@ -236,9 +236,9 @@ td {
 .conteudo {
     width: 100%;
     top: 0px;
-    height: 600%;
+    height: 200%;
     font-size: 10px;
-    position: absolute;
+    position: fixed;
 	text-align: justify;
 	background: #71677c;
 	z-index: 0;
@@ -265,7 +265,7 @@ td {
 	background: #ece2d0;
 	color: black;
 	font-weight: normal;
-	width: 500px;
+	width: 400px;
 	margin-top: 100px;
 	margin-right: auto;
     margin-left: auto;
@@ -276,7 +276,7 @@ td {
 .formulario_empresa{
 	color: black;
 	background: #ece2d0;
-	width: 500px;
+	width: 400px;
 	margin-top: 100px;
 	margin-right: auto;
     margin-left: auto;
@@ -382,13 +382,9 @@ li a {
 	font-size: 10px;
 	font-family: calibri;
 	color: #ece2d0;
-	background: #330C2F;
 	font-weight: normal;
 	text-decoration: none;
 	text-align: center;
-	border-radius: 2px;
-	border-width: 1px;
-	border-style: solid;
 }
 
 a#primeira {
@@ -432,7 +428,7 @@ input[type=date], [type=number] {
 select{
 	font-family: calibri;
 	font-size: 10px;
-	width: 400px;
+	width: 300px;
 }
 
 table#tblVer {

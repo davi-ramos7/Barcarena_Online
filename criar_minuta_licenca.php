@@ -1004,7 +1004,7 @@ $section2->addText('Decreto Municipal nº 0006/2021 – GPMB', 'fStyle9_normal',
 
 $header = $section->addHeader();
 //$header->addImage('C:\Users\HP\Google Drive\PMB2.png', array('positioning' => 'relative', 'PosHorizontalRel' => 'margin', 'marginTop' => 200, 'marginLeft' => 55, 'height' => 53.75, 'width' => 63.9, 'wrappingStyle' => 'infront'));
-$header->addImage('C:\xampp\htdocs\Barcarena_Online-main\PMB2.png', array('width' => 63.9,
+$header->addImage('./imagens/PMB2.png', array('width' => 63.9,
     'height' => 53.75,
     'positioning' => \PhpOffice\PhpWord\Style\Image::POSITION_ABSOLUTE,
     'posHorizontal' => \PhpOffice\PhpWord\Style\Image::POSITION_ABSOLUTE,
@@ -1015,7 +1015,7 @@ $header->addImage('C:\xampp\htdocs\Barcarena_Online-main\PMB2.png', array('width
 $header->addText('PREFEITURA MUNICIPAL DE BARCARENA', 'fStyle8_bold', 'pStyle4_center');
 $header->addText('SECRETARIA MUNICIPAL DE MEIO AMBIENTE E DESENVOLVIMENTO ECONÔMICO - SEMADE', 'fStyle8_bold', 'pStyle4_center');
 $header->addText('DEPARTAMENTO DE LICENCIAMENTO AMBIENTAL', 'fStyle8_bold', 'pStyle4_center');
-$header->addWatermark('C:\xampp\htdocs\Barcarena_Online-main\PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
+$header->addWatermark('./imagens/PMB3.jpg', array('PosHorizontalRel' => 'page', 'PosVerticalRel' => 'page',  'height' => 800, 'width' => 596.1, 'wrappingStyle' => 'behind'));
 
 $doc_filename = "LICENCA_". date("d-m-Y"). "_" . $Nome_da_Empresa . ".docx";
 
