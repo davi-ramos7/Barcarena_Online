@@ -302,15 +302,16 @@ td {
 	font-size: 15px;
 	font-family: cursive;
 	font-weight: normal;
-	width: 142px;
+	width: 145px;
 	color: #ece2d0;
 	height: 30px;
 	margin-top: -2px;
 	cursor: pointer;
 	text-decoration: none;
 	border-radius: 3px;
-	border-width: 1.5px;
+	border-width: 2px;
 	border-style: solid;
+	border-color: #ece2d0;
 }
 
 .botao_menu_2 {
@@ -318,22 +319,23 @@ td {
 	font-size: 15px;
 	font-family: cursive;
 	font-weight: normal;
-	width: 115px;
+	width: 120px;
 	color: #ece2d0;
 	height: 30px;
 	margin-top: -2px;
 	cursor: pointer;
 	text-decoration: none;
 	border-radius: 3px;
-	border-width: 1.5px;
+	border-width: 2px;
 	border-style: solid;
+	border-color: #ece2d0;
 }
 
 .submenu {
 	display: none;
 	position: absolute;
 	background: #330C2F;
-	width: 115px;
+	width: 120px;
 	box-shadow: 0px 8px 16px 0px rgba(28,28,28,0.5);
 }
 
@@ -343,8 +345,9 @@ td {
 	display: block;
 	text-decoration: none;
 	border-radius: 3px;
-	border-width: 1.5px;
+	border-width: 2px;
 	border-style: solid;
+	border-color: #ece2d0;
 }
 
 .acao_menu:hover .submenu {

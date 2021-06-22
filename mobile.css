@@ -309,8 +309,9 @@ td {
 	cursor: pointer;
 	text-decoration: none;
 	border-radius: 3px;
-	border-width: 1.5px;
+	border-width: 1px;
 	border-style: solid;
+	border-color: #ece2d0;
 }
 
 .botao_menu_2 {
@@ -325,8 +326,9 @@ td {
 	cursor: pointer;
 	text-decoration: none;
 	border-radius: 3px;
-	border-width: 1.5px;
+	border-width: 1px;
 	border-style: solid;
+	border-color: #ece2d0;
 }
 
 .submenu {
@@ -343,8 +345,9 @@ td {
 	display: block;
 	text-decoration: none;
 	border-radius: 3px;
-	border-width: 1.5px;
+	border-width: 1px;
 	border-style: solid;
+	border-color: #ece2d0;
 }
 
 .acao_menu:hover .submenu {
