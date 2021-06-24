@@ -11,22 +11,27 @@
             $empresa=$linhas['nome'];
         }
 
-        $nome = $empresa;
+        $nome_bt = $empresa;
+        $nome = mb_strtoupper($nome_bt,'UTF-8');
 
-        $endereco = $_POST['cmpEnd'];
+        $endereco_bt = $_POST['cmpEnd'];
+        $endereco = mb_strtoupper($endereco_bt,'UTF-8');
 
-        $atividadeEnquadramento = $_POST['cmpAtiv'];
+        $atividadeEnquadramento_bt = $_POST['cmpAtiv'];
+        $atividadeEnquadramento = mb_strtoupper($atividadeEnquadramento_bt,'UTF-8');
 
         $pessoa = $_POST['pessoa'];
 
         if (isset($_POST['ativ_sol'])) {
-            $atividadesol = $_POST['ativ_sol'];
+            $atividadesol_bt = $_POST['ativ_sol'];
+            $atividadesol = mb_strtoupper ($atividadesol_bt);
         } else {
             $atividadesol = "";
         }
 
         if (isset($_POST['end_da_ativ'])) {
-            $enderecoatvemp = $_POST['end_da_ativ'];
+            $enderecoatvemp_bt = $_POST['end_da_ativ'];
+            $enderecoatvemp = mb_strtoupper($enderecoatvemp_bt);
         } else {
             $enderecoatvemp = "";
         }
@@ -38,10 +43,12 @@
         $datadeentrada_eng = $_POST['campo_date'];
         $datadeentrada = date('d/m/Y', strtotime($datadeentrada_eng));
 
-        $solicitacao = $_POST['solicitacao'];
+        $solicitacao_bt = $_POST['solicitacao'];
+        $solicitacao = mb_strtoupper($solicitacao_bt);
 
         if (isset($_POST['campo_proc'])) {
-            $procurador = $_POST['campo_proc'];
+            $procurador_bt = $_POST['campo_proc'];
+            $procurador = mb_strtoupper($procurador_bt);
         } else {
             $procurador = "";
         }
@@ -263,7 +270,7 @@ $section = $phpWord->addSection($sectionStyle1);
 
 $section->addText("PARECER TÉCNICO N° " . $numdoparecer, 'fStyle2_bold', 'pStyle4_center_spaceAfter');
 
-$section->addText('PROCESSO Nº ' . $numdoprocesso, 'fStyle2_bold', 'pStyle3_left_spaceAfter'); 
+$section->addText('PROCESSO Nº ' . $numdoprocesso, 'fStyle2_bold', 'pStyle3_left'); 
 
 $textrun = $section->addTextRun('pStyle1_justify_withoutSpaceAfter');   
 
@@ -369,19 +376,19 @@ $section->addText("Após verificação de pendências no processo, por meio de a
 
 $section->addText("2.   INFORMAÇÃO E ANÁLISE TÉCNICA", 'fStyle2_bold', 'pStyle1_justify_withoutHanging');
 
-if ($pessoa == "pj" $vistoria == "não") {
+if ($pessoa == "pj" && $vistoria == "não") {
 
 $section->addText("Após a análise da documentação apresentada e informações obtidas junto a um representante da empresa " . $nome . ", verificou-se que a atividade exercida pela mesma não pode ser enquadrada em qualquer legislação atual definidora de atividades de impacto ambiental local no Estado do Pará (Lei Estadual 7.389/2010, Resolução COEMA 162/2021, Lei Municipal 1974/2002), razão pela qual sugere-se a concessão de DISPENSA DE LICENCIAMENTO AMBIENTAL à mesma.", 'fStyle1_normal', 'pStyle1_justify');
 
-} elseif ($pessoa == "pj" $vistoria == "sim") {
+} elseif ($pessoa == "pj" && $vistoria == "sim") {
 
     $section->addText("Após a análise da documentação apresentada e informações obtidas junto a um representante da empresa " . $nome . " durante vistoria técnica realizada no dia " . $datadavistoria . ", verificou-se que a atividade exercida pela mesma não pode ser enquadrada em qualquer legislação atual definidora de atividades de impacto ambiental local no Estado do Pará (Lei Estadual 7.389/2010, Resolução COEMA 162/2021, Lei Municipal 1974/2002), razão pela qual sugere-se a concessão de DISPENSA DE LICENCIAMENTO AMBIENTAL à mesma.", 'fStyle1_normal', 'pStyle1_justify');
 
-} elseif ($pessoa == "pf" $vistoria == "não") {
+} elseif ($pessoa == "pf" && $vistoria == "não") {
 
 $section->addText("Após a análise da documentação apresentada e informações obtidas junto a(o) Sr(a) " . $nome . ", verificou-se que a atividade em questão (" . $atividadeEnquadramento . ") não pode ser enquadrada em qualquer legislação atual definidora de atividades de impacto ambiental local no Estado do Pará (Lei Estadual 7.389/2010, Resolução COEMA 162/2021, Lei Municipal 1974/2002), razão pela qual sugere-se a concessão de DISPENSA DE LICENCIAMENTO AMBIENTAL.", 'fStyle1_normal', 'pStyle1_justify');
 
-} elseif ($pessoa == "pf" $vistoria == "sim") {
+} elseif ($pessoa == "pf" && $vistoria == "sim") {
 
     $section->addText("Após a análise da documentação apresentada e informações obtidas junto a(o) Sr(a) " . $nome . " durante vistoria técnica, realizada no dia " . $datadavistoria . ", verificou-se que a atividade em questão (" . $atividadeEnquadramento . ") não pode ser enquadrada em qualquer legislação atual definidora de atividades de impacto ambiental local no Estado do Pará (Lei Estadual 7.389/2010, Resolução COEMA 162/2021, Lei Municipal 1974/2002), razão pela qual sugere-se a concessão de DISPENSA DE LICENCIAMENTO AMBIENTAL.", 'fStyle1_normal', 'pStyle1_justify');
 
@@ -415,7 +422,8 @@ $doc_filename = "PARECER_". date("d-m-Y"). "_" . $nome . ".docx";
     //download code
     header('Content-Description: File Transfer');
     header("Content-Type: application/docx");//header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename='.$doc_filename);
+    //header("Content-disposition", "$attachment; filename='" . $doc_filename . "'");
+    header("Content-Disposition: attachment; filename=" . "" . $doc_filename . "");
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
     header('Content-Length: ' . filesize($temp_file_uri));

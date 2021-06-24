@@ -12,13 +12,17 @@
 	 		$empresa=$linhas['nome'];
 		}
 
-		$nomedaempresa = $empresa;
+		$nomedaempresa_bt = $empresa;
+		$nomedaempresa = mb_strtoupper($nomedaempresa_bt,'UTF-8');
 
-        $endereco = $_POST['cmpEnd'];
-        $atividade = $_POST['cmpAtiv'];
+        $endereco_bt = $_POST['cmpEnd'];
+        $endereco = mb_strtoupper($endereco_bt);
+        $atividade_bt = $_POST['cmpAtiv'];
+        $atividade = mb_strtoupper($atividade_bt);
         $numdanotif = $_POST['campo_numNot'];
         $numdoprocesso = $_POST['campo_numProc'];
-        $destinatario = $_POST['campo_dest'];
+        $destinatario_bt = $_POST['campo_dest'];
+        $destinatario = mb_strtoupper($destinatario_bt);
         $documento1 = $_POST['campo_doc1'];
 
         if (isset($_POST['campo_doc2'])) {
@@ -303,7 +307,7 @@
 	//download code
 	header('Content-Description: File Transfer');
 	header("Content-Type: application/docx");//header('Content-Type: application/octet-stream');
-	header('Content-Disposition: attachment; filename='.$doc_filename);
+	header("Content-Disposition: attachment; filename=" . "" . $doc_filename . "");
 	header('Content-Transfer-Encoding: binary');
 	header('Expires: 0');
 	header('Content-Length: ' . filesize($temp_file_uri));

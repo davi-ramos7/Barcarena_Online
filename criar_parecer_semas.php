@@ -11,22 +11,27 @@
 	 		$empresa=$linhas['nome'];
 		}
 
-		$nome = $empresa;
+		$nome_bt = $empresa;
+        $nome = mb_strtoupper($nome_bt,'UTF-8');
 
-        $endereco = $_POST['cmpEnd'];
+        $endereco_bt = $_POST['cmpEnd'];
+        $endereco = mb_strtoupper($endereco_bt,'UTF-8');
 
-        $atividadeEnquadramento = $_POST['cmpAtiv'];
+        $atividadeEnquadramento_bt = $_POST['cmpAtiv'];
+        $atividadeEnquadramento = mb_strtoupper($atividadeEnquadramento_bt,'UTF-8');
 
         $pessoa = $_POST['pessoa'];
 
         if (isset($_POST['ativ_sol'])) {
-            $atividadesol = $_POST['ativ_sol'];
+            $atividadesol_bt = $_POST['ativ_sol'];
+            $atividadesol = mb_strtoupper ($atividadesol_bt);
         } else {
             $atividadesol = "";
         }
 
         if (isset($_POST['end_da_ativ'])) {
-            $enderecoatvemp = $_POST['end_da_ativ'];
+            $enderecoatvemp_bt = $_POST['end_da_ativ'];
+            $enderecoatvemp = mb_strtoupper($enderecoatvemp_bt);
         } else {
             $enderecoatvemp = "";
         }
@@ -38,10 +43,12 @@
         $datadeentrada_eng = $_POST['campo_date'];
         $datadeentrada = date('d/m/Y', strtotime($datadeentrada_eng));
 
-        $solicitacao = $_POST['solicitacao'];
+        $solicitacao_bt = $_POST['solicitacao'];
+        $solicitacao = mb_strtoupper($solicitacao_bt);
 
         if (isset($_POST['campo_proc'])) {
-            $procurador = $_POST['campo_proc'];
+            $procurador_bt = $_POST['campo_proc'];
+            $procurador = mb_strtoupper($procurador_bt);
         } else {
             $procurador = "";
         }
@@ -364,7 +371,7 @@ $doc_filename = "PARECER_". date("d-m-Y"). "_" . $nome . ".docx";
     //download code
     header('Content-Description: File Transfer');
     header("Content-Type: application/docx");//header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename='.$doc_filename);
+    header("Content-Disposition: attachment; filename=" . "" . $doc_filename . "").build();
     header('Content-Transfer-Encoding: binary');
     header('Expires: 0');
     header('Content-Length: ' . filesize($temp_file_uri));
