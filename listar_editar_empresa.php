@@ -60,7 +60,7 @@ include_once("conexao.php");
 		<?php
 
 		echo "         
-		<table id='table_ver_empresas' border=1><tr id='primeira_linha'><td>Nome</td><td>Atividade</td><td>Cnpj/Cpf</td><td>Endereço</td><tr> ";
+		<table id='table_ver_empresas' border=1><tr id='primeira_linha'><td>Nome</td><td>Atividade</td><td>Cnpj/Cpf</td><td>Endereço</td></tr><tr> ";
 
 		while($x = mysqli_fetch_array($resultado_empresas)){
 			echo "<td>".$x['nome']."</td><td>".$x['atividade']."</td><td>".$x['cnpj_cpf']."</td><td>".$x['endereco']."</td><td><a href='index.php?p=" . $x['id'] . "'><button id='button_editar'>Editar</button></a></td>";
