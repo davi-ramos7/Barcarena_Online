@@ -1,4 +1,4 @@
-<div>
+
     <form class="formulario" action="criar_notif.php" id="notif_form" method="post">
         <?php include_once("conexao.php"); ?>
         <table id="tb_notif">
@@ -84,7 +84,6 @@
             </tr>
         </table>
     </form>
-</div>
 
     <script type="text/javascript">
         

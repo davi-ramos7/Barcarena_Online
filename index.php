@@ -13,8 +13,9 @@
 	
 </head>
 <body>
-    <div id="wrapper">
+    
         <div class="topo">
+            <div id="upper_border"></div>
             <div class="logo">
                 <img src='./imagens/Logo da Semade.png' id="logo"> 
             </div> 
@@ -64,8 +65,6 @@
             </div>
         </div>
         <div id="paginas" class="conteudo">
-            <div id="upper_border">
-            </div>
 
             <?php
                 if(isset($_GET['p']) && isset($_GET['pagina']) == false && isset($_GET['id']) == false){
@@ -109,10 +108,10 @@
             ?>
         </div>
         <div class="rodape">
-        <div id="lower_border">
+            <div id="lower_border">
         </div>
             <p>Versão 1.0</p>
         </div>
-    </div>
+   
 </body>
 </html>
