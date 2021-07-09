@@ -14,7 +14,7 @@ include_once("conexao.php");
 		
 		$resultado_procs_21 = mysqli_query($con, $result_procs_21);
 		
-		$qnt_result_pg = 600;
+		$qnt_result_pg = 1000;
 		$regLinha = 1;//VOCE ESCOLHE O NUMERO DE REGISTROS POR LINHA
 		$i = ceil($qnt_result_pg / $regLinha);
 		$j = 1;
