@@ -46,6 +46,7 @@
                         <div class="acao_menu">
                             <button class="botao_menu_2">Cadastrar</button>
                             <div class="submenu">
+                                <a href="index.php?p=cp">Processo</a>
                                 <a href="index.php?p=ce">Empresa</a>
                                 <a href="index.php?p=cd">Documento</a>
                             </div>
@@ -78,6 +79,8 @@
                 }
                 if($pagina == 'gn'){
                     include "gerar_notif.php";
+                }elseif($pagina == 'cp'){
+                    include "cad_proc.php";
                 }elseif($pagina == 'gp'){
                     include "gerar_parecer.php";
                 }elseif($pagina == 'ce'){
