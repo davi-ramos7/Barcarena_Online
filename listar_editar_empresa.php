@@ -20,7 +20,7 @@ include_once("conexao.php");
 
 			if($parametro) {
 				//Setar a quantidade de itens por pagina
-				$qnt_result_pg = 100;
+				$qnt_result_pg = 500;
 
 				$pagina = 1;
 
@@ -32,7 +32,7 @@ include_once("conexao.php");
 
 			} else {
 				//Setar a quantidade de itens por pagina
-				$qnt_result_pg = 50;
+				$qnt_result_pg = 200;
 				
 				//calcular o inicio visualização
 				$inicio = ($qnt_result_pg * $pagina) - $qnt_result_pg;

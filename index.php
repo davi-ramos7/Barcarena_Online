@@ -55,7 +55,7 @@
                         <div class="acao_menu">
                             <button class="botao_menu_2">Listar/Editar</button>
                             <div class="submenu">
-                                <a href="index.php?p=lep">Processos</a>
+                                <a href="index.php?p=elp">Processos</a>
                                 <a href="index.php?pagina=1">Empresas</a>
                                 <a href="index.php?p=led">Documentos</a>
                             </div>
@@ -98,8 +98,18 @@
                     include "listar_editar_empresa.php";
                 }elseif($pagina == 'led'){
                     include "listar_editar_doc.php";
-                }elseif($pagina == 'lep'){
-                    include "listar_editar_proc.php";
+                }elseif($pagina == 'lep17'){
+                    include "listar_editar_proc_2017.php";
+                }elseif($pagina == 'lep18'){
+                    include "listar_editar_proc_2018.php";
+                }elseif($pagina == 'lep19'){
+                    include "listar_editar_proc_2019.php";
+                }elseif($pagina == 'lep20'){
+                    include "listar_editar_proc_2020.php";
+                }elseif($pagina == 'lep21'){
+                    include "listar_editar_proc_2021.php";
+                }elseif($pagina == 'elp'){
+                    include "escolher_lista_proc.php";
                 }elseif(is_numeric($pagina) && isset($_GET['pagina']) == false && isset($_GET['id']) == false){
                     include "edit_empresa.php";
                 }elseif(is_numeric($pagina) && isset($_GET['pagina']) == false && isset($_GET['p']) == false){
