@@ -223,7 +223,8 @@ table#table_ver_procs td:nth-child(20) {
 	color: black;
 	font-weight: normal;
 	width: 30%;
-    margin-left: 30%;
+    margin-left: 50%;
+    transform: translateX(-50%);
 	border-radius: 5px;
 	font-size: 12px;
 	text-align: center;
@@ -241,15 +242,15 @@ table#table_ver_procs td:nth-child(20) {
 
 ul#banco_de_dados {
 	margin-left: 50%;
-	padding-left: 5%;
+	padding-left: 0;
 	transform: translateX(-50%);
 	/*height: 80px;
 	background-color: yellow;*/
 }
 
 ul#banco_de_dados li {
-	width: 15%;
-	margin-left: 3%;
+	width: 20%;
+	/*margin-left: 3%;*/
 }
 
 #nome_empresa {
@@ -420,6 +421,8 @@ td {
 	font-family: cursive;
 	font-weight: normal;
 	width: 60px;
+	margin-left: 50%;
+	transform: translateX(-50%);
 	color: #ece2d0;
 	height: 30px;
 	cursor: pointer;

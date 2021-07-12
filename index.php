@@ -68,15 +68,18 @@
         <div id="paginas" class="conteudo">
 
             <?php
-                if(isset($_GET['p']) && isset($_GET['pagina']) == false && isset($_GET['id']) == false){
+                if(isset($_GET['p']) && isset($_GET['pagina']) == false && isset($_GET['id']) == false && isset($_GET['idp']) == false){
                     $pagina = $_GET['p'];
-                }elseif(isset($_GET['p']) == false && isset($_GET['pagina']) && isset($_GET['id']) == false){
+                }elseif(isset($_GET['p']) == false && isset($_GET['pagina']) && isset($_GET['id']) == false && isset($_GET['idp']) == false){
                     $pagina = $_GET['pagina'];
-                }elseif(isset($_GET['p']) == false && isset($_GET['pagina']) == false && isset($_GET['id'])){
+                }elseif(isset($_GET['p']) == false && isset($_GET['pagina']) == false && isset($_GET['id']) && isset($_GET['idp']) == false){
                     $pagina = $_GET['id'];
+                }elseif(isset($_GET['p']) == false && isset($_GET['pagina']) == false && isset($_GET['id']) == false && isset($_GET['idp'])){
+                    $pagina = $_GET['idp'];
                 }else{
                     $pagina = 'gn';
                 }
+
                 if($pagina == 'gn'){
                     include "gerar_notif.php";
                 }elseif($pagina == 'cp'){
@@ -97,8 +100,6 @@
                     include "gerar_minuta_licenca.php";
                 }elseif($pagina == 'gmd'){
                     include "gerar_minuta_dispensa.php";
-                }elseif(is_numeric($pagina) && isset($_GET['pagina'])){
-                    include "listar_editar_empresa.php";
                 }elseif($pagina == 'led'){
                     include "listar_editar_doc.php";
                 }elseif($pagina == 'lep17'){
@@ -113,10 +114,14 @@
                     include "listar_editar_proc_2021.php";
                 }elseif($pagina == 'elp'){
                     include "escolher_lista_proc.php";
-                }elseif(is_numeric($pagina) && isset($_GET['pagina']) == false && isset($_GET['id']) == false){
+                }elseif(is_numeric($pagina) && isset($_GET['pagina'])){
+                    include "listar_editar_empresa.php";
+                }elseif(is_numeric($pagina) && isset($_GET['p'])){
                     include "edit_empresa.php";
-                }elseif(is_numeric($pagina) && isset($_GET['pagina']) == false && isset($_GET['p']) == false){
+                }elseif(is_numeric($pagina) && isset($_GET['id'])){
                     include "edit_doc.php";
+                }elseif(is_numeric($pagina) && isset($_GET['idp'])){
+                    include "edit_proc.php";
                 }
             ?>
         </div>
