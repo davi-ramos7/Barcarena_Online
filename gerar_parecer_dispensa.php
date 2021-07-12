@@ -1,4 +1,5 @@
 <div>
+    <h1>Gerar Parecer-Dispensa</h1>
     <form class="formulario" action="criar_parecer_dispensa.php" id="parecer_form_d" method="post">
         <?php include_once("conexao.php"); ?>
         <table>

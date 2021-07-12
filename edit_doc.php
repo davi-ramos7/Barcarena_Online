@@ -13,6 +13,7 @@ $row_doc = mysqli_fetch_assoc($resultado_docs);
 		<title>CRUD - Editar</title>		
 	</head>
 	<body>
+        <h1>Editar Cadastro de Documento</h1>
 
 		<!-- <form method="POST" action="proc_edit_usuario.php"> -->
         <form class="formulario_empresa" id="edit_doc_form" method="post">

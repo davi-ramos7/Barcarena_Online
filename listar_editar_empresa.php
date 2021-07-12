@@ -8,6 +8,7 @@ include_once("conexao.php");
 		<title>Listar Empresas</title>		
 	</head>
 	<body>
+		<h1>Empresas Cadastradas</h1>
 		<?php
 		
 		//Receber o número da página

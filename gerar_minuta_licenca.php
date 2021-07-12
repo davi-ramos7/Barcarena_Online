@@ -1,4 +1,5 @@
 <div>
+    <h1>Gerar Minuta-Licença</h1>
     <form class="formulario" action="criar_minuta_licenca.php" id="minuta_l" method="post">
         <?php include_once("conexao.php"); ?>
         <table>
@@ -30,6 +31,15 @@
                 <td>
                     <span class="carregando">Aguarde, carregando...</span>
                     <select name="cmpAtiv" id="cmpAtiv">
+                        <option value="">Preenchimento automático...</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>CNPJ/CPF: </td>
+                <td>
+                    <span class="carregando">Aguarde, carregando...</span>
+                    <select name="cmpCnpj" id="cmpCnpj">
                         <option value="">Preenchimento automático...</option>
                     </select>
                 </td>
@@ -81,9 +91,6 @@
             </tr>
             <tr>
                 <td>Inscrição Estadual: </td><td><input type="text" name="campo_insc" id="cmpInsc"></td>
-            </tr>
-            <tr>
-                <td>CNPJ/CPF: </td><td><input type="text" name="campo_cnpj" id="cmpCnpj"></td>
             </tr>
             <tr>
                 <td>Coordenadas geográficas: </td><td><input type="text" name="campo_cg" id="cmpCg"></td>
@@ -158,6 +165,7 @@
             $("form").on("click", ".btn-resetar", function () {
                 $('#cmpEnd').html("Preenchimento automático...");
                 $('#cmpAtiv').html("Preenchimento automático...");
+                $('#cmpCnpj').html("Preenchimento automático...");
             });
         </script>
 
@@ -200,6 +208,28 @@
                         });
                     } else {
                         $('#cmpAtiv').html('<option value="">Preenchimento automático...</option>');
+                    }
+                });
+            });
+        </script>
+
+        <script type="text/javascript">
+            $(function(){
+                $('#cmpEmp').change(function(){
+                    if( $(this).val() ) {
+                        $('#cmpCnpj').hide();
+                        $('.carregando').show();
+                        $.getJSON('cnpjs.php?search=',{cmpEmp: $(this).val(), ajax: 'true'}, function(j){
+                            //var options = '<option value="">Escolha Subcategoria</option>';
+                            var options = "";   
+                            for (var i = 0; i < j.length; i++) {
+                                options += '<option value="' + j[i].cnpj_cpf + '">' + j[i].cnpj_cpf + '</option>';
+                            }   
+                            $('#cmpCnpj').html(options).show();
+                            $('.carregando').hide();
+                        });
+                    } else {
+                        $('#cmpCnpj').html('<option value="">Preenchimento automático...</option>');
                     }
                 });
             });

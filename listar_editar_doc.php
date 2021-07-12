@@ -8,6 +8,7 @@ include_once("conexao.php");
 		<title>Listar Documentos</title>		
 	</head>
 	<body>
+		<h1>Documentos Cadastrados</h1>
 		<?php
 
 		$result_docs = "SELECT * FROM lista_de_documentos ORDER BY documento";

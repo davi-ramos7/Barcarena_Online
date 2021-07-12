@@ -1,4 +1,5 @@
-
+    
+    <h1>Gerar Notificação</h1>
     <form class="formulario" action="criar_notif.php" id="notif_form" method="post">
         <?php include_once("conexao.php"); ?>
         <table id="tb_notif">
@@ -136,3 +137,4 @@
                 });
             });
     </script>
+

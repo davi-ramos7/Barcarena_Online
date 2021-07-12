@@ -13,6 +13,7 @@ $row_usuario = mysqli_fetch_assoc($resultado_usuario);
 		<title>CRUD - Editar</title>		
 	</head>
 	<body>
+        <h1>Editar Cadastro de Empresa/Pessoa Física</h1>
 
 		<!-- <form method="POST" action="proc_edit_usuario.php"> -->
         <form class="formulario_empresa" id="edit_emp_form" method="post">
