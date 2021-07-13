@@ -93,7 +93,7 @@ $row = mysqli_fetch_assoc($resultado);
                     <td>Nº da Licença/Dispensa: </td><td><input type="text" name="edit_num_lic" id="num_lic" placeholder="Digite o número da licença ou dispensa" value="<?php echo $row['n_licenca_dispensa']; ?>"></td>
                 </tr>
                 <tr>
-                    <td>Tipo de Licença: </td><td><select placeholder="Digite o tipo de licença">
+                    <td>Tipo de Licença: </td><td><select placeholder="Selecione o tipo de licença">
                     <option value="<?php echo $row['tipo_de_licenca']; ?>"><?php echo $row['tipo_de_licenca']; ?></option>
                     <option value="LP">LP</option>
                     <option value="RLP">RLP</option>
@@ -108,7 +108,44 @@ $row = mysqli_fetch_assoc($resultado);
                     </select></td>
                 </tr>
                 <tr>
-                    <td>Porte e Grau Poluidor: </td><td><input type="text" name="edit_end" id="end_empresa" placeholder="Digite o endereço da empresa/pessoa física" value="<?php echo $row['endereco']; ?>"></td>
+                    <td>Porte e Grau Poluidor: </td><td><select placeholder="Selecione o porte e o grau poluidor">
+                    <option value="<?php echo $row['porte_grau_poluidor']; ?>"><?php echo $row['porte_grau_poluidor']; ?></option>
+                    <option value="A-I">A-I</option>
+                    <option value="A-II">A-II</option>
+                    <option value="A-III">A-III</option>
+                    <option value="B-I">B-I</option>
+                    <option value="B-II">B-II</option>
+                    <option value="B-III">B-III</option>
+                    <option value="C-I">C-I</option>
+                    <option value="C-II">C-II</option>
+                    <option value="C-III">C-III</option>
+                    <option value="D-I">D-I</option>
+                    <option value="D-II">D-II</option>
+                    <option value="D-III">D-III</option>                    
+                    </select></td>
+                </tr>
+                <tr>
+                    <td>Ano de Geração do DAM: </td><td><input type="text" name="edit_dam_ano_gerado" id="dam_ano_gerado" placeholder="Digite o ano de geração do DAM" value="<?php echo $row['dam_ano_gerado']; ?>"></td>
+                </tr>
+                <tr>
+                    <td>Ano de Pagamento do DAM: </td><td><input type="text" name="edit_dam_ano_pago" id="dam_ano_pago" placeholder="Digite o ano de pagamento do DAM" value="<?php echo $row['dam_ano_pago']; ?>"></td>
+                </tr>
+                <tr>
+                    <td>Isento? </td><td><select placeholder="Selecione o porte e o grau poluidor">
+                    <option value="<?php echo $row['porte_grau_poluidor']; ?>"><?php echo $row['porte_grau_poluidor']; ?></option>
+                    <option value="A-I">A-I</option>
+                    <option value="A-II">A-II</option>
+                    <option value="A-III">A-III</option>
+                    <option value="B-I">B-I</option>
+                    <option value="B-II">B-II</option>
+                    <option value="B-III">B-III</option>
+                    <option value="C-I">C-I</option>
+                    <option value="C-II">C-II</option>
+                    <option value="C-III">C-III</option>
+                    <option value="D-I">D-I</option>
+                    <option value="D-II">D-II</option>
+                    <option value="D-III">D-III</option>                    
+                    </select></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="Editar"></td><td></td>
